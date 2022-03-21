@@ -1,0 +1,44 @@
+.form {
+    position: relative;
+    padding: 30px 0px;
+}
+
+.form__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #000;
+    outline: none;
+    background: #fff;
+    border: 1px solid #b4b4b4;
+    padding: 13px 12px;
+    font-size: 1rem;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.form__input:hover {
+    border-color: #adadad;
+}
+
+.form__input:focus {
+    border-color: #239ce2;
+}
+
+.form__label {
+    position: absolute;
+    left: 1rem;
+    top: 0.7rem;
+    padding: 0 0.5rem;
+    font-weight: 600;
+    cursor: text;
+    transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
+    background-color: #fff;
+}
+
+.form__input:focus~.form__label,
+.form__input:not(:placeholder-shown).form__input:not(:focus)~.form__label {
+    top: -0.5rem;
+    font-size: 0.8rem;
+    left: 0.8rem;
+}
