@@ -1,12 +1,14 @@
 import React from 'react';
-import Directoy from '../../component/directory/directoy';
-import './homepage.css';
+import FooterComponent from '../../component/footer-component/footer-component';
+import Header from '../../component/header-component/header';
+import Category from '../../component/category-components/catergories';
 
 const HomePage = () =>  (
-    <div className='homepage'>
-        <Directoy/>
+    <div className=''>
+        <Header/>
+            <Category/>
+        <FooterComponent/>
     </div>
-
 )
 
 export default HomePage;

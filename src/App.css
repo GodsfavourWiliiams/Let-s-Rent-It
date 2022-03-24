@@ -3,10 +3,70 @@ body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    margin: auto;
 }
 
 a {
     text-decoration: none;
     color: #000;
+}
+
+.rounded-5 {
+    border-radius: 12px;
+}
+
+.bg-primary-100 {
+    background: rgba(106, 152, 60, 1);
+}
+
+.text-primary-100 {
+    color: rgba(106, 152, 60, 1);
+}
+
+.hm-form_area {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+.hm-searchbox {
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    width: 100%;
+}
+
+.hm-searchbox .nice-select.select-search-category {
+    width: 300px;
+    line-height: 55px;
+    height: 42px;
+    margin: 0;
+    border: 0;
+    padding: 0 28px 0 25px;
+    font-size: 13px;
+    position: relative;
+}
+
+.hm-searchbox .nice-select.select-search-category>span.current {
+    display: block;
+    white-space: nowrap;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.hm-searchbox input {
+    font-size: 13px;
+    height: 42px;
+    border: none;
+    width: 100%;
+    padding: 0 33px 0;
 }
