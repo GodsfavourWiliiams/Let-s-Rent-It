@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MenuItem from '../menu-item/menu-item.component';
-import './directory.css';
 import { FaAngleUp } from 'react-icons/fa';
 
 export default class directoy extends Component {
@@ -56,9 +55,9 @@ constructor(){
 
   render() {
     return (
-    <div className="bg-neutral-100 ">
+    <div className="bg-neutral-100">
       <div className=" max-w-7xl mx-auto px-3 xl:px-0">
-        <div className="py-5 flex justify-between hidden md:flex flex-auto space-x-2 py-2">
+        <div className="py-4 flex justify-between hidden md:flex flex-auto space-x-2">
            {this.state.sections.map(({id, ...otherSectionProps}) => (
                <MenuItem 
                key={id}
@@ -77,7 +76,7 @@ constructor(){
                     <FaAngleUp className={`${this.state.dropDown ? ' ' : 'rotate-180'} transform duration-100`} />
            </div>
           <div className="relative">
-              <div className={`${this.state.dropDown ? 'block' : 'hidden'} p-4 bg-white font-bold text-base leading-4 absolute top-2  w-full rounded shadow`}>
+              <div className={`${this.state.dropDown ? 'block' : 'hidden'} p-4 bg-white font-bold text-base leading-4 absolute top-2 w-full rounded shadow`}>
               {this.state.sections.map(({id, ...otherSectionProps}) => (
                   <MenuItem 
                   key={id}

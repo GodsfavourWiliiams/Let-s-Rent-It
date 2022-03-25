@@ -13,7 +13,7 @@ const subCategories = [
 export default function Category() {
 
   return (
-    <div className="bg-white mt-10">
+    <div className="bg-white mt-16">
           <div className="fixed hidden w-full top-0 lg:hidden">
            
               <div className="ml-auto relative max-w-xs w-full bg-white shadow-xl py-4 pb-12 flex flex-col overflow-y-auto">
@@ -45,7 +45,7 @@ export default function Category() {
             </div>
 
         <main className="max-w-7xl mx-auto px-3 xl:px-0 sm:px-6 lg:px-8">
-          <section className="pt-6 pb-24">
+          <section className="">
             <h2 className="sr-only">
                 Category menu
             </h2>

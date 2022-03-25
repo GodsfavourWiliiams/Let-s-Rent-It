@@ -7,6 +7,7 @@ const HomePage = () =>  (
     <div className=''>
         <Header/>
             <Category/>
+            <Category/>
         <FooterComponent/>
     </div>
 )

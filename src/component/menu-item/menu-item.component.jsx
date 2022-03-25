@@ -1,5 +1,4 @@
 import React from 'react';
-import './menu-item.css';
 // import withRouter from './withRouter';
 
 const MenuItem = ({ title, history, linkUrl, match }) => (
