@@ -42,8 +42,7 @@ export default class SignIn extends Component {
                     </p>
                     <Link to="/" className="text-sm font-medium text-gray-500">
                         Dont have account?
-                        <span aria-label="Sign up here" className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer">
-                           
+                        <span aria-label="Sign up here" className="ml-2 text-sm font-medium leading-none underline text-gray-800 cursor-pointer">
                             Sign up here
                         </span>
                     </Link>
@@ -86,7 +85,7 @@ export default class SignIn extends Component {
                     value={this.state.email}
                     onChange={this.handleChange}
                     label="Email"
-                    required />
+                    required /> 
                     <br />
 
                     <FormInput 

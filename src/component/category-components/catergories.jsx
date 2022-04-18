@@ -4,19 +4,19 @@ import Button from '../button-component/button';
 
 
 const subCategories = [
-  { name: 'Bakery' },
+  { name: 'Cars' },
   { name: 'Fruit and vegetables' },
   { name: 'Meat and fish' },
   { name: 'Drinks' },
-  { name: 'Kitchen' },
+  { name: 'Cameras' },
 ]
 export default function Category() {
 
   return (
-    <div className="bg-white mt-16">
-          <div className="fixed hidden w-full top-0 lg:hidden">
+    <div className="bg-white mt-16 max-w-7xl mx-auto">
+          <div className="fixed hidden top-0 lg:hidden">
            
-              <div className="ml-auto relative max-w-xs w-full bg-white shadow-xl py-4 pb-12 flex flex-col overflow-y-auto">
+              <div className="ml-auto relative max-w-xs w-full bg-white shadow py-4 pb-12 flex flex-col overflow-y-auto">
                 <div className="px-4 flex items-center justify-between">
                   <h2 className="text-lg font-medium text-gray-900">Filters</h2>
                   <button
@@ -24,12 +24,12 @@ export default function Category() {
                     className="-mr-2 w-10 h-10 bg-white p-2 rounded-md flex items-center justify-center text-gray-400"
                   >
                     <span className="sr-only">Close menu</span>
-                    <FaTimes className="h-6 w-6" aria-hidden="true" />
+                    <FaTimes className="h-6 w-6"/>
                   </button>
                 </div>
 
                 {/* Filters */}
-                <form className="mt-4 border-t border-gray-200">
+                <div className="mt-4 border-t border-gray-200">
                   <h3 className="sr-only">Categories Menu</h3>
                   <div className="font-medium text-gray-900 px-2 py-3">
                     {subCategories.map((category) => (
@@ -40,7 +40,7 @@ export default function Category() {
                       </div>
                     ))}
                   </div>
-                </form>
+                </div>
               </div>
             </div>
 

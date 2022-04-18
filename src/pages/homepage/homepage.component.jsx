@@ -1,15 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 import FooterComponent from '../../component/footer-component/footer-component';
 import Header from '../../component/header-component/header';
 import Category from '../../component/category-components/catergories';
 
-const HomePage = () =>  (
-    <div className=''>
+const HomePage = () =>  {
+    const  [IsFixed, setIsFixed] = useState(false)
+
+    const onScrollTOp = () => {
+    window.scrollY >= 35 ? setIsFixed(true) : setIsFixed(false)
+    }
+
+    window.addEventListener('scroll', onScrollTOp)
+    return(
+    <>
         <Header/>
-            <Category/>
-            <Category/>
+            <div className={IsFixed ? 'mt-60' : ''}>
+                <Category/>
+                <Category/>
+            </div>
         <FooterComponent/>
-    </div>
-)
+    </>
+ )
+}
 
 export default HomePage;

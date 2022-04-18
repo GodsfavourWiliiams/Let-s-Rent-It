@@ -9,36 +9,29 @@ constructor(){
     this.state = {
         sections: [
             {
-              title: 'hats',
-              imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+              title: 'Cars',
               id: 1,
-              linkUrl: 'hats'
+              linkUrl: 'cars'
             },
             {
-              title: 'jackets',
-              imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+              title: 'Cameras',
               id: 2,
-              linkUrl: ''
+              linkUrl: 'cameras'
             },
             {
-              title: 'sneakers',
-              imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+              title: 'Speakers',
               id: 3,
-              linkUrl: ''
+              linkUrl: 'speakers'
             },
             {
-              title: 'womens',
-              imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
-              size: 'large',
+              title: 'Musical Instrument',
               id: 4,
-              linkUrl: ''
+              linkUrl: 'musical Instrument'
             },
             {
-              title: 'mens',
-              imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
-              size: 'large',
+              title: 'Plane',
               id: 5,
-              linkUrl: ''
+              linkUrl: 'planes'
             }
           ],
           dropdown: true
@@ -56,7 +49,7 @@ constructor(){
   render() {
     return (
     <div className="bg-neutral-100">
-      <div className=" max-w-7xl mx-auto px-3 xl:px-0">
+      <div className=" max-w-7xl mx-auto px-4 xl:px-0">
         <div className="py-4 flex justify-between hidden md:flex flex-auto space-x-2">
            {this.state.sections.map(({id, ...otherSectionProps}) => (
                <MenuItem 
@@ -76,7 +69,7 @@ constructor(){
                     <FaAngleUp className={`${this.state.dropDown ? ' ' : 'rotate-180'} transform duration-100`} />
            </div>
           <div className="relative">
-              <div className={`${this.state.dropDown ? 'block' : 'hidden'} p-4 bg-white font-bold text-base leading-4 absolute top-2 w-full rounded shadow`}>
+              <div className={`${this.state.dropDown ? 'block' : 'hidden'} p-4 bg-white font-bold text-base leading-4 absolute w-full rounded shadow`}>
               {this.state.sections.map(({id, ...otherSectionProps}) => (
                   <MenuItem 
                   key={id}

@@ -1,6 +1,6 @@
 const Banner = () => (
     <div className="bg-white">
-     <div className="max-w-7xl mx-auto xl:px-0 px-3">
+     <div className=" mx-auto max-w-7xl xl:px-0 px-4">
       <div className="flex items-center justify-between flex-wrap border-b py-4">
         <div className="flex justify-between flex-shrink-0 w-full sm:order-2 sm:w-auto">
         <span className="cursor-pointer font-bold text-xs text-primary-100">Chat with us</span>

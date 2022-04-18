@@ -22,16 +22,18 @@ return(
     <div className=''>
       <Banner/>
     <div className={ IsNavFixed ? "fixed w-full top-0 z-50" : "relative" }>
-      <div className="max-w-7xl mx-auto px-3 xl:p-0">
-        <nav className='bg-white border-gray-200 py-10'>
+      <div className=" bg-white xl:px-0 px-4">
+        <nav className='max-w-7xl mx-auto border-gray-200 py-10'>
           <div className=" flex flex-wrap justify-between items-center mx-auto">
           <Link to='/' className="flex items-center">
               <Logo className="mr-3 h-6 sm:h-9" alt="Rentals Logo" />
           </Link>
 
           <div className="hidden md:max-w-xs w-full lg:max-w-lg md:block flex relative md:order-1 justify-center items-center">
-                <input type="search" className="px-8 rounded-5 w-full lg:max-w-lg h-11 border focus:outline-none" placeholder="Search Products, categories ..."/>
-                  <div className="absolute top-3.5 right-3"><SearchIcon className=" z-20 "/></div>
+                <input type="text" className="px-8 rounded-5 w-full lg:max-w-lg h-11 border focus:outline-none" placeholder="Search Products, categories ..."/>
+                  <div className="absolute top-3.5 right-3">
+                    <SearchIcon className=" z-20  cursor-pointer"/>
+                  </div>
           </div>
           <div className=" md:w-auto md:order-1">
             <ul className="flex md:space-x-8 md:mt-0 md:text-sm md:font-medium">
