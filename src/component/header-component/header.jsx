@@ -12,6 +12,7 @@ import Banner from './banner';
 const Header = () => {
 
   const  [IsNavFixed, setIsNavFixed] = useState(false)
+  const  [IsDropDownFixed, setIsDropDownFixed] = useState(false)
 
   const onScrollTOp = () => {
   window.scrollY >= 35 ? setIsNavFixed(true) : setIsNavFixed(false)
@@ -35,17 +36,20 @@ return(
                     <SearchIcon className=" z-20  cursor-pointer"/>
                   </div>
           </div>
-          <div className=" md:w-auto md:order-1">
-            <ul className="flex md:space-x-8 md:mt-0 md:text-sm md:font-medium">
-              <Link to="/signin">
-                <ActionsUser className="cursor-pointer "/>
+          <div className="md:w-auto md:order-1">
+            <Shop className='cursor-pointer md:hidden' onClick={() => setIsDropDownFixed(!IsDropDownFixed)}/>
+            <ul className={`md:relative fixed z-40 mt-8 md:right-0 flex md:flex-row flex-col p-4 md:p-0 items-start justify-center md:bg-transparent bg-white shadow md:shadow-none rounded md:space-y-0 space-y-4 md:mt-0 md:text-sm md:font-medium transition-all duration-300 ${IsDropDownFixed ? 'right-4 ' : '-right-80'}`}>
+              <Link to="/signin" className='flex flex-row space-x-2 items-center md:pr-0 pr-10'>
+                <ActionsUser/> <span className=''>Login</span>
               </Link>
-                <Link to="./shop" className="md:px-6 px-3">
+                <Link to="/shop" className="md:px-6 px-0 flex flex-row space-x-3 items-center md:pr-0 pr-10 ">
                   <Shop/>
+                  <span className=''>Shop</span>
                 </Link>
-              <Link to="" className="cursor-pointer ">
+              <div className="cursor-pointer flex flex-row space-x-4 items-center md:pr-0 pr-10">
                 <Cart/>
-              </Link>
+                <span className=''>Cart</span>
+              </div>
             </ul>
           </div>
 

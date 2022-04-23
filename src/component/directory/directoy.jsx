@@ -11,27 +11,27 @@ constructor(){
             {
               title: 'Cars',
               id: 1,
-              linkUrl: 'cars'
+              linkUrl: '/cars'
             },
             {
               title: 'Cameras',
               id: 2,
-              linkUrl: 'cameras'
+              linkUrl: '/cameras'
             },
             {
               title: 'Speakers',
               id: 3,
-              linkUrl: 'speakers'
+              linkUrl: '/speakers'
             },
             {
               title: 'Musical Instrument',
               id: 4,
-              linkUrl: 'musical Instrument'
+              linkUrl: '/musicalInstrument'
             },
             {
               title: 'Plane',
               id: 5,
-              linkUrl: 'planes'
+              linkUrl: '/plane'
             }
           ],
           dropdown: true
@@ -63,7 +63,7 @@ constructor(){
         <div className="cursor-pointer px-4 py-4 text-black flex justify-between items-center w-full"
            onClick={this.handleDrop}>
                   <div className="flex space-x-2">
-                        <p className="font-bold text-base focus:outline-none hover:bg-gray-800 duration-100 cursor-pointer ">
+                        <p className="font-bold text-base focus:outline-none hover:text-gray-800 duration-100 cursor-pointer ">
                               Collections</p>
                         </div>
                     <FaAngleUp className={`${this.state.dropDown ? ' ' : 'rotate-180'} transform duration-100`} />

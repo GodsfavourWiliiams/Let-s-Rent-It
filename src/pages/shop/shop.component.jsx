@@ -8,15 +8,21 @@ export default class shopComponent extends Component {
         super()
 
         this.state = {
-            collections: SHOP_DATA
+            collections: SHOP_DATA,
+            fixedCollections: false
         }
+        
+      // this.fixedCollections = this.fixedCollections.bind(this)
     }
+
+
   render() {
       const {collections} = this.state
+
     return (
-    < >
+    <>
       <Header/>
-      <div className='mt-10'>
+      <div className={`${this.state.fixedCollections ? 'mt-60' : 'mt-10'}`}>
         {
             collections.map(({id, ...otherCollectionProps }) => (
                 <CollectionPreview key={id} {...otherCollectionProps}

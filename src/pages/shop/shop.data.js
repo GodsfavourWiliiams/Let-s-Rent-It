@@ -60,8 +60,8 @@ const SHOP_DATA = [{
     },
     {
         id: 2,
-        title: 'Sneakers',
-        routeName: 'sneakers',
+        title: 'Speakers',
+        routeName: 'speakers',
         items: [{
                 id: 10,
                 name: 'Adidas NMD',
@@ -114,8 +114,8 @@ const SHOP_DATA = [{
     },
     {
         id: 3,
-        title: 'Jackets',
-        routeName: 'jackets',
+        title: 'Cameras',
+        routeName: 'cameras',
         items: [{
                 id: 18,
                 name: 'Black Jean Shearling',
