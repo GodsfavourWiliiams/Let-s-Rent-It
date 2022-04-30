@@ -3,7 +3,10 @@ import { Route, Routes } from 'react-router-dom';
 import ShopPage from './pages/shop/shop.component';
 import { Fragment } from 'react';
 import './App.css';
-import Auth from './pages/auth/auth';
+import { connect } from 'react-redux';
+import { setCurrentUser } from './redux/user/user.action';
+import SignIn from './pages/auth/signIn/sign-in';
+import SignUp from './pages/auth/signUp/sign-up';
 
 
 function App() {
@@ -12,10 +15,15 @@ function App() {
         <Routes>
          <Route path="/" element={ <HomePage /> } />
          <Route path="/shop" element={ <ShopPage/> } />
-         <Route path="/signin" element={ <Auth/> } />
+         <Route path="/signup" element={ <SignUp/> } />
+         <Route path="/signin" element={ <SignIn/> } />
       </Routes>
-  </Fragment>
+    </Fragment>
   )
 }
 
-export default App;
+const mapDispatchToProps = disspatch => ({
+  setCurrentUser: user => dispatchEvent(setCurrentUser(user))
+})
+
+export default connect(null, mapDispatchToProps)(App);

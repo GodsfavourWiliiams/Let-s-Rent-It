@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import FormInput from '../formInput/formInput';
-import Button from '../button-component/button';
+import FormInput from '../../../component/formInput/formInput';
+import Button from '../../../component/button-component/button';
 import { Link } from 'react-router-dom';
-import { ReactComponent as Logo} from '../Assets/Freshnesecom.svg';
+import { ReactComponent as Logo} from '../../../component/Assets/Freshnesecom.svg';
 
-export default class SignIn extends Component {
+export default class SignUp extends Component {
     constructor(props){
         super(props)
 
         this.state = {
+            name:'',
             email:  '',
             password: ''
         }
@@ -20,6 +21,7 @@ export default class SignIn extends Component {
         event.preventDefault();
 
         this.setState({
+            name: '',
             email: '',
             password: ''
         })
@@ -38,12 +40,12 @@ export default class SignIn extends Component {
                </Link>
                 <div className=" lg:w-1/3 md:w-1/2 w-full my-8 text-center">
                     <p aria-label="Login to your account" className="text-2xl mb-1 font-extrabold leading-6 text-gray-800">
-                        Login to your account
+                        Create your account
                     </p>
-                    <Link to="/" className="text-sm font-medium text-gray-500">
-                        Dont have account?
+                    <Link to="/signin" className="text-sm font-medium text-gray-500">
+                        Have account?
                         <span aria-label="Sign up here" className="ml-2 text-sm font-medium leading-none underline text-gray-800 cursor-pointer">
-                            Sign up here
+                            Sign in here
                         </span>
                     </Link>
                     <button aria-label="Continue with google" className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-5 border-gray-700 flex items-center w-full mt-10">
@@ -64,21 +66,21 @@ export default class SignIn extends Component {
                         </svg>
                         <p className="text-base font-medium ml-4 text-gray-700">Continue with Github</p>
                     </button>
-                    <button aria-label="Continue with twitter" className="focus:outline-none  focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-5 border-gray-700 flex items-center w-full mt-4">
-                        <svg width={24} height={24} viewBox="0 0 24 24" fill="none">
-                            <path
-                                d="M22.1623 5.656C21.3989 5.9937 20.5893 6.21548 19.7603 6.314C20.634 5.79144 21.288 4.96902 21.6003 4C20.7803 4.488 19.8813 4.83 18.9443 5.015C18.3149 4.34158 17.4807 3.89497 16.5713 3.74459C15.6618 3.59421 14.7282 3.74849 13.9156 4.18346C13.1029 4.61842 12.4567 5.30969 12.0774 6.1498C11.6981 6.9899 11.607 7.93178 11.8183 8.829C10.1554 8.74566 8.52863 8.31353 7.04358 7.56067C5.55854 6.80781 4.24842 5.75105 3.1983 4.459C2.82659 5.09745 2.63125 5.82323 2.6323 6.562C2.6323 8.012 3.3703 9.293 4.4923 10.043C3.82831 10.0221 3.17893 9.84278 2.5983 9.52V9.572C2.5985 10.5377 2.93267 11.4736 3.54414 12.2211C4.15562 12.9685 5.00678 13.4815 5.9533 13.673C5.33691 13.84 4.6906 13.8647 4.0633 13.745C4.33016 14.5762 4.8503 15.3032 5.55089 15.8241C6.25147 16.345 7.09742 16.6338 7.9703 16.65C7.10278 17.3313 6.10947 17.835 5.04718 18.1322C3.98488 18.4294 2.87442 18.5143 1.7793 18.382C3.69099 19.6114 5.91639 20.2641 8.1893 20.262C15.8823 20.262 20.0893 13.889 20.0893 8.362C20.0893 8.182 20.0843 8 20.0763 7.822C20.8952 7.23017 21.6019 6.49702 22.1633 5.657L22.1623 5.656Z"
-                                fill="#1DA1F2"
-                            />
-                        </svg>
-                        <p className="text-base font-medium ml-4 text-gray-700">Continue with Twitter</p>
-                    </button>
                     <div className="w-full flex items-center justify-between py-5">
                         <hr className="w-full bg-gray-400" />
                         <p className="text-base font-medium leading-4 px-2.5 text-gray-400">OR</p>
                         <hr className="w-full bg-gray-400  " />
                     </div>
-                <form onClick={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit}>
+                <FormInput 
+                    type="text" 
+                    name="name" 
+                    value={this.state.name}
+                    onChange={this.handleChange}
+                    label="Full Name"
+                    required /> 
+                    <br />
+
                     <FormInput 
                     type="email" 
                     name="email" 

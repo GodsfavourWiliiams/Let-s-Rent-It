@@ -7,9 +7,10 @@ import { ReactComponent as SearchIcon} from '../Assets/search.svg';
 import { ReactComponent as Shop} from '../Assets/Shop.svg';
 import Directory from '../directory/directoy';
 import Banner from './banner';
+import { connect } from 'react-redux';
 
 
-const Header = () => {
+const Header = ({currentUSer}) => {
 
   const  [IsNavFixed, setIsNavFixed] = useState(false)
   const  [IsDropDownFixed, setIsDropDownFixed] = useState(false)
@@ -42,7 +43,7 @@ return(
               <Link to="/signin" className='flex flex-row space-x-2 items-center md:pr-0 pr-10'>
                 <ActionsUser/> <span className=''>Login</span>
               </Link>
-                <Link to="/shop" className="md:px-6 px-0 flex flex-row space-x-3 items-center md:pr-0 pr-10 ">
+                <Link to="/shop" className="md:pl-6 md:pl-0 flex flex-row space-x-3 items-center md:pr-6 pr-10 ">
                   <Shop/>
                   <span className=''>Shop</span>
                 </Link>
@@ -65,4 +66,9 @@ return(
 </div>
 )
 }
-export default Header;
+
+const mapStateToProps = state => ({
+  currentUSer: state.user.currentUSer
+})
+
+export default connect(mapStateToProps)(Header);
