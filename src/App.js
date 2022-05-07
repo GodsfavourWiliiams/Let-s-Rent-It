@@ -22,7 +22,7 @@ function App() {
   )
 }
 
-const mapDispatchToProps = disspatch => ({
+const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatchEvent(setCurrentUser(user))
 })
 
