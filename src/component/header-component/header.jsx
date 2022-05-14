@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ReactComponent as Logo } from '../Assets/Freshnesecom.svg';
 import { ReactComponent as ActionsUser} from '../Assets/actions-user.svg';
 import { ReactComponent as Cart} from '../Assets/cart.svg';
 import { ReactComponent as SearchIcon} from '../Assets/search.svg';
@@ -8,9 +7,9 @@ import { ReactComponent as Shop} from '../Assets/Shop.svg';
 import Directory from '../directory/directoy';
 import Banner from './banner';
 import { connect } from 'react-redux';
+import { logout } from '../../firebase/firebase.utils';
 
-
-const Header = ({currentUSer}) => {
+const Header = ({ currentUser }) => {
 
   const  [IsNavFixed, setIsNavFixed] = useState(false)
   const  [IsDropDownFixed, setIsDropDownFixed] = useState(false)
@@ -18,7 +17,7 @@ const Header = ({currentUSer}) => {
   const onScrollTOp = () => {
   window.scrollY >= 35 ? setIsNavFixed(true) : setIsNavFixed(false)
   }
-
+  
   window.addEventListener('scroll', onScrollTOp)
 return(
     <div className=''>
@@ -28,7 +27,7 @@ return(
         <nav className='max-w-7xl mx-auto border-gray-200 py-10'>
           <div className=" flex flex-wrap justify-between items-center mx-auto">
           <Link to='/' className="flex items-center">
-              <Logo className="mr-3 h-6 sm:h-9" alt="Rentals Logo" />
+              <h2 className="text-3xl font-bold">Rentals</h2> 
           </Link>
 
           <div className="hidden md:max-w-xs w-full lg:max-w-lg md:block flex relative md:order-1 justify-center items-center">
@@ -40,10 +39,23 @@ return(
           <div className="md:w-auto md:order-1">
             <Shop className='cursor-pointer md:hidden' onClick={() => setIsDropDownFixed(!IsDropDownFixed)}/>
             <ul className={`md:relative fixed z-40 mt-8 md:right-0 flex md:flex-row flex-col p-4 md:p-0 items-start justify-center md:bg-transparent bg-white shadow md:shadow-none rounded md:space-y-0 space-y-4 md:mt-0 md:text-sm md:font-medium transition-all duration-300 ${IsDropDownFixed ? 'right-4 ' : '-right-80'}`}>
+              {currentUser ?
+               <div className='flex flex-row space-x-2 items-center md:pr-0 pr-10 cursor-pointer' 
+               onClick={
+                 () => {
+                   logout()
+                 }}>
+                 <ActionsUser/> 
+                 <span className=''>Log Out</span>
+               </div>
+               :
               <Link to="/signin" className='flex flex-row space-x-2 items-center md:pr-0 pr-10'>
-                <ActionsUser/> <span className=''>Login</span>
+                <ActionsUser/> 
+                <span className=''>Log In</span>
               </Link>
-                <Link to="/shop" className="md:pl-6 md:pl-0 flex flex-row space-x-3 items-center md:pr-6 pr-10 ">
+             
+              }
+                <Link to="/shop" className="md:pl-6 ml-0 flex flex-row space-x-3 items-center md:pr-6 pr-10 ">
                   <Shop/>
                   <span className=''>Shop</span>
                 </Link>
@@ -68,7 +80,7 @@ return(
 }
 
 const mapStateToProps = state => ({
-  currentUSer: state.user.currentUSer
+  currentUser: state.user.currentUser
 })
 
 export default connect(mapStateToProps)(Header);

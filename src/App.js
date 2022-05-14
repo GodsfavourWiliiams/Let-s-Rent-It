@@ -1,29 +1,54 @@
 import HomePage from './pages/homepage/homepage.component';
 import { Route, Routes } from 'react-router-dom';
 import ShopPage from './pages/shop/shop.component';
-import { Fragment } from 'react';
+import { Fragment, Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { setCurrentUser } from './redux/user/user.action';
 import SignIn from './pages/auth/signIn/sign-in';
 import SignUp from './pages/auth/signUp/sign-up';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { auth } from './firebase/firebase.utils';
 
+class App extends Component {
+    unsubscribeFromAuth = null
 
-function App() {
-  return(
+  componentDidMount(){
+    const { setCurrentUser } = this.props;
+   this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+     if (userAuth) {
+         setCurrentUser({ userAuth })}
+         console.log(userAuth)
+   })
+   
+  }
+  
+  componentWillUnmount() {
+    this.unsubscribeFromAuth();
+  }
+  render() {
+  toast({
+      autoClose: 3000,
+      draggable: true
+  });
+  return (
     <Fragment>
+      <ToastContainer/>
         <Routes>
          <Route path="/" element={ <HomePage /> } />
-         <Route path="/shop" element={ <ShopPage/> } />
+         <Route path="/shop" element={ <ShopPage /> } />
          <Route path="/signup" element={ <SignUp/> } />
-         <Route path="/signin" element={ <SignIn/> } />
+         <Route path="/signin" element={ <SignIn /> } />
       </Routes>
     </Fragment>
-  )
+    )
+  }
 }
-
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatchEvent(setCurrentUser(user))
+  setCurrentUser: user => dispatch(setCurrentUser(user))
 })
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App)
+
+

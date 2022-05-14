@@ -3,7 +3,7 @@ import FooterComponent from '../../component/footer-component/footer-component';
 import Header from '../../component/header-component/header';
 import Category from '../../component/category-components/catergories';
 
-const HomePage = () =>  {
+const HomePage = ({currentUser}) =>  {
     const  [IsFixed, setIsFixed] = useState(false)
 
     const onScrollTOp = () => {
@@ -11,9 +11,10 @@ const HomePage = () =>  {
     }
 
     window.addEventListener('scroll', onScrollTOp)
+    
     return(
     <>
-        <Header/>
+        <Header currentUser={currentUser}/>
             <div className={IsFixed ? 'mt-60' : ''}>
                 <Category/>
                 <Category/>
