@@ -1,27 +1,31 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import CollectionPreview from '../../component/preview-collection/preview-collection';
 import SHOP_DATA from './shop.data';
 import Header from '../../component/header-component/header';
-import { auth } from '../../firebase/firebase.utils';
+import { useEffect } from 'react';
 
-export default class shopComponent extends Component {
-    constructor(props){
-        super()
+const Shopcomponent = () => {
+  // adjusting the fixed header spacing with shop container
+      const [fixedCollections, setFixedCollections ] = useState(false)
 
-        this.state = {
-            collections: SHOP_DATA,
-            fixedCollections: false,
+      const onScrollTOp = () => {
+        window.scrollY >= 35 ? setFixedCollections(true) : setFixedCollections(false)
         }
-    }
+    
+        window.addEventListener('scroll', onScrollTOp)
 
+      // collections
+      const [collections, setCollections ] = useState([])
 
-  render() {
-      const {collections} = this.state
+      useEffect(() => {
+        setCollections(SHOP_DATA)
+      }, [setCollections])
+      
 
     return (
     <>
       <Header/>
-      <div className={`${this.state.fixedCollections ? 'mt-60' : 'mt-10'}`}>
+      <div className={`${fixedCollections ? 'mt-56' : 'mt-6'}`}>
         {
             collections.map(({id, ...otherCollectionProps }) => (
                 <CollectionPreview key={id} {...otherCollectionProps}
@@ -31,5 +35,6 @@ export default class shopComponent extends Component {
       </div>
       </>
     )
-  }
 }
+
+export default Shopcomponent;

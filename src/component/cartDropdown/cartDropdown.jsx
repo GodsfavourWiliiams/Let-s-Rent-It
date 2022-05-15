@@ -4,9 +4,16 @@ import Button from '../button-component/button';
 import { FaTimes } from 'react-icons/fa';
 import { connect } from 'react-redux';
 import { toggleCartHidden } from '../../redux/cart/cart.actions';
+import CartItemComponent from '../cartItem/cart-item-component';
+import withRouter from '../menu-item/withRouter';
+import { useNavigate } from 'react-router-dom';
 
-const CartDropdown = ({toggleCartHidden}) => {
+
+
+const CartDropdown = ({toggleCartHidden, cartItems}) => {
   const [open, setOpen] = useState(true);
+  const navigate = useNavigate()
+
 
   return (
     <div className=''>
@@ -40,10 +47,10 @@ const CartDropdown = ({toggleCartHidden}) => {
                  <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                    <div className="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
                      <div className="flex items-start justify-between">
-                       <Dialog.Title className="text-lg font-medium text-gray-900"> Shopping cart </Dialog.Title>
+                       <Dialog.Title className="text-lg font-medium text-gray-900 uppercase font-bold"> Shopping cart </Dialog.Title>
                        <div className="ml-3 flex h-7 items-center">
                          <button
-                           className="-m-2 p-2 text-gray-400 hover:text-gray-500"
+                           className="-m-2 p-2 focus:outline-none border-0 text-gray-400 hover:text-gray-800 "
                            onClick={() => 
                             {setOpen(false)
                               toggleCartHidden()
@@ -57,7 +64,15 @@ const CartDropdown = ({toggleCartHidden}) => {
                      <div className="mt-8">
                        <div className="flow-root">
                          <ul className="-my-6 divide-y divide-gray-200">
-                           Cart Items
+                           {cartItems.length ?
+                           (cartItems.map(cartItem => (
+                             <CartItemComponent key={cartItem.id} item={cartItem}/>
+                           )))
+                           :
+                           (
+                           <span className='text-2xl flex items-center font-bold justify-center pt-16'>Your Bag is Empty </span>
+                           )
+                  }
                          </ul>
                        </div>
                      </div>
@@ -71,16 +86,17 @@ const CartDropdown = ({toggleCartHidden}) => {
                      <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                      <div className="mt-6">
                      <Button
-                         className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                         className="flex items-center justify-center rounded-md border border-transparent bg-green-700 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-green-800"
                          onClick={() => 
                          {setOpen(false)
                           toggleCartHidden()
+                          navigate('/checkout')
                          }}>Go To CheckOut</Button>
                      </div>
                      <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                        <p>
                          or{' '}
-                         <button
+                         <Button
                            className="font-medium text-indigo-600 hover:text-indigo-500"
                            onClick={() => {
                              setOpen(false)
@@ -88,7 +104,7 @@ const CartDropdown = ({toggleCartHidden}) => {
                           }}
                          >
                            Continue Shopping<span aria-hidden="true"> &rarr;</span>
-                         </button>
+                         </Button>
                         
                        </p>
                      </div>
@@ -105,8 +121,12 @@ const CartDropdown = ({toggleCartHidden}) => {
   )
 }
 
+const mapStateToProps = ({cart: {cartItems}}) => ({
+    cartItems
+});
+
 const mapDispatchToProps = dispatch => ({
   toggleCartHidden: () => dispatch(toggleCartHidden())
-})
+});
 
-export default connect(null, mapDispatchToProps)(CartDropdown);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CartDropdown));

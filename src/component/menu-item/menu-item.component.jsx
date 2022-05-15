@@ -1,5 +1,5 @@
 import React from 'react';
-// import withRouter from './withRouter';
+import withRouter from './withRouter';
 import {
     useNavigate,
   } from "react-router-dom";
@@ -13,4 +13,4 @@ const MenuItem = ({ title, linkUrl }) => {
     </div> 
 )
 }
-export default MenuItem;
+export default withRouter(MenuItem);

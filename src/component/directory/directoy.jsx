@@ -9,14 +9,14 @@ constructor(){
     this.state = {
         sections: [
             {
-              title: 'Cars',
+              title: 'Drones',
               id: 1,
-              linkUrl: '/cars'
+              linkUrl: '/drones'
             },
             {
-              title: 'Cameras',
+              title: 'Photography Equipment',
               id: 2,
-              linkUrl: '/cameras'
+              linkUrl: '/photographyequipment'
             },
             {
               title: 'Speakers',
@@ -29,9 +29,9 @@ constructor(){
               linkUrl: '/musicalInstrument'
             },
             {
-              title: 'Plane',
+              title: 'Tools',
               id: 5,
-              linkUrl: '/plane'
+              linkUrl: '/tools'
             }
           ],
           dropdown: true
@@ -68,7 +68,7 @@ constructor(){
                         </div>
                     <FaAngleUp className={`${this.state.dropDown ? ' ' : 'rotate-180'} transform duration-100`} />
            </div>
-          <div className="relative">
+          <div className="relative z-50">
               <div className={`${this.state.dropDown ? 'block' : 'hidden'} p-4 bg-white font-bold text-base leading-4 absolute w-full rounded shadow`}>
               {this.state.sections.map(({id, ...otherSectionProps}) => (
                   <MenuItem 

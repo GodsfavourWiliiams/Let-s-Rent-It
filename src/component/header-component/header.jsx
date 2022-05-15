@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ReactComponent as ActionsUser} from '../Assets/actions-user.svg';
 import { ReactComponent as SearchIcon} from '../Assets/search.svg';
 import { ReactComponent as Shop} from '../Assets/Shop.svg';
+import { ReactComponent as Hamburger } from '../Assets/darhboard_alt.svg';
 import Directory from '../directory/directoy';
 import Banner from './banner';
 import { connect } from 'react-redux';
@@ -23,7 +24,7 @@ const Header = ({ currentUser, hidden }) => {
 return(
     <div className=''>
       <Banner/>
-    <div className={ IsNavFixed ? "fixed w-full top-0 z-50" : "relative" }>
+    <div className={ IsNavFixed ? "fixed w-full top-0 z-40" : "relative" }>
       <div className=" bg-white xl:px-0 px-4">
         <nav className='max-w-7xl mx-auto border-gray-200 py-10'>
           <div className=" flex flex-wrap justify-between items-center mx-auto">
@@ -38,7 +39,7 @@ return(
                   </div>
           </div>
           <div className="md:w-auto md:order-1">
-            <Shop className='cursor-pointer md:hidden' onClick={() => setIsDropDownFixed(!IsDropDownFixed)}/>
+            <Hamburger className='cursor-pointer md:hidden' onClick={() => setIsDropDownFixed(!IsDropDownFixed)}/>
             <ul className={`md:relative fixed z-40 mt-8 md:right-0 flex md:flex-row flex-col p-4 md:p-0 items-start justify-center md:bg-transparent bg-white shadow md:shadow-none rounded md:space-y-0 space-y-4 md:mt-0 md:text-sm md:font-medium transition-all duration-300 ${IsDropDownFixed ? 'right-4 ' : '-right-80'}`}>
               {currentUser ?
                <div className='flex flex-row space-x-2 items-center md:pr-0 pr-10 cursor-pointer' 
