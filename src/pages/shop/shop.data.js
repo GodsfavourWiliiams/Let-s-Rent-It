@@ -119,30 +119,30 @@ const SHOP_DATA = [{
         items: [{
                 id: 18,
                 name: 'Black Jean Shearling',
-                imageUrl: 'https://i.ibb.co/XzcwL5s/black-shearling.png',
-                price: 125
+                imageUrl: 'https://media.istockphoto.com/photos/camera-with-mounted-50mm-f14-lens-on-white-background-picture-id174455805?k=20&m=174455805&s=612x612&w=0&h=rCwTiENnIIZaZPNq2UrAhiRnCWmRd57q53EWbOO4mgQ=',
+                price: 150
             },
             {
                 id: 19,
-                name: 'Blue Jean Jacket',
-                imageUrl: 'https://i.ibb.co/mJS6vz0/blue-jean-jacket.png',
-                price: 90
+                name: 'Auto-focus 35mm single lens reflex',
+                imageUrl: 'https://media.istockphoto.com/photos/auto-focus-35mm-slr-camera-picture-id182179974?k=20&m=182179974&s=612x612&w=0&h=lIczSuJH-FIgMP_JtXnWSzWX457pbR53OTHsHxOvrbQ=',
+                price: 190
             },
             {
                 id: 20,
-                name: 'Grey Jean Jacket',
-                imageUrl: 'https://i.ibb.co/N71k1ML/grey-jean-jacket.png',
+                name: 'Very rare old 35 mm SLR film ',
+                imageUrl: 'https://media.istockphoto.com/photos/very-rare-old-35-mm-slr-film-camera-on-white-background-picture-id1357955437?k=20&m=1357955437&s=612x612&w=0&h=ko8n5OgtV2_u6DCS8sRd04H0Dgd3UyilNopZCC58bs0=',
                 price: 90
             },
             {
                 id: 21,
-                name: 'Brown Shearling',
-                imageUrl: 'https://i.ibb.co/s96FpdP/brown-shearling.png',
+                name: 'Canon 5d',
+                imageUrl: 'https://media.istockphoto.com/photos/vintage-looking-modern-mirrorless-camera-isolated-on-white-background-picture-id1324993565?k=20&m=1324993565&s=612x612&w=0&h=HOc9BBWgWPeq7vYMgD7Qhub_73meFW0tYXdipuL3AHI=',
                 price: 165
             },
             {
                 id: 22,
-                name: 'Tan Trench',
+                name: 'Old vintage film camera with lens',
                 imageUrl: 'https://i.ibb.co/M6hHc3F/brown-trench.png',
                 price: 185
             }
