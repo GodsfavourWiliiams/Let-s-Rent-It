@@ -32,6 +32,8 @@ class App extends Component {
       autoClose: 3000,
       draggable: true
   });
+
+   
   return (
     <Fragment>
       <ToastContainer/>
@@ -39,16 +41,21 @@ class App extends Component {
          <Route path="/" element={ <HomePage /> } />
          <Route path="/shop" element={ <ShopPage /> } />
          <Route path="/signup" element={ <SignUp/> } />
-         <Route path="/signin" element={ <SignIn /> } />
+         <Route path="/signin"  element={ <SignIn /> } />
       </Routes>
     </Fragment>
     )
   }
 }
+
+const mapStateToProps = ({ user }) => ({
+  currentUser:  user.currentUser
+})
+
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
 })
 
-export default connect(null, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App)
 
 

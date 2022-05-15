@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as ActionsUser} from '../Assets/actions-user.svg';
-import { ReactComponent as Cart} from '../Assets/cart.svg';
 import { ReactComponent as SearchIcon} from '../Assets/search.svg';
 import { ReactComponent as Shop} from '../Assets/Shop.svg';
 import Directory from '../directory/directoy';
 import Banner from './banner';
 import { connect } from 'react-redux';
 import { logout } from '../../firebase/firebase.utils';
+import CartIcon from '../cart-icon/cartIcon';
+import CartDropdown from '../cartDropdown/cartDropdown';
 
-const Header = ({ currentUser }) => {
+const Header = ({ currentUser, hidden }) => {
 
   const  [IsNavFixed, setIsNavFixed] = useState(false)
   const  [IsDropDownFixed, setIsDropDownFixed] = useState(false)
@@ -60,7 +61,7 @@ return(
                   <span className=''>Shop</span>
                 </Link>
               <div className="cursor-pointer flex flex-row space-x-4 items-center md:pr-0 pr-10">
-                <Cart/>
+                <CartIcon/>
                 <span className=''>Cart</span>
               </div>
             </ul>
@@ -74,13 +75,19 @@ return(
         </nav>
       </div>
     <Directory/>
+    {hidden ? 
+    null :
+    <CartDropdown/>
+    }
   </div>
 </div>
 )
 }
 
-const mapStateToProps = state => ({
-  currentUser: state.user.currentUser
+const mapStateToProps = ({user: { currentUser }, cart: { hidden } }) => 
+({
+  currentUser,
+  hidden
 })
 
 export default connect(mapStateToProps)(Header);
