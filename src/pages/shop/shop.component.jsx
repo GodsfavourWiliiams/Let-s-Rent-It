@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import CollectionPreview from '../../component/preview-collection/preview-collection';
-import SHOP_DATA from './shop.data';
 import Header from '../../component/header-component/header';
-import { useEffect } from 'react';
+import CollectionsOverviewComponent from '../../component/collections-overview/collections-overview.component';
+// import { Route } from 'react-router-dom';
+// import CategoryComponennt from '../category/category.componennt';
 
-const Shopcomponent = () => {
+const Shopcomponent = ({ match }) => {
   // adjusting the fixed header spacing with shop container
       const [fixedCollections, setFixedCollections ] = useState(false)
 
@@ -13,28 +13,18 @@ const Shopcomponent = () => {
         }
     
         window.addEventListener('scroll', onScrollTOp)
-
-      // collections
-      const [collections, setCollections ] = useState([])
-
-      useEffect(() => {
-        setCollections(SHOP_DATA)
-      }, [setCollections])
-      
-
+ 
     return (
-    <>
-      <Header/>
-      <div className={`${fixedCollections ? 'mt-56' : 'mt-6'}`}>
-        {
-            collections.map(({id, ...otherCollectionProps }) => (
-                <CollectionPreview key={id} {...otherCollectionProps}
-                />
-            ))
-        }
-      </div>
+      <>
+        <Header/>
+        <div className={`${fixedCollections ? 'mt-56' : 'mt-6'}`}>
+          {/* <Route exact path={`${match.path}`} element={ <CollectionsOverviewComponent/> }/> */}
+          <CollectionsOverviewComponent/>
+          {/* <Route path={`${match.path}/:categoryId`} element={<CategoryComponennt/>}/> */}
+        </div>
       </>
     )
 }
+
 
 export default Shopcomponent;

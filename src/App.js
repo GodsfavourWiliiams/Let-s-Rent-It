@@ -11,6 +11,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { auth } from './firebase/firebase.utils';
 import Checkout from './pages/checkout/checkOut';
+import Page404 from './pages/404/$404';
 
 class App extends Component {
     unsubscribeFromAuth = null
@@ -44,6 +45,7 @@ class App extends Component {
          <Route path="/signup" element={ <SignUp/> } />
          <Route path="/signin"  element={ <SignIn /> } />
          <Route path="/checkout"  element={ <Checkout /> } />
+         <Route path="*" element={ <Page404/>}/>
       </Routes>
     </Fragment>
     )

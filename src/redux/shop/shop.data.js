@@ -9,6 +9,7 @@ const SHOP_DATA = [{
                 price: 25,
                 rating: 3.9,
                 reviewCount: 45,
+                shipping: 8.00
             },
             {
                 id: 2,
@@ -25,6 +26,7 @@ const SHOP_DATA = [{
                 price: 35,
                 rating: 4,
                 reviewCount: 41,
+                shipping: 8.00
             },
             {
                 id: 4,
@@ -33,6 +35,7 @@ const SHOP_DATA = [{
                 price: 25,
                 rating: 3,
                 reviewCount: 27,
+                shipping: 10.00
             },
             {
                 id: 5,
@@ -41,6 +44,7 @@ const SHOP_DATA = [{
                 price: 18,
                 rating: 5,
                 reviewCount: 31,
+                shipping: 18.00
             },
             {
                 id: 6,
@@ -49,6 +53,7 @@ const SHOP_DATA = [{
                 price: 14,
                 rating: 3,
                 reviewCount: 43,
+                shipping: 8.00
             },
             {
                 id: 7,
@@ -57,6 +62,7 @@ const SHOP_DATA = [{
                 price: 18,
                 rating: 2,
                 reviewCount: 30,
+                shipping: 4.00
             },
             {
                 id: 8,
@@ -65,6 +71,7 @@ const SHOP_DATA = [{
                 price: 14,
                 rating: 3,
                 reviewCount: 20,
+                shipping: 7.00
             },
             {
                 id: 9,
@@ -73,6 +80,7 @@ const SHOP_DATA = [{
                 price: 16,
                 rating: 4,
                 reviewCount: 87,
+                shipping: 8.00
             }
         ]
     },
@@ -87,6 +95,7 @@ const SHOP_DATA = [{
                 price: 220,
                 rating: 3,
                 reviewCount: 21,
+                shipping: 5.00
             },
             {
                 id: 11,
@@ -95,6 +104,7 @@ const SHOP_DATA = [{
                 price: 280,
                 rating: 4,
                 reviewCount: 27,
+                shipping: 8.00
             },
             {
                 id: 12,
@@ -103,6 +113,7 @@ const SHOP_DATA = [{
                 price: 110,
                 rating: 5,
                 reviewCount: 36,
+                shipping: 9.00
             },
             {
                 id: 13,
@@ -111,6 +122,7 @@ const SHOP_DATA = [{
                 price: 160,
                 rating: 5,
                 reviewCount: 57,
+                shipping: 6.00
             },
             {
                 id: 14,
@@ -119,6 +131,8 @@ const SHOP_DATA = [{
                 price: 160,
                 rating: 5,
                 reviewCount: 27,
+                shipping: 6.00
+
             },
             {
                 id: 15,
@@ -127,6 +141,8 @@ const SHOP_DATA = [{
                 price: 160,
                 rating: 5,
                 reviewCount: 27,
+                shipping: 10.00
+
             },
             {
                 id: 16,
@@ -135,6 +151,8 @@ const SHOP_DATA = [{
                 price: 190,
                 rating: 4,
                 reviewCount: 27,
+                shipping: 16.00
+
             },
             {
                 id: 17,
@@ -143,6 +161,8 @@ const SHOP_DATA = [{
                 price: 1200,
                 rating: 4,
                 reviewCount: 27,
+                shipping: 12.00
+
             }
         ]
     },
@@ -157,6 +177,8 @@ const SHOP_DATA = [{
                 price: 130,
                 rating: 5,
                 reviewCount: 20,
+                shipping: 6.00
+
             },
             {
                 id: 19,
@@ -165,6 +187,8 @@ const SHOP_DATA = [{
                 price: 130,
                 rating: 4,
                 reviewCount: 130,
+                shipping: 5.00
+
             },
             {
                 id: 20,
@@ -173,6 +197,8 @@ const SHOP_DATA = [{
                 price: 90,
                 rating: 3,
                 reviewCount: 67,
+                shipping: 7.00
+
             },
             {
                 id: 21,
@@ -186,7 +212,11 @@ const SHOP_DATA = [{
                 id: 22,
                 name: 'Old vintage film camera with lens',
                 imageUrl: 'https://i.ibb.co/M6hHc3F/brown-trench.png',
-                price: 125
+                price: 52,
+                rating: 3,
+                reviewCount: 42,
+                shipping: 6.00
+
             }
         ]
     },
@@ -198,17 +228,21 @@ const SHOP_DATA = [{
                 id: 23,
                 name: 'Tripods 1',
                 imageUrl: 'https://media.istockphoto.com/vectors/tripod-vector-illustration-isolated-on-white-background-vector-id1153991033?k=20&m=1153991033&s=612x612&w=0&h=p00BKYLZPBrODm3jgSuHLjRdNcVe-5IXInUV8bGldw8=',
-                price: 150,
+                price: 50,
                 rating: 4,
                 reviewCount: 72,
+                shipping: 10.00
+
             },
             {
                 id: 24,
                 name: 'Tripod old 35 mm SLR film',
                 imageUrl: 'https://media.istockphoto.com/photos/old-wooden-camera-on-a-tripod-isolated-on-white-background-picture-id1153696361?k=20&m=1153696361&s=612x612&w=0&h=QkKXc_IJ8TiHiIRrXC8PXnaGe3_6EVrTpT-dYETmJgc=',
-                price: 190,
+                price: 61,
                 rating: 3,
                 reviewCount: 47,
+                shipping: 9.00
+
             },
             {
                 id: 25,
@@ -217,22 +251,28 @@ const SHOP_DATA = [{
                 price: 90,
                 rating: 5,
                 reviewCount: 29,
+                shipping: 7.00
+
             },
             {
                 id: 26,
                 name: 'Tripod Foreign',
                 imageUrl: 'https://media.istockphoto.com/photos/photoshoot-tripod-in-studio-photo-with-white-background-picture-id1176885942?k=20&m=1176885942&s=612x612&w=0&h=7Cs92ix4gE_XiEMgN9skR4pkNINwC0ntbDnZiO31DRc=',
-                price: 165,
+                price: 65,
                 rating: 5,
                 reviewCount: 127,
+                shipping: 7.00
+
             },
             {
                 id: 27,
                 name: 'Tripod with lens',
                 imageUrl: 'https://media.istockphoto.com/photos/smartphone-and-mini-tripod-isolated-on-white-picture-id1355329741?k=20&m=1355329741&s=612x612&w=0&h=kt8Pkl4GeaJPWvl1hAK5ewXQ3T9waX5cLPr3eIC0rmg=',
-                price: 185,
+                price: 85,
                 rating: 3,
                 reviewCount: 57,
+                shipping: 9.00
+
             }
         ]
     },
@@ -248,14 +288,18 @@ const SHOP_DATA = [{
                 price: 245,
                 rating: 5,
                 reviewCount: 107,
+                shipping: 12.00
+
             },
             {
                 id: 29,
-                name: 'Blouse',
+                name: 'Acoutic Guitar',
                 imageUrl: 'https://media.istockphoto.com/photos/electric-guitar-isolated-on-white-background-picture-id471493238?k=20&m=471493238&s=612x612&w=0&h=aH924rxwbenNHdu3a6lS7OpbyVgOyxEHdDl2-rdgNd8=',
                 price: 29,
                 rating: 3,
                 reviewCount: 42,
+                shipping: 10.00
+
             },
             {
                 id: 30,
@@ -264,6 +308,8 @@ const SHOP_DATA = [{
                 price: 50,
                 rating: 5,
                 reviewCount: 237,
+                shipping: 20.00
+
             },
             {
                 id: 31,
@@ -272,6 +318,8 @@ const SHOP_DATA = [{
                 price: 70,
                 rating: 3,
                 reviewCount: 27,
+                shipping: 16.00
+
             },
             {
                 id: 32,
@@ -280,22 +328,27 @@ const SHOP_DATA = [{
                 price: 45,
                 rating: 4,
                 reviewCount: 49,
+                shipping: 6.00
+
             },
             {
                 id: 33,
                 name: 'Track Suit',
                 imageUrl: 'https://i.ibb.co/v1cvwNf/yellow-track-suit.png',
-                price: 125,
+                price: 65,
                 rating: 5,
                 reviewCount: 55,
+                shipping: 8.00
+
             },
             {
                 id: 34,
                 name: 'Blouse',
                 imageUrl: 'https://i.ibb.co/qBcrsJg/white-vest.png',
-                price: 120,
+                price: 50,
                 rating: 5,
-                reviewCount: 79
+                reviewCount: 79,
+                shipping: 7.00
             }
         ]
     },
@@ -307,49 +360,61 @@ const SHOP_DATA = [{
                 id: 35,
                 name: 'Down Vest',
                 imageUrl: 'https://media.istockphoto.com/photos/cordless-yellow-power-drill-isolated-on-a-white-background-picture-id184294297?k=20&m=184294297&s=612x612&w=0&h=uGQE4GpwpKeJWo1HstIVsnZhH303z5ncpKQiWvHVEdc=',
-                price: 325,
+                price: 25,
                 rating: 5,
                 reviewCount: 50,
+                shipping: 9.00
+
             },
             {
                 id: 36,
                 name: 'T-shirt',
                 imageUrl: 'https://media.istockphoto.com/photos/cordless-screwdriver-isolated-on-white-background-3d-illustration-picture-id696940658?k=20&m=696940658&s=612x612&w=0&h=ehfjdubytfBYitKlnUNhzGQ_gXTdEvCSkyLN9l7NzNM=',
-                price: 78,
+                price: 38,
                 rating: 4,
                 reviewCount: 89,
+                shipping: 10.00
+
             },
             {
                 id: 37,
                 name: 'Black & White Longsleeve',
                 imageUrl: 'https://media.istockphoto.com/photos/yellowblack-cordless-combi-drill-driver-hammer-drill-and-extra-on-picture-id1302946752?k=20&m=1302946752&s=612x612&w=0&h=WNnA36v63zP2Mxnd3CvSYwt4-MhtHPTjO-2Vkgvzmok=',
-                price: 125,
+                price: 41,
                 rating: 3,
                 reviewCount: 75,
+                shipping: 8.00
+
             },
             {
                 id: 38,
                 name: 'Pink T-shirt',
                 imageUrl: 'https://media.istockphoto.com/photos/electric-drilling-machine-picture-id985100106?k=20&m=985100106&s=612x612&w=0&h=IHnB-ov2OSHO49XYzuBEMFqS2VzIF51UvT4O7p2KFCU=',
-                price: 105,
+                price: 59,
                 rating: 4,
                 reviewCount: 100,
+                shipping: 9.00
+
             },
             {
                 id: 39,
                 name: 'Jean Long Sleeve',
                 imageUrl: 'https://media.istockphoto.com/photos/screwdriver-cordless-drill-picture-id496406386?k=20&m=496406386&s=612x612&w=0&h=2KjKjcfdasj6uSuJg-AQa_Nrxdt404KR7_4kFAlfjW8=',
-                price: 240,
+                price: 40,
                 rating: 5,
                 reviewCount: 130,
+                shipping: 6.00
+
             },
             {
                 id: 40,
                 name: 'Burgundy T-shirt',
                 imageUrl: 'https://i.ibb.co/mh3VM1f/polka-dot-shirt.png',
-                price: 225,
+                price: 35,
                 rating: 5,
                 reviewCount: 159,
+                shipping: 6.00
+
             }
         ]
     }

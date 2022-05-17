@@ -101,7 +101,7 @@ export default class SignUp extends Component {
                     required/>
                    
 
-                   <Button className="mt-6 rounded-5 text-white" 
+                   <Button className="bg-primary-100 mt-6 rounded-5 text-white" 
                   >Sign Up</Button>
                 </form>
             </div>

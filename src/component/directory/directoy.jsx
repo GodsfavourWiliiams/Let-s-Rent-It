@@ -1,57 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import MenuItem from '../menu-item/menu-item.component';
-import { FaAngleUp } from 'react-icons/fa';
+// import { FaAngleUp } from 'react-icons/fa';
+import { connect } from 'react-redux';
+import { selectDirectorySections } from '../../redux/directory/directory.selectors';
+import { createStructuredSelector } from 'reselect';
 
-export default class directoy extends Component {
-constructor(){
-    super();
 
-    this.state = {
-        sections: [
-            {
-              title: 'Drones',
-              id: 1,
-              linkUrl: '/drones'
-            },
-            {
-              title: 'Photography Equipment',
-              id: 2,
-              linkUrl: '/photographyequipment'
-            },
-            {
-              title: 'Speakers',
-              id: 3,
-              linkUrl: '/speakers'
-            },
-            {
-              title: 'Musical Instrument',
-              id: 4,
-              linkUrl: '/musicalInstrument'
-            },
-            {
-              title: 'Tools',
-              id: 5,
-              linkUrl: '/tools'
-            }
-          ],
-          dropdown: true
-    }
-
-    this.handleDrop = this.handleDrop.bind(this)
-}
-
-      handleDrop(){
-        this.setState( dropMenu => ({
-          dropDown: !dropMenu.dropDown
-        }))
-      }
-
-  render() {
+const directoy = ({ sections }) => {
     return (
     <div className="bg-neutral-100">
       <div className=" max-w-7xl mx-auto px-4 xl:px-0">
-        <div className="py-4 flex justify-between hidden md:flex flex-auto space-x-2">
-           {this.state.sections.map(({id, ...otherSectionProps}) => (
+        <div className="py-4 flex justify-between overflow-auto md:flex flex-auto space-x-2">
+           {sections.map(({id, ...otherSectionProps}) => (
                <MenuItem 
                key={id}
                {...otherSectionProps}
@@ -59,7 +19,7 @@ constructor(){
            ))}
         </div>
       </div>
-      <div className="block md:hidden w-full">
+      {/* <div className="block md:hidden w-full">
         <div className="cursor-pointer px-4 py-4 text-black flex justify-between items-center w-full"
            onClick={this.handleDrop}>
                   <div className="flex space-x-2">
@@ -78,8 +38,13 @@ constructor(){
               ))}
               </div>
             </div>
-        </div>
+        </div> */}
     </div>
     )
-  }
 }
+
+
+const mapStateToProps = createStructuredSelector({
+  sections: selectDirectorySections
+})
+export default connect( mapStateToProps )(directoy);

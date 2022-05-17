@@ -7,10 +7,11 @@ import { toggleCartHidden } from '../../redux/cart/cart.actions';
 import CartItemComponent from '../cartItem/cart-item-component';
 import withRouter from '../menu-item/withRouter';
 import { useNavigate } from 'react-router-dom';
+import { selectCartItems, selectCartTotal, selctCartItemsCount } from '../../redux/cart/cart-selector';
 
 
 
-const CartDropdown = ({toggleCartHidden, cartItems}) => {
+const CartDropdown = ({toggleCartHidden, cartItems, total, ItemCount}) => {
   const [open, setOpen] = useState(true);
   const navigate = useNavigate()
 
@@ -81,7 +82,7 @@ const CartDropdown = ({toggleCartHidden, cartItems}) => {
                    <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
                      <div className="flex justify-between text-base font-medium text-gray-900">
                        <p>Subtotal</p>
-                       <p>$262.00</p>
+                       <p>$ {total}</p>
                      </div>
                      <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                      <div className="mt-6">
@@ -91,11 +92,15 @@ const CartDropdown = ({toggleCartHidden, cartItems}) => {
                          {setOpen(false)
                           toggleCartHidden()
                           navigate('/checkout')
-                         }}>Go To CheckOut</Button>
+                         }}>Proceed To CheckOut ( {ItemCount}
+                           {ItemCount <= 1 ?
+                         " item" :
+                          " items"
+                         } )</Button>
+                        
                      </div>
                      <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                        <p>
-                         or{' '}
                          <Button
                            className="font-medium text-indigo-600 hover:text-indigo-500"
                            onClick={() => {
@@ -105,7 +110,6 @@ const CartDropdown = ({toggleCartHidden, cartItems}) => {
                          >
                            Continue Shopping<span aria-hidden="true"> &rarr;</span>
                          </Button>
-                        
                        </p>
                      </div>
                    </div>
@@ -121,12 +125,15 @@ const CartDropdown = ({toggleCartHidden, cartItems}) => {
   )
 }
 
-const mapStateToProps = ({cart: {cartItems}}) => ({
-    cartItems
+const mapStateToProps = state => ({
+    cartItems:  selectCartItems(state),
+    total: selectCartTotal(state),
+    ItemCount: selctCartItemsCount(state)
 });
 
 const mapDispatchToProps = dispatch => ({
   toggleCartHidden: () => dispatch(toggleCartHidden())
+  
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CartDropdown));
