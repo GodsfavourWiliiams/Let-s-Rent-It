@@ -34,14 +34,14 @@ const CollectionItem = ({item, addItem}) => {
   return (
     <>
     <div className="group relative border rounded-lg cursor-pointer" onClick={() => setOpen(true)}>
-            <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+            <div className="w-full bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 h-80 lg:aspect-none">
               <img
                 src={imageUrl}
                 alt="names"
                 className="w-full h-full object-center object-cover lg:w-full lg:h-full"
               />
             </div>
-            <div className="mt-4 flex justify-between p-2">
+            <div className="mt-4 flex justify-between p-3">
               <div>
                 <h3 className="text-sm text-gray-700">
                     <span aria-hidden="true" className="absolute inset-0" />
@@ -169,9 +169,9 @@ const CollectionItem = ({item, addItem}) => {
                         {/* Sizes */}
                         <div className="mt-10">
                           <div className="flex items-center justify-between">
-                            <h4 className="text-sm text-gray-900 font-medium">Size</h4>
+                            <h4 className="text-sm text-gray-900 font-medium">Model</h4>
                             <a href="/" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                              Size guide
+                              Model guide
                             </a>
                           </div>
 

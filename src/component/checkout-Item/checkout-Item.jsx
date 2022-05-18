@@ -12,8 +12,7 @@ const checkoutItem = ({cartItem, clearItem, addItem, removeItem}) => {
 const { name, imageUrl, price, quantity, rating, reviewCount} = cartItem
 
   return (
-        <div className="flex flex-col justify-start items-start bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full">
-          <p className="text-lg md:text-xl font-semibold leading-6 xl:leading-5 text-gray-800">Customer’s Cart</p>
+        
           <div className="mt-4 md:mt-6 flex  flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full ">
               <div className="pb-4 w-full md:w-40">
                   <img className="w-full rounded-lg" src={imageUrl} alt="item" />
@@ -105,10 +104,7 @@ const { name, imageUrl, price, quantity, rating, reviewCount} = cartItem
                   </div>
               </div>
           </div>
-          
-      </div>
-
-  )
+    )
 }
 
 const mapDispatchToProps = dispatch => ({

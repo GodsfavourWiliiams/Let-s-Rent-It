@@ -5,10 +5,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { signInWithGoogle, logInWithEmailAndPassword, auth } from '../../../firebase/firebase.utils';
 
 
-export const Navigation = () => {
-    const navigation = useNavigate()
-    return navigation;
-  }
 export default class SignIn extends Component {
     constructor(props){
         super(props)

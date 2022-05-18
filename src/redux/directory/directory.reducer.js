@@ -2,27 +2,32 @@ const INITIAL_STATE = {
     sections: [{
             title: 'Drones',
             id: 1,
-            linkUrl: '/drones'
+            linkUrl: 'shop/drones'
         },
         {
-            title: 'Photography Equipment',
+            title: 'Cameras',
             id: 2,
-            linkUrl: '/photographyequipment'
+            linkUrl: 'shop/cameras'
+        },
+        {
+            title: ' Tripods',
+            id: 3,
+            linkUrl: 'shop/tripods'
         },
         {
             title: 'Speakers',
-            id: 3,
-            linkUrl: '/speakers'
+            id: 4,
+            linkUrl: 'shop/speakers'
         },
         {
             title: 'Musical Instrument',
-            id: 4,
-            linkUrl: '/musicalInstrument'
+            id: 5,
+            linkUrl: 'shop/musicalInstrument'
         },
         {
             title: 'Tools',
-            id: 5,
-            linkUrl: '/tools'
+            id: 6,
+            linkUrl: 'shop/tools'
         }
     ]
 }

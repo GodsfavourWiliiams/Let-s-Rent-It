@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ReactComponent as ActionsUser} from '../Assets/actions-user.svg';
 import { ReactComponent as SearchIcon} from '../Assets/search.svg';
 import { ReactComponent as Shop} from '../Assets/Shop.svg';
@@ -14,7 +14,8 @@ import CartDropdown from '../cartDropdown/cartDropdown';
 const Header = ({ currentUser, hidden }) => {
 
   const  [IsNavFixed, setIsNavFixed] = useState(false)
-  const  [IsDropDownFixed, setIsDropDownFixed] = useState(false)
+  const  [IsDropDownFixed, setIsDropDownFixed] = useState(false);
+  const navigate = useNavigate();
 
   const onScrollTOp = () => {
   window.scrollY >= 35 ? setIsNavFixed(true) : setIsNavFixed(false)
@@ -46,9 +47,11 @@ return(
                onClick={
                  () => {
                    logout()
+                   navigate('/signin')
+                   window.location.reload(true);
                  }}>
                  <ActionsUser/> 
-                 <span className=''>Log Out</span>
+                 Log Out
                </div>
                :
               <Link to="/signin" className='flex flex-row space-x-2 items-center md:pr-0 pr-10'>
@@ -63,7 +66,6 @@ return(
                 </Link>
               <div className="cursor-pointer flex flex-row space-x-4 items-center md:pr-0 pr-10">
                 <CartIcon/>
-                <span className=''>Cart</span>
               </div>
             </ul>
           </div>

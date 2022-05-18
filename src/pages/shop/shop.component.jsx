@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import Header from '../../component/header-component/header';
-import CollectionsOverviewComponent from '../../component/collections-overview/collections-overview.component';
-// import { Route } from 'react-router-dom';
-// import CategoryComponennt from '../category/category.componennt';
+import { Outlet } from 'react-router-dom';
 
-const Shopcomponent = ({ match }) => {
+
+const Shopcomponent = () => {
   // adjusting the fixed header spacing with shop container
       const [fixedCollections, setFixedCollections ] = useState(false)
 
@@ -13,14 +12,12 @@ const Shopcomponent = ({ match }) => {
         }
     
         window.addEventListener('scroll', onScrollTOp)
- 
+        
     return (
       <>
         <Header/>
         <div className={`${fixedCollections ? 'mt-56' : 'mt-6'}`}>
-          {/* <Route exact path={`${match.path}`} element={ <CollectionsOverviewComponent/> }/> */}
-          <CollectionsOverviewComponent/>
-          {/* <Route path={`${match.path}/:categoryId`} element={<CategoryComponennt/>}/> */}
+          <Outlet/>
         </div>
       </>
     )

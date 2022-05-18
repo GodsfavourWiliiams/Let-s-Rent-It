@@ -12,6 +12,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import { auth } from './firebase/firebase.utils';
 import Checkout from './pages/checkout/checkOut';
 import Page404 from './pages/404/$404';
+import CollectionsOverviewComponent from './component/collections-overview/collections-overview.component';
+import CollectionPage from './pages/collections/collection.componennt';
+
 
 class App extends Component {
     unsubscribeFromAuth = null
@@ -41,7 +44,10 @@ class App extends Component {
       <ToastContainer/>
         <Routes>
          <Route path="/" element={ <HomePage /> } />
-         <Route path="/shop" element={ <ShopPage /> } />
+         <Route path="/shop" element={ <ShopPage /> }>
+            <Route index element={ <CollectionsOverviewComponent/> }/>
+            <Route path=":collectionId" element={<CollectionPage/>}/>
+         </Route>
          <Route path="/signup" element={ <SignUp/> } />
          <Route path="/signin"  element={ <SignIn /> } />
          <Route path="/checkout"  element={ <Checkout /> } />

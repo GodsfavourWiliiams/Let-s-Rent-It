@@ -1,9 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Header from '../../component/header-component/header';
 import { createStructuredSelector} from 'reselect';
 import { selectCartItems, selectCartTotal, selectCartSumTotal, shippingCartSumTotal, selctCartItemsCount } from '../../redux/cart/cart-selector';
 import { connect } from 'react-redux';
 import CheckoutItem from '../../component/checkout-Item/checkout-Item';
+import { auth } from '../../firebase/firebase.utils';
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -12,7 +15,16 @@ const Checkout = ({cartItems, total, SumTotal, shipping, ItemCount}) => {
     const [discount, setDiscount] = useState('');
     const [spin, setSpin] = useState(false);
     const [error, setError] = useState(false);
-    const discountCode = "pyia19d";
+    // const discountCode = "pyia19d";
+
+
+    const [currentUser, loading ] = useAuthState(auth);
+    const navigate = useNavigate();
+  
+    useEffect(() => {
+      if (loading) return;
+      if (!currentUser) return navigate("/signin");
+    });
 
 
     const onScrollTOp = () => {
@@ -44,6 +56,8 @@ const Checkout = ({cartItems, total, SumTotal, shipping, ItemCount}) => {
             </div>
             <div className="mt-10 flex flex-col xl:flex-row jusitfy-center items-stretch  w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0">
                 <div className="flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8">
+                <div className="flex flex-col justify-start items-start bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full rounded-lg">
+                    <p className="text-lg md:text-xl font-semibold leading-6 xl:leading-5 text-gray-800">Customer’s Cart</p>
                 {cartItems.length ? 
                     (cartItems.map(cartItem => (
                         <CheckoutItem key={cartItem.id} cartItem={cartItem}/>
@@ -56,7 +70,7 @@ const Checkout = ({cartItems, total, SumTotal, shipping, ItemCount}) => {
                     </div>
                 }
                 </div>
-                
+                </div>
                 <div className="flex justify-center items-center md:items-start xl:w-96 md:flex-row flex-col items-stretch w-full space-y-4 md:space-y-0 md:space-x-6 xl:space-x-8 rounded-lg ">
                        <div>
                             <label htmlFor="discount code" className="font-semibold text-gray-600">Discount Code</label>

@@ -1,4 +1,5 @@
-const SHOP_DATA = [{
+const SHOP_DATA = {
+    drones: {
         id: 1,
         title: 'Drones',
         routeName: 'drones',
@@ -18,6 +19,7 @@ const SHOP_DATA = [{
                 price: 18,
                 rating: 4,
                 reviewCount: 30,
+                shipping: 8.00
             },
             {
                 id: 3,
@@ -84,7 +86,7 @@ const SHOP_DATA = [{
             }
         ]
     },
-    {
+    speakers: {
         id: 2,
         title: 'Speakers',
         routeName: 'speakers',
@@ -166,7 +168,7 @@ const SHOP_DATA = [{
             }
         ]
     },
-    {
+    cameras: {
         id: 3,
         title: 'Cameras',
         routeName: 'cameras',
@@ -207,6 +209,7 @@ const SHOP_DATA = [{
                 price: 115,
                 rating: 5,
                 reviewCount: 57,
+                shipping: 7.00
             },
             {
                 id: 22,
@@ -220,7 +223,7 @@ const SHOP_DATA = [{
             }
         ]
     },
-    {
+    tripods: {
         id: 4,
         title: 'Tripods',
         routeName: 'tripods',
@@ -277,7 +280,7 @@ const SHOP_DATA = [{
         ]
     },
 
-    {
+    musicalInstrument: {
         id: 5,
         title: 'Musical Instrument',
         routeName: 'musicalInstrument',
@@ -352,10 +355,10 @@ const SHOP_DATA = [{
             }
         ]
     },
-    {
+    powerDrils: {
         id: 6,
         title: 'Power Drils',
-        routeName: 'powerDrills',
+        routeName: 'tools',
         items: [{
                 id: 35,
                 name: 'Down Vest',
@@ -418,6 +421,6 @@ const SHOP_DATA = [{
             }
         ]
     }
-];
+};
 
 export default SHOP_DATA;
