@@ -52,7 +52,7 @@ export const SignUp = () => {
                     <h2 className="text-3xl font-bold">Rentals</h2> 
                </Link>
                 <div className=" lg:w-1/3 md:w-1/2 w-full my-6 text-center">
-                    <p aria-label="Login to your account" className="text-2xl mb-1 font-extrabold leading-6 text-gray-800">
+                    <p aria-label="Login to your account" className="text-2xl mb-1 font-bold leading-6 text-gray-800">
                         Create your account
                     </p>
                     <Link to="/signin" className="text-sm font-medium text-gray-500">
@@ -113,7 +113,7 @@ export const SignUp = () => {
                               }
                         </div>
 
-                   <Button className="bg-primary-100 mt-6 w-full py-4 font-bold uppercase rounded-5 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-800" 
+                   <Button className="bg-primary-100 mt-6 w-full py-3 rounded-5 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-800" 
                   >Sign Up</Button>
                 </form>
             </div>

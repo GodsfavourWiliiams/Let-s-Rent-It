@@ -17,7 +17,6 @@ const HomePage = ({currentUser}) =>  {
         <Header currentUser={currentUser}/>
             <div className={IsFixed ? 'mt-60' : ''}>
                 <Category/>
-                <Category/>
             </div>
         <FooterComponent/>
     </>

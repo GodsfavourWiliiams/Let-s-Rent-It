@@ -35,7 +35,7 @@ const SignIn = () => {
         <h2 className="md:text-3xl text-2xl font-bold">Rentals</h2> 
     </Link>
      <div className=" lg:w-1/3 md:w-1/2 w-full my-6 text-center">
-         <p aria-label="Login to your account" className="md:text-2xl text-xl mb-1 font-bold md:font-extrabold leading-6 text-gray-800">
+         <p aria-label="Login to your account" className=" text-xl mb-1 font-bold leading-6 text-gray-800">
              Login to your account
          </p>
          <Link to="/signUp" className="text-sm font-medium text-gray-500">
@@ -87,7 +87,7 @@ const SignIn = () => {
                 }
             </div> 
 
-        <Button className="bg-primary-100 w-full mt-6 mb-2 py-4 rounded-5 uppercase font-bold text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-800" >Sign In</Button>
+        <Button className="bg-primary-100 w-full mt-6 mb-2 py-3 rounded-5 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-800" >Sign In</Button>
      </form>
      <Link to='/reset' className="text-indigo-400"> Forgot password? </Link>  
  </div>

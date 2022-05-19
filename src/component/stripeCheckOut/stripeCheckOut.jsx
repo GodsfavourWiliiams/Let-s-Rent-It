@@ -8,7 +8,7 @@ const StripeCheckoutButton = ({ SumTotal }) => {
 
     const onToken = token => {
         console.log(token);
-        toast.success('Payment Succesful!');
+        toast.success('Your Payment was Successful. You can use our services');
     };
 
     return (

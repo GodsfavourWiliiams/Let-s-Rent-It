@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ReactComponent as ActionsUser} from '../Assets/actions-user.svg';
 import { ReactComponent as SearchIcon} from '../Assets/search.svg';
 import { ReactComponent as Shop} from '../Assets/Shop.svg';
@@ -15,7 +15,7 @@ const Header = ({ currentUser, hidden }) => {
 
   const  [IsNavFixed, setIsNavFixed] = useState(false)
   const  [IsDropDownFixed, setIsDropDownFixed] = useState(false);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const onScrollTOp = () => {
   window.scrollY >= 35 ? setIsNavFixed(true) : setIsNavFixed(false)
