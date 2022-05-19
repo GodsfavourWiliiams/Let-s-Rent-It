@@ -4,7 +4,7 @@ import Button from '../../../component/button-component/button';
 import { Link, useNavigate } from 'react-router-dom';
 import { signInWithGoogle, logInWithEmailAndPassword, auth } from '../../../firebase/firebase.utils';
 import { useAuthState } from "react-firebase-hooks/auth";
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+// import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 
 
@@ -78,14 +78,14 @@ const SignIn = () => {
          label="Password"
          required/>
 
-             <div className="relative float-right -mt-10 z-30 mr-4 cursor-pointer" 
+             {/* <div className="relative float-right -mt-10 z-30 mr-4 cursor-pointer" 
                 onClick={togglePasswordVisiblity}>
                 {passwordShown ?
                 <FaEye/>
                 :
                 <FaEyeSlash/>
                 }
-            </div>
+            </div> */}
 
         <Button className="bg-primary-100 w-full mt-6 mb-2 py-4 rounded-5 uppercase font-bold text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-800" >Sign In</Button>
      </form>

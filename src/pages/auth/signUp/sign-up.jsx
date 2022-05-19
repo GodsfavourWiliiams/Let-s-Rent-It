@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { signInWithGoogle, registerWithEmailAndPassword, auth } from '../../../firebase/firebase.utils';
 import { toast } from 'react-toastify';
 import { useAuthState } from "react-firebase-hooks/auth";
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+// import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 
 
@@ -104,14 +104,14 @@ export const SignUp = () => {
                     label="Password"
                     required/>
 
-                        <div className="relative float-right cursor-pointer -mt-10 mr-6 z-30 "
+                        {/* <div className="relative float-right cursor-pointer -mt-10 mr-6 z-30 "
                             onClick={togglePasswordVisiblity}>
                             {passwordShown ?
                              <FaEye/>
                               :
                               <FaEyeSlash/>
                               }
-                        </div>
+                        </div> */}
 
                    <Button className="bg-primary-100 mt-6 w-full py-4 font-bold uppercase rounded-5 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-800" 
                   >Sign Up</Button>

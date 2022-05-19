@@ -10,6 +10,8 @@ import { useNavigate } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 import StripeCheckoutButton from '../../component/stripeCheckOut/stripeCheckOut';
 
+
+
 const Checkout = ({cartItems, total, SumTotal, shipping, ItemCount, rentSum}) => {
     const  [IsFixed, setIsFixed] = useState(false);
     const [discount, setDiscount] = useState('');
