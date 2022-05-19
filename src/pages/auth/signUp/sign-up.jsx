@@ -1,47 +1,51 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import FormInput from '../../../component/formInput/formInput';
 import Button from '../../../component/button-component/button';
-import { Link } from 'react-router-dom';
-import { signInWithGoogle, registerWithEmailAndPassword } from '../../../firebase/firebase.utils';
+import { Link, useNavigate } from "react-router-dom";
+import { signInWithGoogle, registerWithEmailAndPassword, auth } from '../../../firebase/firebase.utils';
 import { toast } from 'react-toastify';
+import { useAuthState } from "react-firebase-hooks/auth";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
-export default class SignUp extends Component {
 
-    constructor(props){
-        super(props)
 
-        this.state = {
-            name:'',
-            email:  '',
-            password: ''
-        }
+export const SignUp = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [name, setName] = useState("");
+    const [user, loading,] = useAuthState(auth);
+    const navigate = useNavigate();
+
+    
+  const handleSubmit = (e) => {
+      e.preventDefault();
+
+    if (!name) toast.error("Please enter your name");
+
+    let pattern = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
+
+    if (!pattern.test(email)) {
+      const errors = 'Email addresses need an @ and a .com'
+      toast.error(`${errors}`);
     }
 
-    handleSubmit = async event => {
-        event.preventDefault();
-        const {name, email, password} = this.state;
+    if (!email) toast.error("Please enter your email address");
+    
+    if (!password ) toast.error("Please enter your preffered password");
+    registerWithEmailAndPassword(name, email, password);
 
-        if (!name) toast.error("Please enter your name");
+  };
 
-        let pattern = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
+  useEffect(() => {
+    if (loading) return;
+    if (user) { navigate("/shop") }
+  });
 
-        if (!pattern.test(email)) {
-        const errors = 'Email addresses need an @ and a .com'
-        toast.error(`${errors}`);
-        }
+  const [passwordShown, setPasswordShown] = useState(false);
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
+  };
 
-        if (!email) toast.error("Please enter your email address");
-        
-        if (!password ) toast.error("Please enter your preffered password");
-       
-        registerWithEmailAndPassword(name, email, password);
-    }
-
-    handleChange = (event) => {
-        const { value, name } = event.target;
-        this.setState({ [ name ]: value });
-    }
-  render() {
     return (
         <div className="min-h-screen flex flex-col items-center justify-center w-full py-16 px-3">
                <Link to="/">
@@ -73,12 +77,12 @@ export default class SignUp extends Component {
                         <p className="text-base font-medium leading-4 px-2.5 text-gray-400">OR</p>
                         <hr className="w-full bg-gray-400  " />
                     </div>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={handleSubmit}>
                 <FormInput 
                     type="text" 
                     name="name" 
-                    value={this.state.name}
-                    onChange={this.handleChange}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     label="Full Name"
                     required /> 
                     <br />
@@ -86,27 +90,36 @@ export default class SignUp extends Component {
                     <FormInput 
                     type="email" 
                     name="email" 
-                    value={this.state.email}
-                    onChange={this.handleChange}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     label="Email"
                     required /> 
                     <br />
 
                     <FormInput 
-                    type="password" 
+                    type={passwordShown ? "text"  : "password" }
                     name="password" 
-                    value={this.state.password} 
-                    onChange={this.handleChange}
+                    value={password} 
+                    onChange={(e) => setPassword(e.target.value)}
                     label="Password"
                     required/>
-                   
 
-                   <Button className="bg-primary-100 mt-6 rounded-5 text-white" 
+                        <div className="relative float-right cursor-pointer -mt-10 mr-6 z-30 "
+                            onClick={togglePasswordVisiblity}>
+                            {passwordShown ?
+                             <FaEye/>
+                              :
+                              <FaEyeSlash/>
+                              }
+                        </div>
+
+                   <Button className="bg-primary-100 mt-6 w-full py-4 font-bold uppercase rounded-5 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-800" 
                   >Sign Up</Button>
                 </form>
             </div>
         </div>
     
     )
-  }
 }
+
+export default SignUp;

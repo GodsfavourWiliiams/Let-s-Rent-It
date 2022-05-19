@@ -11,10 +11,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { auth } from './firebase/firebase.utils';
 import Checkout from './pages/checkout/checkOut';
-import Page404 from './pages/404/$404';
+import Page404 from './pages/404/notFound';
 import CollectionsOverviewComponent from './component/collections-overview/collections-overview.component';
 import CollectionPage from './pages/collections/collection.componennt';
-
+import Reset from './pages/auth/reset/reset';
+import StripeCheckOut from './component/stripeCheckOut/stripeCheckOut';
 
 class App extends Component {
     unsubscribeFromAuth = null
@@ -50,7 +51,9 @@ class App extends Component {
          </Route>
          <Route path="/signup" element={ <SignUp/> } />
          <Route path="/signin"  element={ <SignIn /> } />
+         <Route path='/reset' element={ <Reset/> }/>
          <Route path="/checkout"  element={ <Checkout /> } />
+         <Route path='/payment' element={ <StripeCheckOut/> }/>
          <Route path="*" element={ <Page404/>}/>
       </Routes>
     </Fragment>

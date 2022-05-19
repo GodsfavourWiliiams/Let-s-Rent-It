@@ -1,3 +1,6 @@
+import { v4 as uuidv4 } from 'uuid';
+
+
 const SHOP_DATA = {
     drones: {
         id: 1,
@@ -276,6 +279,35 @@ const SHOP_DATA = {
                 reviewCount: 57,
                 shipping: 9.00
 
+            },
+            {
+                id: uuidv4(),
+                name: 'Sunpak 5400DLX Tripod',
+                imageUrl: 'https://static.bhphoto.com/images/multiple_images/images500x500/1490959858_IMG_779717.jpg',
+                price: 34,
+                rating: 3,
+                reviewCount: 57,
+                shipping: 9.00
+
+            },
+            {
+                id: uuidv4(),
+                name: 'K&F Concept SA254M2 DSLR',
+                imageUrl: 'https://www.bhphotovideo.com/cdn-cgi/image/format=auto,fit=scale-down,width=500,quality=95/https://www.bhphotovideo.com/images/images500x500/k_f_concept_kf09_089_sa254m2_dslr_camera_tripod_1646654761_1578206.jpg',
+                price: 85,
+                rating: 3,
+                reviewCount: 57,
+                shipping: 9.00
+
+            },
+            {
+                id: uuidv4(),
+                name: 'Manfrotto PIXI Smart Mini Tripod',
+                imageUrl: 'https://www.bhphotovideo.com/cdn-cgi/image/format=auto,fit=scale-down,width=500,quality=95/https://www.bhphotovideo.com/images/images500x500/manfrotto_mkpixiclamp_bk_pixi_mini_table_top_1549299439_1457442.jpg',
+                price: 85,
+                rating: 3,
+                reviewCount: 57,
+                shipping: 9.00
             }
         ]
     },
@@ -355,7 +387,7 @@ const SHOP_DATA = {
             }
         ]
     },
-    powerDrils: {
+    tools: {
         id: 6,
         title: 'Power Drils',
         routeName: 'tools',
@@ -401,23 +433,51 @@ const SHOP_DATA = {
             },
             {
                 id: 39,
-                name: 'Jean Long Sleeve',
-                imageUrl: 'https://media.istockphoto.com/photos/screwdriver-cordless-drill-picture-id496406386?k=20&m=496406386&s=612x612&w=0&h=2KjKjcfdasj6uSuJg-AQa_Nrxdt404KR7_4kFAlfjW8=',
-                price: 40,
+                name: 'Cordless Battery Drill Driver Machine- 24v',
+                imageUrl: 'https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/F/G/108213_1554036994.jpg',
+                price: 60,
                 rating: 5,
                 reviewCount: 130,
-                shipping: 6.00
+                shipping: 6.00,
+                ProductCode: 4259724
 
             },
             {
                 id: 40,
-                name: 'Burgundy T-shirt',
-                imageUrl: 'https://i.ibb.co/mh3VM1f/polka-dot-shirt.png',
-                price: 35,
-                rating: 5,
+                name: 'Maxmech Cordless Drill Screw Driver-24volts',
+                imageUrl: 'https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/S/U/126972_1524134882.jpg',
+                price: 55,
+                rating: 4,
                 reviewCount: 159,
-                shipping: 6.00
-
+                shipping: 6.00,
+                Brand: "MAXMECH"
+            }, {
+                id: 41,
+                name: 'Tools Box Kit With 21v Cordless Screwing Drill 13mm Machine',
+                imageUrl: 'https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/D/W/160594_1629618114.jpg',
+                price: 85,
+                rating: 4,
+                reviewCount: 49,
+                shipping: 12.00,
+                Brand: "MAXMECH"
+            }, {
+                id: 42,
+                name: 'Nanwei 18V Brushed Impact Drill 27N',
+                imageUrl: 'https://vordeo.com/wp-content/uploads/a13ce837-4610-4784-b6d0-1524416998c8.jpg',
+                price: 55,
+                rating: 4,
+                reviewCount: 92,
+                shipping: 6.00,
+                Brand: "MAXMECH"
+            }, {
+                id: 43,
+                name: 'Total 115 Pcs Tools Set With 680w Impact Drill',
+                imageUrl: 'https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/T/C/193531_1632638963.jpg',
+                price: 55,
+                rating: 4,
+                reviewCount: 59,
+                shipping: 6.00,
+                Brand: "MAXMECH"
             }
         ]
     }

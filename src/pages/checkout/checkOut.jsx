@@ -1,22 +1,24 @@
 import React, {useState, useEffect} from 'react';
 import Header from '../../component/header-component/header';
 import { createStructuredSelector} from 'reselect';
-import { selectCartItems, selectCartTotal, selectCartSumTotal, shippingCartSumTotal, selctCartItemsCount } from '../../redux/cart/cart-selector';
+import { selectCartItems, selectCartTotal, selectCartSumTotal, shippingCartSumTotal, selctCartItemsCount, productRentSum } from '../../redux/cart/cart-selector';
 import { connect } from 'react-redux';
 import CheckoutItem from '../../component/checkout-Item/checkout-Item';
 import { auth } from '../../firebase/firebase.utils';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import StripeCheckoutButton from '../../component/stripeCheckOut/stripeCheckOut';
 
-
-
-const Checkout = ({cartItems, total, SumTotal, shipping, ItemCount}) => {
+const Checkout = ({cartItems, total, SumTotal, shipping, ItemCount, rentSum}) => {
     const  [IsFixed, setIsFixed] = useState(false);
     const [discount, setDiscount] = useState('');
+    const [days, setDays] = useState('');
     const [spin, setSpin] = useState(false);
     const [error, setError] = useState(false);
     // const discountCode = "pyia19d";
 
+    console.log(SumTotal)
 
     const [currentUser, loading ] = useAuthState(auth);
     const navigate = useNavigate();
@@ -45,7 +47,7 @@ const Checkout = ({cartItems, total, SumTotal, shipping, ItemCount}) => {
         }, 3000);
     } 
    }
-
+console.log(days)
   return(          
     <div>
         <Header/>
@@ -97,11 +99,10 @@ const Checkout = ({cartItems, total, SumTotal, shipping, ItemCount}) => {
                             <button
                                 className="
                                 mt-2
-                                text-sm text-indigo-100
-                                bg-green-700
+                                text-sm text-white
+                                bg-primary-100
                                 rounded-md
                                 w-full
-                                hover:bg-green-800
                                 focus:outline-none 
                                 focus:ring-2 focus:ring-offset-2 focus:ring-green-500
                                 mb-6
@@ -126,6 +127,14 @@ const Checkout = ({cartItems, total, SumTotal, shipping, ItemCount}) => {
                                     <p className="text-base leading-4 text-gray-700">${total}</p>
                                 </div>
                                 <div className="flex justify-between items-center w-full">
+                                    <p className="text-base leading-4 text-gray-900">Days</p>
+                                    <div className="flex  items-center text-base leading-4 text-gray-700">
+                                        <input type="number" className='focus:ring-green-500 focus:border-green-500 p-2 shadow-sm sm:text-sm border-gray-300 rounded focus:outline-none' min="1" max="7"
+                                        value={days}
+                                        onChange={(e) => setDays(e.target.value)} />
+                                     days</div>
+                                </div>
+                                <div className="flex justify-between items-center w-full">
                                     <p className="text-base leading-4 text-gray-900">
                                         Discount
                                     </p>
@@ -143,7 +152,11 @@ const Checkout = ({cartItems, total, SumTotal, shipping, ItemCount}) => {
                                 <p className="text-base font-semibold leading-4 text-gray-600">$ {SumTotal}</p>
                             </div>
                         </div>
-                       </div>
+                        {/* <Link to="/payment" className="w-full bg-primary-100 border border-transparent rounded-lg mt-4 py-3 px-8 flex items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600">Pay with Card</Link> */}
+                            <div className="mt-3 flex justify-end">
+                                <StripeCheckoutButton SumTotal={SumTotal}/>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -157,7 +170,8 @@ const mapStateToProps = createStructuredSelector ({
     total: selectCartTotal,
     SumTotal: selectCartSumTotal,
     shipping: shippingCartSumTotal,
-    ItemCount: selctCartItemsCount
+    ItemCount: selctCartItemsCount,
+    rentSum: productRentSum
 })
 
 export default connect(mapStateToProps)(Checkout);

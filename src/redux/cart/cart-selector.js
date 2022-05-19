@@ -46,4 +46,13 @@ export const shippingCartSumTotal = createSelector(
         (accumulatedQuantity, cartItem) =>
         accumulatedQuantity + cartItem.quantity * cartItem.shipping, 0
     )
+);
+
+export const productRentSum = createSelector(
+    [selectCartItems],
+    cartItems =>
+    cartItems.reduce(
+        (accumulatedQuantity, cartItem) =>
+        accumulatedQuantity + cartItem.quantity, 0
+    )
 )

@@ -47,7 +47,6 @@ return(
                onClick={
                  () => {
                    logout()
-                   navigate('/signin')
                    window.location.reload(true);
                  }}>
                  <ActionsUser/> 

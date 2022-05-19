@@ -5,7 +5,6 @@ import { FaTimes } from 'react-icons/fa';
 import { connect } from 'react-redux';
 import { toggleCartHidden } from '../../redux/cart/cart.actions';
 import CartItemComponent from '../cartItem/cart-item-component';
-import withRouter from '../menu-item/withRouter';
 import { useNavigate } from 'react-router-dom';
 import { selectCartItems, selectCartTotal, selctCartItemsCount } from '../../redux/cart/cart-selector';
 
@@ -87,7 +86,7 @@ const CartDropdown = ({toggleCartHidden, cartItems, total, ItemCount}) => {
                      <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                      <div className="mt-6">
                      <Button
-                         className="flex items-center justify-center rounded-md border border-transparent bg-green-700 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-green-800"
+                         className="flex items-center w-full justify-center rounded-md border border-transparent bg-primary-100 py-3 text-base font-medium text-white shadow-sm"
                          onClick={() => 
                          {setOpen(false)
                           toggleCartHidden()
@@ -136,4 +135,4 @@ const mapDispatchToProps = dispatch => ({
   
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CartDropdown));
+export default connect(mapStateToProps, mapDispatchToProps)(CartDropdown);

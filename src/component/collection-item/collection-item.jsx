@@ -229,7 +229,7 @@ const CollectionItem = ({item, addItem}) => {
                         </div>
 
                         <Button
-                          className="mt-6 w-full bg-green-700 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600"
+                          className="mt-6 w-full bg-primary-100 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600"
                           onClick={(e) => {
                             addItem(item)
                             e.preventDefault()

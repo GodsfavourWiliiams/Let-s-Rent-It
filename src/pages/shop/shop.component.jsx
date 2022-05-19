@@ -10,7 +10,6 @@ const Shopcomponent = () => {
       const onScrollTOp = () => {
         window.scrollY >= 35 ? setFixedCollections(true) : setFixedCollections(false)
         }
-    
         window.addEventListener('scroll', onScrollTOp)
         
     return (
