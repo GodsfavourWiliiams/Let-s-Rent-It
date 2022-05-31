@@ -167,7 +167,7 @@ const Checkout = ({cartItems, total, SumTotal, shipping, ItemCount, rentSum}) =>
                         </div>
                         {/* <Link to="/payment" className="w-full bg-primary-100 border border-transparent rounded-lg mt-4 py-3 px-8 flex items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600">Pay with Card</Link> */}
                         <div className="flex justify-end mt-4">
-                            <StripeCheck/>
+                            <StripeCheck SumTotal={SumTotal}/>
                         </div>
                         </div>
                     </div>
