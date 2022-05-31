@@ -1,44 +1,32 @@
-import React, { useState, useEffect } from "react";
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
+import React from 'react';
+import StripeCheckout from 'react-stripe-checkout';
+import { toast } from 'react-toastify';
 
-import CheckoutForm from "./CheckoutForm";
-import "./stripe.css";
+const StripeCheckoutButton = ({ SumTotal }) => {
+    const priceForStripe = SumTotal * 100;
+    const publishableKey = 'pk_test_51L0wrJH5DQ8mb7lQeTq038oXEXSTHNHHgbPry7wlrkz8limZFwuzINryghINqBG2iS4xQBU4jNtlP5EHXMgeAurr001CthOFMW';
 
-// Make sure to call loadStripe outside of a component’s render to avoid
-// recreating the Stripe object on every render.
-// This is your test publishable API key.
-const stripePromise = loadStripe("pk_test_51L0wrJH5DQ8mb7lQeTq038oXEXSTHNHHgbPry7wlrkz8limZFwuzINryghINqBG2iS4xQBU4jNtlP5EHXMgeAurr001CthOFMW");
+    const onToken = token => {
+        console.log(token);
+        toast.success('Payment Succesful!');
+    };
 
-export default function App() {
-  const [clientSecret, setClientSecret] = useState("");
+    return (
 
-  useEffect(() => {
-    // Create PaymentIntent as soon as the page loads
-    fetch("/create-payment-intent", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
-    })
-      .then((res) => res.json())
-      .then((data) => setClientSecret(data.clientSecret));
-  }, []);
-
-  const appearance = {
-    theme: 'stripe',
-  };
-  const options = {
-    clientSecret,
-    appearance,
-  };
-
-  return (
-    <div className="App">
-      {clientSecret && (
-        <Elements options={options} stripe={stripePromise}>
-          <CheckoutForm />
-        </Elements>
-      )}
-    </div>
-  );
+        <StripeCheckout
+            label='Pay Now'
+            name='Rentals Co.'
+            billingAddress
+            shippingAddress
+            image='https://www.freakyjolly.com/wp-content/uploads/2020/04/fj-logo.png'
+            description={`Your total is $${SumTotal}`}
+            amount={priceForStripe}
+            panelLabel='Pay Now'
+            token={onToken}
+            stripeKey={publishableKey}
+        />
+    )
 }
+
+
+export default StripeCheckoutButton; 
