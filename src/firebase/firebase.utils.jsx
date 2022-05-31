@@ -14,7 +14,7 @@ import {
     getDocs,
     collection,
     where,
-    addDoc,
+    addDoc, 
 } from "firebase/firestore";
 import { toast } from 'react-toastify';
 
@@ -43,14 +43,17 @@ const signInWithGoogle = async() => {
         const user = res.user;
         const q = query(collection(fireStore, "users"), where("uid", "==", user.uid));
         const docs = await getDocs(q);
+        const timestamp = new Date();
+
         if (docs.docs.length === 0) {
             await addDoc(collection(fireStore, "users"), {
                 uid: user.uid,
                 name: user.displayName,
                 authProvider: "google",
                 email: user.email,
+                createdDate: timestamp,
             });
-        }
+        }   
     } catch (err) {
         if (err) {
             toast.error("Huh!!.. " + err.message);
@@ -76,10 +79,13 @@ const registerWithEmailAndPassword = async(name, email, password) => {
     try {
         const res = await createUserWithEmailAndPassword(auth, email, password);
         const user = res.user;
+        const timestamp = new Date();
+
         await addDoc(collection(fireStore, "users"), {
             uid: user.uid,
             name,
             authProvider: "local",
+            createdDate: timestamp,
             email,
         });
     } catch (err) {
@@ -111,11 +117,36 @@ const logout = () => {
   toast.success("Successfully Logged Out");
 };
 
+export const convertCollectionToMap = async(collections) => {
+    const transformedCollection = (collections.docs.map(doc => {
+        const { title, items } = doc.data();
+
+        return {
+            routeName: encodeURI(title.toLowerCase()),
+            id: doc.id,
+            title,
+            items,
+        }
+    }))
+    return transformedCollection.reduce((accumulator, collection) => {
+        accumulator[collection.title.toLowerCase()] = collection;
+        return accumulator
+    }, {})
+}
+
+export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+    objectsToAdd.forEach(obj => {
+     addDoc(collection(fireStore, collectionKey), obj);
+    });
+}
+
+
 export {
     logout,
     auth,
     logInWithEmailAndPassword,
     signInWithGoogle,
     registerWithEmailAndPassword,
-    sendPasswordReset
+    sendPasswordReset,
+    fireStore
   }

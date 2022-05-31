@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 import FooterComponent from '../../component/footer-component/footer-component';
 import Header from '../../component/header-component/header';
-import Category from '../../component/category-components/catergories';
+import Hero from './homePage Compenents/Hero/Hero';
+
+
 
 const HomePage = ({currentUser}) =>  {
     const  [IsFixed, setIsFixed] = useState(false)
@@ -15,8 +17,8 @@ const HomePage = ({currentUser}) =>  {
     return(
     <>
         <Header currentUser={currentUser}/>
-            <div className={IsFixed ? 'mt-60' : ''}>
-                <Category/>
+            <div className={IsFixed ? 'mt-60' : 'mt-16'}>
+                <Hero/>
             </div>
         <FooterComponent/>
     </>

@@ -69,10 +69,8 @@ const CartDropdown = ({toggleCartHidden, cartItems, total, ItemCount}) => {
                              <CartItemComponent key={cartItem.id} item={cartItem}/>
                            )))
                            :
-                           (
-                           <span className='text-2xl flex items-center font-bold justify-center pt-16'>Your Bag is Empty </span>
-                           )
-                  }
+                           ( <span className='text-xl flex items-center font-bold justify-center pt-16'>Your Bag is Empty </span> )
+                           }
                          </ul>
                        </div>
                      </div>

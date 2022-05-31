@@ -15,19 +15,25 @@ import Page404 from './pages/404/notFound';
 import CollectionsOverviewComponent from './component/collections-overview/collections-overview.component';
 import CollectionPage from './pages/collections/collection.componennt';
 import Reset from './pages/auth/reset/reset';
-import StripeCheckOut from './component/stripeCheckOut/stripeCheckOut';
+import CollectionViewMore from './component/collection-view-more/collectionViewMore';
+import { createStructuredSelector } from 'reselect';
+import { selectCurrentUser } from './redux/user/user.selector';
+import Blog from './pages/Blogs/blog';
+import About from './pages/aboutPage/About';
+
 
 class App extends Component {
     unsubscribeFromAuth = null
 
   componentDidMount(){
-    const { setCurrentUser } = this.props;
-   this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-     if (userAuth) {
-         setCurrentUser({ userAuth })}
-         console.log(userAuth)
-   })
-   
+    const { setCurrentUser} = this.props;
+
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if (userAuth) {
+          setCurrentUser({ userAuth })
+        }
+          console.log(userAuth);
+    })
   }
   
   componentWillUnmount() {
@@ -45,15 +51,19 @@ class App extends Component {
       <ToastContainer/>
         <Routes>
          <Route path="/" element={ <HomePage /> } />
+
          <Route path="/shop" element={ <ShopPage /> }>
-            <Route index element={ <CollectionsOverviewComponent/> }/>
-            <Route path=":collectionId" element={<CollectionPage/>}/>
+            <Route index element={ <CollectionsOverviewComponent/> }/> {/* this is the default /shop view/ */}
+            <Route path=":collectionId" element={<CollectionPage/>}/> {/* this is for the product categories/ */}
+            <Route path=':collectionId/:productId' element={ <CollectionViewMore/> }/> {/* this is for the product overview/ */}
          </Route>
+         
          <Route path="/signup" element={ <SignUp/> } />
          <Route path="/signin"  element={ <SignIn /> } />
          <Route path='/reset' element={ <Reset/> }/>
          <Route path="/checkout"  element={ <Checkout /> } />
-         <Route path='/payment' element={ <StripeCheckOut/> }/>
+         <Route path="/blogs"  element={ <Blog /> } />
+         <Route path="/about"  element={ <About /> } />
          <Route path="*" element={ <Page404/>}/>
       </Routes>
     </Fragment>
@@ -61,8 +71,8 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ user }) => ({
-  currentUser:  user.currentUser
+const mapStateToProps = createStructuredSelector({
+  currentUser:  selectCurrentUser,
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -70,5 +80,6 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
+
 
 

@@ -22,12 +22,12 @@ const INITIAL_STATE = {
         {
             title: 'Musical Instrument',
             id: 5,
-            linkUrl: 'shop/musicalInstrument'
+            linkUrl: 'shop/musical-instrument'
         },
         {
             title: 'Tools',
             id: 6,
-            linkUrl: 'shop/tools'
+            linkUrl: 'shop/power-drils'
         }
     ]
 }
