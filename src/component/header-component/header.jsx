@@ -48,7 +48,7 @@ return(
             <Hamburger className='cursor-pointer md:hidden' onClick={() => setIsDropDownFixed(!IsDropDownFixed)}/>
             <ul className={`md:relative fixed z-40 mt-8 md:right-0 flex md:flex-row flex-col p-4 md:p-0 items-start justify-center md:bg-transparent bg-white shadow md:shadow-none rounded md:space-y-0 space-y-4 md:mt-0 md:text-sm md:font-medium transition-all duration-300 ${IsDropDownFixed ? 'right-4 ' : '-right-80'}`}>
               {currentUser ?
-               <div className='flex flex-row space-x-2 items-center md:pr-0 pr-10 cursor-pointer' 
+               <div className='flex gap-3 flex-row space-x-3 items-center md:pr-0 pr-10 cursor-pointer' 
                onClick={
                  () => {
                    logout()
@@ -58,11 +58,10 @@ return(
                  Log Out
                </div>
                :
-              <Link to="/signin" className='flex flex-row space-x-2 items-center md:pr-0 pr-10'>
+              <Link to="/signin" className='flex flex-row space-x-3 items-center md:pr-0 pr-10'>
                 <ActionsUser/> 
                 <span className=''>Log In</span>
               </Link>
-             
               }
                 <Link to="/shop" className="md:pl-6 ml-0 flex flex-row space-x-3 items-center md:pr-6 pr-10 ">
                   <Shop/>
@@ -75,7 +74,7 @@ return(
           </div>
 
           <div className="mt-8 md:max-w-xs w-full lg:max-w-lg md:hidden flex relative md:order-1 justify-center items-center">
-              <input type="search" className="px-8 rounded-5 w-full lg:max-w-lg h-11 z-0 border focus:outline-none"   placeholder="Search Products, categories ..."/>
+              <input type="search" className="px-8 rounded-5 w-full lg:max-w-lg h-11 z-0 border focus:outline-none" placeholder="Search Products, categories ..."/>
                   <div className="absolute top-3.5 right-3"><SearchIcon className="z-20 "/></div>
           </div>
           </div>

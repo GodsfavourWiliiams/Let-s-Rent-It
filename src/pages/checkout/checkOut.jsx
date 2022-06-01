@@ -13,18 +13,18 @@ import CheckoutItem from '../../component/checkout-Item/checkout-Item';
 import { auth } from '../../firebase/firebase.utils';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import StripeCheck from '../../component/stripeCheckOut/CheckOutStripe';
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRange } from 'react-date-range';
 import { format } from "date-fns";
 import { addDays } from 'date-fns';
+import { toast } from 'react-toastify';
 
 
 
 const Checkout = ({cartItems, total, SumTotal, shipping, ItemCount, rentSum}) => {
-    const  [IsFixed, setIsFixed] = useState(false);
+    const [IsFixed, setIsFixed] = useState(false);
     const [currentUser, loading ] = useAuthState(auth);
     const navigate = useNavigate();
     const [date, setDate] = useState([
