@@ -20,6 +20,7 @@ import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selector';
 import Blog from './pages/Blogs/blog';
 import About from './pages/aboutPage/About';
+import AdminLogin from './pages/auth/admin/adminLogin';
 
 
 class App extends Component {
@@ -39,6 +40,7 @@ class App extends Component {
   componentWillUnmount() {
     this.unsubscribeFromAuth();
   }
+  
   render() {
   toast({
       autoClose: 3000,
@@ -61,6 +63,7 @@ class App extends Component {
          <Route path="/signup" element={ <SignUp/> } />
          <Route path="/signin"  element={ <SignIn /> } />
          <Route path='/reset' element={ <Reset/> }/>
+         <Route path='/adminLogin' element={ <AdminLogin/> }/>
          <Route path="/checkout"  element={ <Checkout /> } />
          <Route path="/blogs"  element={ <Blog /> } />
          <Route path="/about"  element={ <About /> } />

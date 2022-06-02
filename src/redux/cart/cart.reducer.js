@@ -4,7 +4,8 @@ import { addItemToCart, removeItemFromCart } from "./cart.utils";
 
 const INITIAL_STATE = {
     hidden: true,
-    cartItems: []
+    cartItems: [],
+    currentDate: 1
 }
 
 const cartReducer = (state = INITIAL_STATE, action) => {
@@ -34,6 +35,11 @@ const cartReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
 
+            }
+        case CartActionTypes.SET_RETURN_DATE:
+            return {
+                ...state,
+                currentDate: action.payload
             }
         default:
             return state

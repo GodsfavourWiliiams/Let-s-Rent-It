@@ -14,9 +14,9 @@ const Directoy = ({ sections }) => {
   }
 
     return (
-    <div className="bg-neutral-100">
-      <div className=" max-w-7xl mx-auto px-4 xl:px-0">
-        <div className="py-4 justify-between hidden md:flex flex-auto space-x-2">
+    <div className="bg-neutral-100 transition-all ease-in-out duration-700">
+      <div className=" max-w-7xl mx-auto px-4 transition-all ease-in-out duration-700  xl:px-0">
+        <div className="py-4 justify-between transition-all ease-in-out duration-700 hidden md:flex flex-auto space-x-2">
            {sections.map(({id, ...otherSectionProps}) => (
                <MenuItem 
                key={id}
@@ -25,6 +25,8 @@ const Directoy = ({ sections }) => {
            ))}
         </div>
       </div>
+
+      {/* for mobile view */}
       <div className="block md:hidden w-full">
         <div className="cursor-pointer px-4 py-4 text-black flex justify-between items-center w-full"
            onClick={handleDrop}>
@@ -35,7 +37,7 @@ const Directoy = ({ sections }) => {
                     <FaAngleUp className={`${dropDown ? ' ' : 'rotate-180'} transform duration-100`} />
            </div>
           <div className="relative z-50">
-              <div className={`${dropDown ? 'block' : 'hidden'} p-4 bg-white font-bold text-base leading-4 absolute w-full rounded shadow`}>
+              <div className={`${dropDown ? 'block' : 'hidden'} transition-all ease-in-out duration-700  p-4 bg-white font-bold text-base leading-4 absolute w-full rounded shadow`}>
               {sections.map(({id, ...otherSectionProps}) => (
                   <MenuItem 
                   key={id}

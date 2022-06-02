@@ -34,8 +34,8 @@ const SignIn = () => {
     <Link to="/">
         <h2 className="md:text-3xl text-2xl font-bold">Rentals</h2> 
     </Link>
-     <div className=" lg:w-1/3 md:w-1/2 w-full my-6 text-center">
-         <p aria-label="Login to your account" className=" text-xl mb-1 font-bold leading-6 text-gray-800">
+     <div className=" lg:w-1/3 md:w-1/2 w-full my-4 text-center">
+         <p aria-label="Login to your account" className=" text-lg mb-1 font-bold leading-6 text-gray-800">
              Login to your account
          </p>
          <Link to="/signUp" className="text-sm font-medium text-gray-500">
@@ -44,7 +44,7 @@ const SignIn = () => {
                  Sign up here
              </span>
          </Link>
-         <button aria-label="Continue with google" className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-5 border-gray-700 flex items-center w-full mt-10" 
+         <button aria-label="Continue with google" className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-5 border-gray-700 flex items-center w-full mt-6" 
          onClick={signInWithGoogle}>
              <svg width={19} height={20} viewBox="0 0 19 20" fill="none">
                  <path d="M18.9892 10.1871C18.9892 9.36767 18.9246 8.76973 18.7847 8.14966H9.68848V11.848H15.0277C14.9201 12.767 14.3388 14.1512 13.047 15.0812L13.0289 15.205L15.905 17.4969L16.1042 17.5173C17.9342 15.7789 18.9892 13.221 18.9892 10.1871Z" fill="#4285F4" />
@@ -89,7 +89,10 @@ const SignIn = () => {
 
         <Button className="bg-primary-100 w-full mt-6 mb-2 py-3 rounded-5 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-800" >Sign In</Button>
      </form>
-     <Link to='/reset' className="text-indigo-400"> Forgot password? </Link>  
+     <div className="flex justify-between items-center">
+        <Link to='/reset' className="text-indigo-400"> Forgot password? </Link>  
+        <Link to='/adminLogin' className="text-indigo-400"> Admin login </Link>  
+     </div>
  </div>
 </div>
   )

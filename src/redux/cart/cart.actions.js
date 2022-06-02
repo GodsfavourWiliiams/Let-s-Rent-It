@@ -19,3 +19,8 @@ export const removeItem = item => ({
     type: CartActionTypes.REMOVE_ITEM,
     payload: item
 })
+
+export const updateDate = (days) => ({
+    type: 'SET_RETURN_DATE',
+    payload: days
+})

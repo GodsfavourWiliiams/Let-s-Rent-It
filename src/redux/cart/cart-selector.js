@@ -12,6 +12,11 @@ export const selectCartHidden = createSelector(
     cart => cart.hidden
 );
 
+export const selectReturnDate = createSelector(
+    [selectCart],
+    date => date.currentDate
+)
+
 export const selctCartItemsCount = createSelector(
     [selectCartItems],
     cartItems =>
@@ -37,6 +42,7 @@ export const selectCartSumTotal = createSelector(
         (accumulatedQuantity, cartItem) =>
         accumulatedQuantity + cartItem.quantity * cartItem.price + cartItem.shipping * cartItem.quantity, 0
     )
+
 )
 
 export const shippingCartSumTotal = createSelector(
@@ -55,4 +61,14 @@ export const productRentSum = createSelector(
         (accumulatedQuantity, cartItem) =>
         accumulatedQuantity + cartItem.quantity, 0
     )
+)
+
+export const selectRentPriceCount = createSelector(
+    [selectReturnDate],
+    date => date * 20
+)
+
+export const Expand = createSelector(
+    [selectRentPriceCount, selectCartSumTotal],
+    (date, cartTotal) => date + cartTotal
 )

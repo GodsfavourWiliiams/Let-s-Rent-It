@@ -28,11 +28,11 @@ const Header = ({ currentUser, hidden }) => {
   
   window.addEventListener('scroll', onScrollTOp)
 return(
-    <div className=''>
+    <div className='transition-all ease-in-out duration-700 '>
       <Banner/>
-    <div className={ IsNavFixed ? "fixed w-full top-0 z-40" : "relative" }>
-      <div className=" bg-white xl:px-0 px-4">
-        <nav className='max-w-7xl mx-auto border-gray-200 py-10'>
+    <div className={ IsNavFixed ? "fixed w-full top-0 z-40 transition-all ease-in-out duration-700 " : "relative" }>
+      <div className=" bg-white lg:px-8 px-4">
+        <nav className='border-gray-200 py-10'>
           <div className=" flex flex-wrap justify-between items-center mx-auto">
           <Link to='/' className="flex items-center">
               <h2 className="text-3xl font-bold">Rentals</h2> 
@@ -46,7 +46,7 @@ return(
           </div>
           <div className="md:w-auto md:order-1">
             <Hamburger className='cursor-pointer md:hidden' onClick={() => setIsDropDownFixed(!IsDropDownFixed)}/>
-            <ul className={`md:relative fixed z-40 mt-8 md:right-0 flex md:flex-row flex-col p-4 md:p-0 items-start justify-center md:bg-transparent bg-white shadow md:shadow-none rounded md:space-y-0 space-y-4 md:mt-0 md:text-sm md:font-medium transition-all duration-300 ${IsDropDownFixed ? 'right-4 ' : '-right-80'}`}>
+            <ul className={`md:relative fixed z-40 mt-8 md:right-0 flex md:flex-row flex-col p-4 md:p-0 items-start justify-center md:bg-transparent bg-white shadow md:shadow-none rounded md:space-y-0 space-y-4 md:mt-0 md:text-sm md:font-medium transition-all duration-700 ${IsDropDownFixed ? 'right-4 ' : '-right-80'}`}>
               {currentUser ?
                <div className='flex gap-3 flex-row space-x-3 items-center md:pr-0 pr-10 cursor-pointer' 
                onClick={

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import "./style.css";
 // import heroImage from "../../../../component/Assets/image1.png";
 import Product1 from "../../../../component/Assets/h.png";
@@ -7,39 +7,88 @@ import Product3 from "../../../../component/Assets/Laptop.png";
 import Product4 from "../../../../component/Assets/gam.png";
 import Product5 from "../../../../component/Assets/man2.png";
 import Product6 from "../../../../component/Assets/mus.png";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
+
+
+
+const arrowStyles: CSSProperties = {
+      position: 'absolute',
+      zIndex: 2,
+      top: 'calc(50% - 15px)',
+      width: 30,
+      height: 30,
+      cursor: 'pointer',
+  };
+
+  const indicatorStyles: CSSProperties = {
+      background: '#fff',
+      width: 12,
+      height: 12,
+      display: 'inline-block',
+      margin: '0 8px',
+      borderRadius: "50%",
+  };
 
 
 
 const Hero = () => {
   return (
     <>
-     <main className="hero-section bg-gray-200 flex md:flex-row flex-col items-start md:items-center md:justify-between justify-center">
-        <div className='flex'>
-            <div className="">
-                <button className="mr-3 bg-red-600 text-white inline-block rounded border py-1 px-2 text-sm font-semibold ">
-                    Shop By Category
-                </button>
-                <p className='inline-block rounded bg-red-600 py-1 px-2 text-sm font-semibold text-white'>Beats Solo</p>
-                <span className="block font-bold text-3xl md:text-4xl xl:text-6xl py-2">
-                    Wireless
-                </span>
-                <span
-                    className="text-white"
-                    >Headphone
-                </span>
-            </div>
-            {/* <img src={heroImage} alt="" /> */}
-        </div>
-        <div className="flex pt-14 md:pt-6">
-            <div className="text-left md:text-right md:w-80 lg:w-96">
-            <h4 className="inline-block rounded bg-green-600 py-1 px-3 text-sm font-semibold text-white">Description</h4>
-            <p className="pt-4">
-                There are many variations passages of Lorem Ipsum available, but the
-                majority have suffered alteration
-            </p>
-            </div>
-        </div>
+        <Carousel
+        // autoPlay={true}
+            renderArrowPrev={(onClickHandler, hasPrev, label) =>
+                hasPrev && (
+                    <button onClick={onClickHandler} title={label} style={{ ...arrowStyles, left: 22 }}>
+                        <FaArrowLeft/>
+                    </button>
+                )
+            }
+            renderArrowNext={(onClickHandler, hasNext, label) =>
+                hasNext && (
+                    <button onClick={onClickHandler} title={label} style={{ ...arrowStyles, right: 15 }}>
+                        <FaArrowRight/>
+                    </button>
+                )
+            }
+            renderIndicator={(onClickHandler, isSelected, index, label) => {
+                if (isSelected) {
+                    return (
+                        <li
+                            className='animate animate-ping w-40'
+                            style={{ ...indicatorStyles, background: '#000' }}
+                            aria-label={`Selected: ${label} ${index + 1}`}
+                            title={`Selected: ${label} ${index + 1}`}
+                        />
+                    );
+                }
+                return (
+                    <li
+                        style={indicatorStyles}
+                        onClick={onClickHandler}
+                        onKeyDown={onClickHandler}
+                        value={index}
+                        key={index}
+                        role="button"
+                        tabIndex={0}
+                        title={`${label} ${index + 1}`}
+                        aria-label={`${label} ${index + 1}`}
+                    />
+                );
+            }}
+        >
+        <main className="hero-section transition-all ease-in-out duration-700  bg-gray-200 flex md:flex-row flex-col items-start md:items-center md:justify-between justify-center">
+             Slide One 
         </main>
+        <main className="hero-section transition-all ease-in-out duration-700  bg-gray-200 flex md:flex-row flex-col items-start md:items-center md:justify-between justify-center">
+            Slide Two    
+        </main>
+         <main className="hero-section  bg-gray-200 flex md:flex-row flex-col items-start md:items-center md:justify-between justify-center">
+            Slide Three
+        </main>
+    </Carousel>
+    
     <section className="product-section">
       <div className="category bg-black grid">
         <div>

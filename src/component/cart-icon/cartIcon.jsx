@@ -11,10 +11,11 @@ const cartIcon = ({toggleCartHidden, itemCount, cartItem}) => {
             {itemCount ?
             <Ping className='absolute text-xs animate animate-ping' style={{bottom: "22.5px", left: "11px"}}/>
             :
-            <Ping className='absolute text-xs mb-6' style={{left: "11px"}}/>
+            <Ping className='absolute text-xs' style={{bottom: "22.9px", left: "11px"}}/>
             }
             <CartLogo />
-            <span className='absolute text-xs text-green-700 font-bold' style={{top: "9.5px", left: "7.5px"}}>{itemCount <= 9 ? "0" : '' }{itemCount}</span>
+            <span className='absolute text-xs text-green-700 font-bold hidden md:block' style={{top: "9.5px", left: "8px"}}>{itemCount <= 9 ? "0" : '' }{itemCount}</span>
+            <span className='absolute block md:hidden text-xs text-green-700 font-bold' style={{top: "9.5px", left: "6.5px"}}>{itemCount <= 9 ? "0" : '' }{itemCount}</span>
             <span className='ml-3 -mb-1 relative '>Cart</span>
         </div>
     )

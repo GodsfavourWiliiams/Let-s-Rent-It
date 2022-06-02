@@ -1,6 +1,11 @@
 import {useState} from 'react';
 import FooterComponent from '../../component/footer-component/footer-component';
 import Header from '../../component/header-component/header';
+import Image1 from "../../component/Assets/image-1.jpg";
+import Image2 from "../../component/Assets/image-2.jpg";
+import Image3 from "../../component/Assets/image-3.jpg";
+
+
 
 const About = () => {
     const [fixedCollections, setFixedCollections ] = useState(false);
@@ -12,7 +17,7 @@ const About = () => {
   return (
       <>
       <Header/>
-          <section className={`${fixedCollections ? 'mt-56' : 'mt-6'} overflow-hidden pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]`}>
+          <section className={`${fixedCollections ? 'mt-56' : 'mt-6'} overflow-hidden pt-20 pb-12 p-4 xl:p-0 max-w-7xl lg:pt-[120px] lg:pb-[90px] mx-auto`}>
             <div className="container">
                 <div className="-mx-4 flex flex-wrap items-center justify-between">
                 <div className="w-full px-4 lg:w-6/12">
@@ -20,14 +25,14 @@ const About = () => {
                     <div className="w-full px-3 sm:px-4 xl:w-1/2">
                         <div className="py-3 sm:py-4">
                         <img
-                            src="assets/images/about/image-1.jpg"
+                            src={Image1}
                             alt="1"
                             className="w-full rounded-2xl"
                         />
                         </div>
                         <div className="py-3 sm:py-4">
                         <img
-                            src="assets/images/about/image-2.jpg"
+                            src={Image2}
                             alt="2"
                             className="w-full rounded-2xl"
                         />
@@ -36,7 +41,7 @@ const About = () => {
                     <div className="w-full px-3 sm:px-4 xl:w-1/2">
                         <div className="relative z-10 my-4">
                         <img
-                            src="assets/images/about/image-3.jpg"
+                            src={Image3}
                             alt="3"
                             className="w-full rounded-2xl"
                         />
@@ -616,7 +621,7 @@ const About = () => {
                 </div>
                 <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
                     <div className="mt-10 lg:mt-0">
-                    <span className="mb-2 block text-lg font-semibold text-primary">
+                    <span className="mb-2 block text-lg font-semibold text-green-500">
                         Why Choose Us
                     </span>
                     <h2 className="mb-8 text-3xl font-bold text-dark sm:text-4xl">
@@ -632,12 +637,11 @@ const About = () => {
                         brand. Secure a consistent brand image with a domain name that
                         matches your business.
                     </p>
-                    <a
-                        href="/"
-                        className="inline-flex items-center justify-center rounded-lg bg-primary py-4 px-10 text-center text-base font-normal text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
+                    <button
+                        className="inline-flex items-center justify-center rounded-lg bg-primary-100 py-4 px-10 text-center text-base font-normal text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
                     >
                         Get Started
-                    </a>
+                    </button>
                     </div>
                 </div>
                 </div>

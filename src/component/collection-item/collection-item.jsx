@@ -1,7 +1,6 @@
-// import { useState, useEffect } from 'react';
 import { Fragment } from 'react'
 import { useNavigate } from 'react-router-dom';
-import {FaExpand, FaShoppingCart} from "react-icons/fa";
+import { FaExpand, FaShoppingCart } from "react-icons/fa";
 import { connect } from 'react-redux';
 import { addItem } from '../../redux/cart/cart.actions';
 import { toast } from 'react-toastify';

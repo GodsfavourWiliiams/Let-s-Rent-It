@@ -7,7 +7,9 @@ import {
     selectCartSumTotal, 
     shippingCartSumTotal, 
     selctCartItemsCount, 
-    productRentSum } from '../../redux/cart/cart-selector';
+    productRentSum, 
+    selectRentPriceCount,
+    Expand} from '../../redux/cart/cart-selector';
 import { connect } from 'react-redux';
 import CheckoutItem from '../../component/checkout-Item/checkout-Item';
 import { auth } from '../../firebase/firebase.utils';
@@ -20,10 +22,15 @@ import { DateRange } from 'react-date-range';
 import { format } from "date-fns";
 import { addDays } from 'date-fns';
 import { toast } from 'react-toastify';
+import { updateDate } from '../../redux/cart/cart.actions';
 
 
+const Checkout = ({
+    cartItems, total, SumTotal, 
+    shipping, ItemCount, rentSum, 
+    updateDate, rentDaysSum, expand}) => {
 
-const Checkout = ({cartItems, total, SumTotal, shipping, ItemCount, rentSum}) => {
+
     const [IsFixed, setIsFixed] = useState(false);
     const [currentUser, loading ] = useAuthState(auth);
     const navigate = useNavigate();
@@ -39,12 +46,13 @@ const Checkout = ({cartItems, total, SumTotal, shipping, ItemCount, rentSum}) =>
     const dateTwo = format(date[0].endDate, "MM/dd/yyyy");
 
     let millisecondsPerDay = 24 * 60 * 60 * 1000;
-    const dayDifference = Math.ceil(((new Date(dateTwo)) - new Date(dateOne)) / millisecondsPerDay) + 1;
+    const dayDifference = Math.ceil(((new Date(dateTwo)) - new Date(dateOne)) / millisecondsPerDay);
   
   
     useEffect(() => {
       if (loading) return;
       if (!currentUser) return navigate("/signin");
+      updateDate(dayDifference)
     });
 
     // console.log(cartItems)
@@ -115,11 +123,6 @@ const Checkout = ({cartItems, total, SumTotal, shipping, ItemCount, rentSum}) =>
                             <h3 className="text-xl font-semibold leading-5 text-gray-800">Summary</h3>
                             <div className="flex justify-center items-center w-full space-y-4 flex-col border-gray-200 border-b pb-4">
 
-                                <div className="flex justify-between  w-full">
-                                    <p className="text-base leading-4 text-gray-900">Subtotal</p>
-                                    <p className="text-base leading-4 text-gray-700">${total}</p>
-                                </div>
-
                                 <DateRange
                                     editableDateInputs={true}
                                     onChange={item => setDate([item.selection])}
@@ -128,22 +131,16 @@ const Checkout = ({cartItems, total, SumTotal, shipping, ItemCount, rentSum}) =>
                                     rangeColors={['green']}
                                     minDate={addDays(new Date(), -0)}
                                     maxDate={addDays(new Date(), 14)}
-                                    />
-{/* 
-                                <div className="flex justify-between  w-full">
-                                    <p className="text-base leading-4 text-gray-900">Date </p>
-                                    <p className="text-base leading-4 text-gray-700">
-                                        {`${format(date[0].startDate, "MM/dd/yyyy")}`} -
-                                        <span className='ml-1 text-red-500'>
-                                        {`${format(date[0].endDate, "MM/dd/yyyy")}`}
-                                        </span>
-                                        </p>
-                                </div> */}
-
+                                />
                                 
                                 <div className="flex justify-between  w-full">
                                     <p className="text-base leading-4 text-gray-900">Date</p>
-                                    <p className="text-base leading-4 text-gray-700">{dayDifference} days (${shipping})</p>
+                                    <p className="text-base leading-4 text-gray-700">{dayDifference} days (${rentDaysSum})</p>
+                                </div>
+                               
+                                <div className="flex justify-between  w-full">
+                                    <p className="text-base leading-4 text-gray-900">Subtotal</p>
+                                    <p className="text-base leading-4 text-gray-700">${total}</p>
                                 </div>
 
                                 <div className="flex justify-between items-center w-full">
@@ -157,17 +154,17 @@ const Checkout = ({cartItems, total, SumTotal, shipping, ItemCount, rentSum}) =>
                                     <p className="text-base leading-4 text-gray-900">Shipping</p>
                                     <p className="text-base leading-4 flex text-gray-700">$
                                         {shipping}
-                                     </p>
+                                    </p>
                                 </div>
-                            </div>
+                             </div>
                             <div className="flex justify-between items-center w-full">
                                 <p className="text-base font-semibold leading-4 text-gray-800">Total</p>
-                                <p className="text-base font-semibold leading-4 text-gray-600">$ {SumTotal}</p>
+                                <p className="text-base font-semibold leading-4 text-gray-600">$ {expand}</p>
                             </div>
                         </div>
                         {/* <Link to="/payment" className="w-full bg-primary-100 border border-transparent rounded-lg mt-4 py-3 px-8 flex items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600">Pay with Card</Link> */}
                         <div className="flex justify-end mt-4">
-                            <StripeCheck SumTotal={SumTotal}/>
+                            {/* <StripeCheck SumTotal={SumTotal}/> */}
                         </div>
                         </div>
                     </div>
@@ -185,7 +182,13 @@ const mapStateToProps = createStructuredSelector ({
     SumTotal: selectCartSumTotal,
     shipping: shippingCartSumTotal,
     ItemCount: selctCartItemsCount,
-    rentSum: productRentSum
+    rentSum: productRentSum,
+    rentDaysSum: selectRentPriceCount,
+    expand: Expand
+})
+const mapDispatchToProps = dispatch => ({
+    updateDate: days => 
+    dispatch(updateDate(days))
 })
 
-export default connect(mapStateToProps)(Checkout);
+export default connect(mapStateToProps, mapDispatchToProps)(Checkout);
