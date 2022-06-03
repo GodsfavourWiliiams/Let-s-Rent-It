@@ -1,17 +1,20 @@
-import React from 'react'
+import { useState } from 'react';
 
 const Dashboard = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isSidebar, setIsSidebar] = useState(false);
+
   return (
     <div>
      <div
-      className="flex bg-gray-50 dark:bg-gray-900"
+      className="flex bg-gray-100"
     >
       <aside
-        className="z-30 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0"
+        className="z-30 hidden w-64 overflow-y-auto bg-white  md:block flex-shrink-0"
       >
-        <div className="py-4 text-gray-500 dark:text-gray-400">
+        <div className="py-4 text-gray-500">
           <a
-            className="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
+            className="ml-6 text-lg font-bold text-gray-800 "
             href="/"
           >
             Windmill
@@ -23,7 +26,7 @@ const Dashboard = () => {
                 aria-hidden="true"
               ></span>
               <a
-                className="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+                className="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 "
                 href="index.html"
               >
                 <svg
@@ -47,7 +50,7 @@ const Dashboard = () => {
           <ul>
             <li className="relative px-6 py-3">
               <a
-                className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
                 href="forms.html"
               >
                 <svg
@@ -69,7 +72,7 @@ const Dashboard = () => {
             </li>
             <li className="relative px-6 py-3">
               <a
-                className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
                 href="cards.html"
               >
                 <svg
@@ -89,96 +92,10 @@ const Dashboard = () => {
                 <span className="ml-4">Cards</span>
               </a>
             </li>
-            <li className="relative px-6 py-3">
-              <a
-                className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="charts.html"
-              >
-                <svg
-                  className="w-5 h-5"
-                  aria-hidden="true"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
-                  ></path>
-                  <path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
-                </svg>
-                <span className="ml-4">Charts</span>
-              </a>
-            </li>
-            <li className="relative px-6 py-3">
-              <a
-                className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="buttons.html"
-              >
-                <svg
-                  className="w-5 h-5"
-                  aria-hidden="true"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
-                  ></path>
-                </svg>
-                <span className="ml-4">Buttons</span>
-              </a>
-            </li>
-            <li className="relative px-6 py-3">
-              <a
-                className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="/"
-              >
-                <svg
-                  className="w-5 h-5"
-                  aria-hidden="true"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
-                  ></path>
-                </svg>
-                <span className="ml-4">Modals</span>
-              </a>
-            </li>
-            <li className="relative px-6 py-3">
-              <a
-                className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="tables.html"
-              >
-                <svg
-                  className="w-5 h-5"
-                  aria-hidden="true"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
-                </svg>
-                <span className="ml-4">Tables</span>
-              </a>
-            </li>
+         
             <li className="relative px-6 py-3">
               <button
-                className="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                className="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
                 aria-haspopup="true"
               >
                 <span className="inline-flex items-center">
@@ -217,12 +134,13 @@ const Dashboard = () => {
          
         </div>
       </aside>
+      {/* mobile view */}
       <aside
-        className="fixed inset-y-0 z-20 flex-shrink-0 w-64 mt-16 overflow-y-auto bg-white dark:bg-gray-800 md:hidden"
+        className={`fixed inset-y-0 z-20 flex-shrink-0 w-64 mt-16 overflow-y-auto bg-white md:hidden ${isSidebar ? "block" : "hidden"}`}
       >
-        <div className="py-4 text-gray-500 dark:text-gray-400">
+        <div className="py-4 text-gray-500">
           <a
-            className="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
+            className="ml-6 text-lg font-bold text-gray-800 "
             href="/"
           >
             Windmill
@@ -234,7 +152,7 @@ const Dashboard = () => {
                 aria-hidden="true"
               ></span>
               <a
-                className="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+                className="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 "
                 href="index.html"
               >
                 <svg
@@ -259,13 +177,14 @@ const Dashboard = () => {
         </div>
       </aside>
       <div className="flex flex-col flex-1 w-full">
-        <header className="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
+        <header className="z-10 py-4 bg-white shadow">
           <div
-            className="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300"
+            className="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 00"
           >
             <button
               className="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple"
               aria-label="Menu"
+              onClick={() => setIsSidebar(!isSidebar)}
             >
               <svg
                 className="w-6 h-6"
@@ -299,7 +218,7 @@ const Dashboard = () => {
                   </svg>
                 </div>
                 <input
-                  className="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
+                  className="w-full pl-8 pr-2 py-3 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md  focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
                   type="text"
                   placeholder="Search for projects"
                   aria-label="Search"
@@ -307,107 +226,14 @@ const Dashboard = () => {
               </div>
             </div>
             <ul className="flex items-center flex-shrink-0 space-x-6">
-              <li className="flex">
-                <button
-                  className="rounded-md focus:outline-none focus:shadow-outline-purple"
-                  aria-label="Toggle color mode"
-                >
-                  <div x-if="!dark">
-                    <svg
-                      className="w-5 h-5"
-                      aria-hidden="true"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
-                      ></path>
-                    </svg>
-                  </div>
-                  <div x-if="dark">
-                    <svg
-                      className="w-5 h-5"
-                      aria-hidden="true"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                  </div>
-                </button>
-              </li>
-              <li className="relative">
-                <button
-                  className="relative align-middle rounded-md focus:outline-none focus:shadow-outline-purple"
-                  aria-label="Notifications"
-                  aria-haspopup="true"
-                >
-                  <svg
-                    className="w-5 h-5"
-                    aria-hidden="true"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"
-                    ></path>
-                  </svg>
-                  <span
-                    aria-hidden="true"
-                    className="absolute top-0 right-0 inline-block w-3 h-3 transform translate-x-1 -translate-y-1 bg-red-600 border-2 border-white rounded-full dark:border-gray-800"
-                  ></span>
-                </button>
-                <div x-if="isNotificationsMenuOpen">
-                  <ul
-                   
-                    className="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700"
-                  >
-                    <li className="flex">
-                      <a
-                        className="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                        href="/"
-                      >
-                        <span>Messages</span>
-                        <span
-                          className="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-600 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-600"
-                        >
-                          13
-                        </span>
-                      </a>
-                    </li>
-                    <li className="flex">
-                      <a
-                        className="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                        href="/"
-                      >
-                        <span>Sales</span>
-                        <span
-                          className="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-600 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-600"
-                        >
-                          2
-                        </span>
-                      </a>
-                    </li>
-                    <li className="flex">
-                      <a
-                        className="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                        href="/"
-                      >
-                        <span>Alerts</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
+              
+              
               <li className="relative">
                 <button
                   className="align-middle rounded-full focus:shadow-outline-purple focus:outline-none"
                   aria-label="Account"
                   aria-haspopup="true"
+                  onClick={() => setIsOpen(!isOpen)}
                 >
                   <img
                     className="object-cover w-8 h-8 rounded-full"
@@ -416,15 +242,15 @@ const Dashboard = () => {
                     aria-hidden="true"
                   />
                 </button>
-                <div x-if="isProfileMenuOpen">
+                <div className={isOpen ? "block" : "hidden"}>
                   <ul
                    
-                    className="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:border-gray-700 dark:text-gray-300 dark:bg-gray-700"
+                    className="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md 0"
                     aria-label="submenu"
                   >
                     <li className="flex">
                       <a
-                        className="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                        className="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 "
                         href="/"
                       >
                         <svg
@@ -446,7 +272,7 @@ const Dashboard = () => {
                     </li>
                     <li className="flex">
                       <a
-                        className="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                        className="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 "
                         href="/"
                       >
                         <svg
@@ -469,7 +295,7 @@ const Dashboard = () => {
                     </li>
                     <li className="flex">
                       <a
-                        className="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                        className="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 "
                         href="/"
                       >
                         <svg
@@ -498,17 +324,17 @@ const Dashboard = () => {
         <main className="h-full overflow-y-auto">
           <div className="container px-6 mx-auto grid">
             <h2
-              className="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+              className="my-6 text-2xl font-semibold text-gray-700 "
             >
               Dashboard
             </h2>
            
             <div className="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
               <div
-                className="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
+                className="flex items-center p-4 bg-white rounded-lg shadow-xs "
               >
                 <div
-                  className="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500"
+                  className="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path
@@ -518,22 +344,22 @@ const Dashboard = () => {
                 </div>
                 <div>
                   <p
-                    className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
+                    className="mb-2 text-sm font-medium text-gray-600"
                   >
                     Total clients
                   </p>
                   <p
-                    className="text-lg font-semibold text-gray-700 dark:text-gray-200"
+                    className="text-lg font-semibold text-gray-700 "
                   >
                     6389
                   </p>
                 </div>
               </div>
               <div
-                className="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
+                className="flex items-center p-4 bg-white rounded-lg shadow-xs "
               >
                 <div
-                  className="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500"
+                  className="p-3 mr-4 text-green-500 bg-green-100 rounded-full"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path
@@ -545,22 +371,22 @@ const Dashboard = () => {
                 </div>
                 <div>
                   <p
-                    className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
+                    className="mb-2 text-sm font-medium text-gray-600"
                   >
                     Account balance
                   </p>
                   <p
-                    className="text-lg font-semibold text-gray-700 dark:text-gray-200"
+                    className="text-lg font-semibold text-gray-700 "
                   >
                     $ 46,760.89
                   </p>
                 </div>
               </div>
               <div
-                className="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
+                className="flex items-center p-4 bg-white rounded-lg shadow-xs "
               >
                 <div
-                  className="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500"
+                  className="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full "
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path
@@ -570,22 +396,22 @@ const Dashboard = () => {
                 </div>
                 <div>
                   <p
-                    className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
+                    className="mb-2 text-sm font-medium text-gray-600"
                   >
                     New sales
                   </p>
                   <p
-                    className="text-lg font-semibold text-gray-700 dark:text-gray-200"
+                    className="text-lg font-semibold text-gray-700 "
                   >
                     376
                   </p>
                 </div>
               </div>
               <div
-                className="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
+                className="flex items-center p-4 bg-white rounded-lg shadow-xs "
               >
                 <div
-                  className="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500"
+                  className="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full "
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path
@@ -597,12 +423,12 @@ const Dashboard = () => {
                 </div>
                 <div>
                   <p
-                    className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
+                    className="mb-2 text-sm font-medium text-gray-600"
                   >
                     Pending contacts
                   </p>
                   <p
-                    className="text-lg font-semibold text-gray-700 dark:text-gray-200"
+                    className="text-lg font-semibold text-gray-700 "
                   >
                     35
                   </p>
@@ -615,7 +441,7 @@ const Dashboard = () => {
                 <table className="w-full whitespace-no-wrap">
                   <thead>
                     <tr
-                      className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
+                      className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-50 "
                     >
                       <th className="px-4 py-3">Client</th>
                       <th className="px-4 py-3">Amount</th>
@@ -624,9 +450,9 @@ const Dashboard = () => {
                     </tr>
                   </thead>
                   <tbody
-                    className="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
+                    className="bg-white divide-y"
                   >
-                    <tr className="text-gray-700 dark:text-gray-400">
+                    <tr className="text-gray-700">
                       <td className="px-4 py-3">
                         <div className="flex items-center text-sm">
                           <div
@@ -645,7 +471,7 @@ const Dashboard = () => {
                           </div>
                           <div>
                             <p className="font-semibold">Hans Burger</p>
-                            <p className="text-xs text-gray-600 dark:text-gray-400">
+                            <p className="text-xs text-gray-600">
                               10x Developer
                             </p>
                           </div>
@@ -656,7 +482,7 @@ const Dashboard = () => {
                       </td>
                       <td className="px-4 py-3 text-xs">
                         <span
-                          className="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                          className="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full "
                         >
                           Approved
                         </span>
@@ -666,7 +492,7 @@ const Dashboard = () => {
                       </td>
                     </tr>
 
-                    <tr className="text-gray-700 dark:text-gray-400">
+                    <tr className="text-gray-700">
                       <td className="px-4 py-3">
                         <div className="flex items-center text-sm">
                           <div
@@ -685,7 +511,7 @@ const Dashboard = () => {
                           </div>
                           <div>
                             <p className="font-semibold">Jolina Angelie</p>
-                            <p className="text-xs text-gray-600 dark:text-gray-400">
+                            <p className="text-xs text-gray-600">
                               Unemployed
                             </p>
                           </div>
@@ -696,7 +522,7 @@ const Dashboard = () => {
                       </td>
                       <td className="px-4 py-3 text-xs">
                         <span
-                          className="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600"
+                          className="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full"
                         >
                           Pending
                         </span>
@@ -706,7 +532,7 @@ const Dashboard = () => {
                       </td>
                     </tr>
 
-                    <tr className="text-gray-700 dark:text-gray-400">
+                    <tr className="text-gray-700">
                       <td className="px-4 py-3">
                         <div className="flex items-center text-sm">
                           <div
@@ -725,7 +551,7 @@ const Dashboard = () => {
                           </div>
                           <div>
                             <p className="font-semibold">Sarah Curry</p>
-                            <p className="text-xs text-gray-600 dark:text-gray-400">
+                            <p className="text-xs text-gray-600">
                               Designer
                             </p>
                           </div>
@@ -736,7 +562,7 @@ const Dashboard = () => {
                       </td>
                       <td className="px-4 py-3 text-xs">
                         <span
-                          className="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700"
+                          className="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full "
                         >
                           Denied
                         </span>
@@ -746,7 +572,7 @@ const Dashboard = () => {
                       </td>
                     </tr>
 
-                    <tr className="text-gray-700 dark:text-gray-400">
+                    <tr className="text-gray-700">
                       <td className="px-4 py-3">
                         <div className="flex items-center text-sm">
                           <div
@@ -765,7 +591,7 @@ const Dashboard = () => {
                           </div>
                           <div>
                             <p className="font-semibold">Rulia Joberts</p>
-                            <p className="text-xs text-gray-600 dark:text-gray-400">
+                            <p className="text-xs text-gray-600">
                               Actress
                             </p>
                           </div>
@@ -776,7 +602,7 @@ const Dashboard = () => {
                       </td>
                       <td className="px-4 py-3 text-xs">
                         <span
-                          className="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                          className="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full "
                         >
                           Approved
                         </span>
@@ -786,7 +612,7 @@ const Dashboard = () => {
                       </td>
                     </tr>
 
-                    <tr className="text-gray-700 dark:text-gray-400">
+                    <tr className="text-gray-700">
                       <td className="px-4 py-3">
                         <div className="flex items-center text-sm">
                           <div
@@ -805,7 +631,7 @@ const Dashboard = () => {
                           </div>
                           <div>
                             <p className="font-semibold">Wenzel Dashington</p>
-                            <p className="text-xs text-gray-600 dark:text-gray-400">
+                            <p className="text-xs text-gray-600">
                               Actor
                             </p>
                           </div>
@@ -816,7 +642,7 @@ const Dashboard = () => {
                       </td>
                       <td className="px-4 py-3 text-xs">
                         <span
-                          className="px-2 py-1 font-semibold leading-tight text-gray-700 bg-gray-100 rounded-full dark:text-gray-100 dark:bg-gray-700"
+                          className="px-2 py-1 font-semibold leading-tight text-gray-700 bg-gray-100 rounded-full "
                         >
                           Expired
                         </span>
@@ -829,7 +655,7 @@ const Dashboard = () => {
                 </table>
               </div>
               <div
-                className="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800"
+                className="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t bg-gray-50 sm:grid-cols-9 "
               >
                 <span className="flex items-center col-span-3">
                   Showing 21-30 of 100
@@ -922,68 +748,6 @@ const Dashboard = () => {
                     </ul>
                   </nav>
                 </span>
-              </div>
-            </div>
-
-            <h2
-              className="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
-            >
-              Charts
-            </h2>
-            <div className="grid gap-6 mb-8 md:grid-cols-2">
-              <div
-                className="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
-              >
-                <h4 className="mb-4 font-semibold text-gray-800 dark:text-gray-300">
-                  Revenue
-                </h4>
-                <canvas id="pie"></canvas>
-                <div
-                  className="flex justify-center mt-4 space-x-3 text-sm text-gray-600 dark:text-gray-400"
-                >
-                  <div className="flex items-center">
-                    <span
-                      className="inline-block w-3 h-3 mr-1 bg-blue-500 rounded-full"
-                    ></span>
-                    <span>Shirts</span>
-                  </div>
-                  <div className="flex items-center">
-                    <span
-                      className="inline-block w-3 h-3 mr-1 bg-teal-600 rounded-full"
-                    ></span>
-                    <span>Shoes</span>
-                  </div>
-                  <div className="flex items-center">
-                    <span
-                      className="inline-block w-3 h-3 mr-1 bg-primary-100 rounded-full"
-                    ></span>
-                    <span>Bags</span>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
-              >
-                <h4 className="mb-4 font-semibold text-gray-800 dark:text-gray-300">
-                  Traffic
-                </h4>
-                <canvas id="line"></canvas>
-                <div
-                  className="flex justify-center mt-4 space-x-3 text-sm text-gray-600 dark:text-gray-400"
-                >
-                  <div className="flex items-center">
-                    <span
-                      className="inline-block w-3 h-3 mr-1 bg-teal-600 rounded-full"
-                    ></span>
-                    <span>Organic</span>
-                  </div>
-                  <div className="flex items-center">
-                    <span
-                      className="inline-block w-3 h-3 mr-1 bg-primary-100 rounded-full"
-                    ></span>
-                    <span>Paid</span>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
