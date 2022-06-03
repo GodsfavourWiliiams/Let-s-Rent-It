@@ -20,7 +20,8 @@ import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selector';
 import Blog from './pages/Blogs/blog';
 import About from './pages/aboutPage/About';
-import AdminLogin from './pages/auth/admin/adminLogin';
+import AdminLogin from './pages/auth/adminAuth/adminLogin';
+import Dashboard from './pages/dashboard/dashboard';
 
 
 class App extends Component {
@@ -68,6 +69,7 @@ class App extends Component {
          <Route path="/blogs"  element={ <Blog /> } />
          <Route path="/about"  element={ <About /> } />
          <Route path="*" element={ <Page404/>}/>
+         <Route path='/dashboard' element={ <Dashboard/>}/>
       </Routes>
     </Fragment>
     )
