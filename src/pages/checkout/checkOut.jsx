@@ -28,7 +28,7 @@ import { updateDate } from '../../redux/cart/cart.actions';
 const Checkout = ({
     cartItems, total, SumTotal, 
     shipping, ItemCount, rentSum, 
-    updateDate, rentDaysSum, expand}) => {
+    updateDate, rentDaysSum, Summation}) => {
 
 
     const [IsFixed, setIsFixed] = useState(false);
@@ -159,12 +159,12 @@ const Checkout = ({
                              </div>
                             <div className="flex justify-between items-center w-full">
                                 <p className="text-base font-semibold leading-4 text-gray-800">Total</p>
-                                <p className="text-base font-semibold leading-4 text-gray-600">$ {expand}</p>
+                                <p className="text-base font-semibold leading-4 text-gray-600">$ {Summation}</p>
                             </div>
                         </div>
                         {/* <Link to="/payment" className="w-full bg-primary-100 border border-transparent rounded-lg mt-4 py-3 px-8 flex items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600">Pay with Card</Link> */}
                         <div className="flex justify-end mt-4">
-                            {/* <StripeCheck SumTotal={SumTotal}/> */}
+                            <StripeCheck Summation={Summation}/>
                         </div>
                         </div>
                     </div>
@@ -184,7 +184,7 @@ const mapStateToProps = createStructuredSelector ({
     ItemCount: selctCartItemsCount,
     rentSum: productRentSum,
     rentDaysSum: selectRentPriceCount,
-    expand: Expand
+    Summation: Expand
 })
 const mapDispatchToProps = dispatch => ({
     updateDate: days => 

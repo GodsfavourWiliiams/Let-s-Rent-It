@@ -14,14 +14,14 @@ const CollectionItem = ({ addItem, item }) => {
   return (
     <>
        <div className="product__item group relative border rounded-lg cursor-pointer">
-            <div className="w-full bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 h-80 lg:aspect-none">
+            <div className="w-full bg-gray-200 rounded-md group-hover:opacity-75 flex-shrink-0 overflow-hidden mx-auto sm:h-40 sm:w-40 w-24 h-24 mt-4">
               <img
                 src={imageUrl}
                 alt="names"
-                className="w-full h-full object-center object-cover lg:w-full lg:h-full"
+                className="w-full h-full object-cover"
               />
             </div>
-            <div className="mt-4 flex justify-between p-3">
+            <div className="mt-4 flex justify-between flex-col p-3">
               <div>
                 <h3 className="text-sm text-gray-700">
                     <span aria-hidden="true" className="absolute inset-0" />
@@ -30,7 +30,7 @@ const CollectionItem = ({ addItem, item }) => {
                 <div className="product__hover">
                     <FaShoppingCart className='cart p-2 rounded-lg bg-white shadow-sm hover:bg-green-500 hover:text-white'  onClick={() => {
                             addItem(item)
-                            toast.success( name + "succecfully added")
+                            toast.success( name + " Successfully added")
                           }}/>
                     <FaExpand className='cart p-2 rounded-lg bg-white shadow-sm hover:bg-green-500 hover:text-white'
                     onClick={() => {
@@ -38,11 +38,14 @@ const CollectionItem = ({ addItem, item }) => {
                     }
                     }
                     />
-                </div>
-                <p className="mt-1 text-sm text-gray-500">Shop Now</p>
+                </div>            
               </div>
-              <p className="text-sm font-medium text-gray-900">$ {price}</p>
+              <div className="flex justify-between items-center">
+                    <p className="mt-1 text-sm text-gray-500">Shop Now</p>
+                    <p className="text-sm font-medium text-gray-900">$ {price}</p>
+                </div>
             </div>
+                
       </div>
   </>
         
