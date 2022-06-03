@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { ReactComponent as SearchIcon} from '../../component/Assets/search.svg';
+import { ReactComponent as Hamburger } from '../../component/Assets/darhboard_alt.svg';
 
 const Dashboard = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,14 +12,14 @@ const Dashboard = () => {
       className="flex bg-gray-100"
     >
       <aside
-        className="z-30 hidden w-64 overflow-y-auto bg-white  md:block flex-shrink-0"
+        className="z-30 hidden w-64 overflow-y-auto bg-white md:block flex-shrink-0"
       >
-        <div className="py-4 text-gray-500">
+        <div className="py-4 text-gray-500 h-screen">
           <a
             className="ml-6 text-lg font-bold text-gray-800 "
             href="/"
           >
-            Windmill
+            Rentals
           </a>
           <ul className="mt-6">
             <li className="relative px-6 py-3">
@@ -51,7 +53,7 @@ const Dashboard = () => {
             <li className="relative px-6 py-3">
               <a
                 className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
-                href="forms.html"
+                href="/"
               >
                 <svg
                   className="w-5 h-5"
@@ -67,13 +69,13 @@ const Dashboard = () => {
                     d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
                   ></path>
                 </svg>
-                <span className="ml-4">Forms</span>
+                <span className="ml-4">Add Product</span>
               </a>
             </li>
             <li className="relative px-6 py-3">
               <a
                 className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
-                href="cards.html"
+                href="/"
               >
                 <svg
                   className="w-5 h-5"
@@ -89,46 +91,8 @@ const Dashboard = () => {
                     d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
                   ></path>
                 </svg>
-                <span className="ml-4">Cards</span>
+                <span className="ml-4">Products</span>
               </a>
-            </li>
-         
-            <li className="relative px-6 py-3">
-              <button
-                className="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
-                aria-haspopup="true"
-              >
-                <span className="inline-flex items-center">
-                  <svg
-                    className="w-5 h-5"
-                    aria-hidden="true"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
-                    ></path>
-                  </svg>
-                  <span className="ml-4">Pages</span>
-                </span>
-                <svg
-                  className="w-4 h-4"
-                  aria-hidden="true"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-              </button>
-            
             </li>
           </ul>
          
@@ -143,7 +107,7 @@ const Dashboard = () => {
             className="ml-6 text-lg font-bold text-gray-800 "
             href="/"
           >
-            Windmill
+            Rentals
           </a>
           <ul className="mt-6">
             <li className="relative px-6 py-3">
@@ -153,7 +117,7 @@ const Dashboard = () => {
               ></span>
               <a
                 className="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 "
-                href="index.html"
+                href="/"
               >
                 <svg
                   className="w-5 h-5"
@@ -186,41 +150,19 @@ const Dashboard = () => {
               aria-label="Menu"
               onClick={() => setIsSidebar(!isSidebar)}
             >
-              <svg
-                className="w-6 h-6"
-                aria-hidden="true"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
+              <Hamburger/>
             </button>
             <div className="flex justify-center flex-1 lg:mr-32">
               <div
                 className="relative w-full max-w-xl mr-6 focus-within:text-purple-500"
               >
                 <div className="absolute inset-y-0 flex items-center pl-2">
-                  <svg
-                    className="w-4 h-4"
-                    aria-hidden="true"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
+                  <SearchIcon/>
                 </div>
                 <input
                   className="w-full pl-8 pr-2 py-3 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md  focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
                   type="text"
-                  placeholder="Search for projects"
+                  placeholder="Search for Products"
                   aria-label="Search"
                 />
               </div>
