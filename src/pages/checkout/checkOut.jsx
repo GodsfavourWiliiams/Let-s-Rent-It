@@ -15,7 +15,6 @@ import CheckoutItem from '../../component/checkout-Item/checkout-Item';
 import { auth } from '../../firebase/firebase.utils';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from 'react-router-dom';
-import StripeCheck from '../../component/stripeCheckOut/CheckOutStripe';
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRange } from 'react-date-range';
@@ -23,6 +22,7 @@ import { format } from "date-fns";
 import { addDays } from 'date-fns';
 import { toast } from 'react-toastify';
 import { updateDate } from '../../redux/cart/cart.actions';
+import PaystackCheckout from '../../component/payStack/Paystack-checkout';
 
 
 const Checkout = ({
@@ -51,11 +51,10 @@ const Checkout = ({
   
     useEffect(() => {
       if (loading) return;
-      if (!currentUser) return navigate("/signin");
+    //   if (!currentUser) return navigate("/signin");
       updateDate(dayDifference)
     });
 
-    // console.log(cartItems)
 
     const onScrollTOp = () => {
     window.scrollY >= 35 ? setIsFixed(true) : setIsFixed(false)
@@ -162,9 +161,8 @@ const Checkout = ({
                                 <p className="text-base font-semibold leading-4 text-gray-600">$ {Summation}</p>
                             </div>
                         </div>
-                        {/* <Link to="/payment" className="w-full bg-primary-100 border border-transparent rounded-lg mt-4 py-3 px-8 flex items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600">Pay with Card</Link> */}
-                        <div className="flex justify-end mt-4">
-                            <StripeCheck Summation={Summation}/>
+                        <div className="mt-4">
+                            <PaystackCheckout Summation={Summation}/>
                         </div>
                         </div>
                     </div>

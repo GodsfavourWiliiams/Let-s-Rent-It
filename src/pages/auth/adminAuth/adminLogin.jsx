@@ -2,27 +2,27 @@ import React, { useState, useEffect } from 'react';
 import FormInput from '../../../component/formInput/formInput';
 import Button from '../../../component/button-component/button';
 import { Link, useNavigate } from 'react-router-dom';
-import { signInWithGoogle, logInWithEmailAndPassword, auth } from '../../../firebase/firebase.utils';
-import { useAuthState } from "react-firebase-hooks/auth";
+// import { signInWithGoogle, logInWithEmailAndPassword, auth } from '../../../firebase/firebase.utils';
+// import { useAuthState } from "react-firebase-hooks/auth";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 
 
 const AdminLogin = () => {
     const [email, setEmail] = useState("");
-    // const [isButtonLoading, setIsButtonLoading] = useState(false);
+    const [isButtonLoading, setIsButtonLoading] = useState(false);
     const [password, setPassword] = useState("");
-    const [user] = useAuthState(auth);
+    // const [user] = useAuthState(auth);
     const navigate = useNavigate();
   
   
-    useEffect(() => {
-      if (user) { navigate("/dashboard")}
-    });
+    // useEffect(() => {
+    //   if (user) { navigate("/dashboard")}
+    // });
     
     const logIn = event => {
         event.preventDefault();
-        logInWithEmailAndPassword(email, password)
+        navigate("/dashboard")
     }
 
     const [passwordShown, setPasswordShown] = useState(false);

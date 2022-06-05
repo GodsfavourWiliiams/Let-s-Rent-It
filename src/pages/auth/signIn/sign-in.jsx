@@ -5,12 +5,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import { signInWithGoogle, logInWithEmailAndPassword, auth } from '../../../firebase/firebase.utils';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import PreLoader from '../../../component/preLoader/PreLoader';
 
 
 
 const SignIn = () => {
     const [email, setEmail] = useState("");
-    // const [isButtonLoading, setIsButtonLoading] = useState(false);
+    const [isButtonLoading, setIsButtonLoading] = useState(false);
     const [password, setPassword] = useState("");
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
@@ -87,7 +88,13 @@ const SignIn = () => {
                 }
             </div> 
 
-        <Button className="bg-primary-100 w-full mt-6 mb-2 py-3 rounded-5 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-800" >Sign In</Button>
+        <Button className={`${isButtonLoading ? "py-0" : "py-3"} bg-primary-100 w-full mt-6 mb-2 rounded-5 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-800`}>
+            {isButtonLoading ?
+            <PreLoader/> :
+            "Sign In"
+            }
+        </Button>
+        
      </form>
      <div className="flex justify-between items-center">
         <Link to='/reset' className="text-indigo-400"> Forgot password? </Link>  

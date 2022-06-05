@@ -68,8 +68,7 @@ const logInWithEmailAndPassword = async(email, password) => {
         await signInWithEmailAndPassword(auth, email, password);
         toast.success('Successfully');
     } catch (err) {
-        console.error(err);
-            toast.error(err.message);
+        toast.error(err.message);
     }
 
 };
@@ -81,6 +80,7 @@ const registerWithEmailAndPassword = async(name, email, password) => {
         const user = res.user;
         const timestamp = new Date();
 
+        
         await addDoc(collection(fireStore, "users"), {
             uid: user.uid,
             name,
@@ -104,11 +104,7 @@ const sendPasswordReset = async(email) => {
         await sendPasswordResetEmail(auth, email);
         toast.success("Password reset link sent!");
     } catch (err) {
-        if (err) {
             toast.error("Huh!!.. " + err.message);
-        } else {
-            toast.success('Successfully');
-        }
     }
 };
 
