@@ -134,12 +134,12 @@ const Checkout = ({
                                 
                                 <div className="flex justify-between  w-full">
                                     <p className="text-base leading-4 text-gray-900">Date</p>
-                                    <p className="text-base leading-4 text-gray-700">{dayDifference} days (${rentDaysSum})</p>
+                                    <p className="text-base leading-4 text-gray-700">{dayDifference} days (₦ {rentDaysSum})</p>
                                 </div>
                                
                                 <div className="flex justify-between  w-full">
                                     <p className="text-base leading-4 text-gray-900">Subtotal</p>
-                                    <p className="text-base leading-4 text-gray-700">${total}</p>
+                                    <p className="text-base leading-4 text-gray-700">₦ {total}</p>
                                 </div>
 
                                 <div className="flex justify-between items-center w-full">
@@ -151,14 +151,13 @@ const Checkout = ({
 
                                 <div className="flex justify-between items-center w-full">
                                     <p className="text-base leading-4 text-gray-900">Shipping</p>
-                                    <p className="text-base leading-4 flex text-gray-700">$
-                                        {shipping}
+                                    <p className="text-base leading-4 flex text-gray-700">₦ {shipping}
                                     </p>
                                 </div>
                              </div>
                             <div className="flex justify-between items-center w-full">
                                 <p className="text-base font-semibold leading-4 text-gray-800">Total</p>
-                                <p className="text-base font-semibold leading-4 text-gray-600">$ {Summation}</p>
+                                <p className="text-base font-semibold leading-4 text-gray-600">NGN {Summation}</p>
                             </div>
                         </div>
                         <div className="mt-4">

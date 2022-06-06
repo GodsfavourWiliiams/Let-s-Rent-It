@@ -46,7 +46,7 @@ const { name, imageUrl, price, quantity, rating, reviewCount} = cartItem
                   </div>
                   <div className="flex justify-between space-x-8 items-start w-full">
                       <p className="text-base xl:text-lg leading-6">
-                      $ {price}
+                      ₦ {price}
                       </p>
                   <div className=' flex'>
                   <button onClick={() => removeItem(cartItem)}>

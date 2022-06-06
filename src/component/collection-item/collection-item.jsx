@@ -42,11 +42,10 @@ const CollectionItem = ({ addItem, item }) => {
               </div>
               <div className="flex justify-between items-center">
                     <p className="mt-1 text-sm text-gray-500">Shop Now</p>
-                    <p className="text-sm font-bold text-gray-900">$ {price}</p>
+                    <p className="text-sm font-medium text-gray-900">₦ {price}</p>
                 </div>
             </div>
       </div>
-      
   </>
         
 )

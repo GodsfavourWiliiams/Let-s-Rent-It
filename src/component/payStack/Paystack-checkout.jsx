@@ -4,16 +4,17 @@ import "./paystack.style.css";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { auth, fireStore } from '../../firebase/firebase.utils';
 import { useAuthState } from "react-firebase-hooks/auth";
-
+import { connect } from 'react-redux';
+import { clearItemFromCart } from '../../redux/cart/cart.actions';
 
 
 const PaystackCheckout = ({Summation}) => {
     const publicKey = "pk_test_1554ac5e4475ef5025bf75773b86f488459b27de"
-  const amount = Summation 
-  const [email, setEmail] = useState("")
-  const [name, setName] = useState("")
-  const [phone, setPhone] = useState("");
-  const [user, loading] = useAuthState(auth);
+    const amount = Summation 
+    const [email, setEmail] = useState("")
+    const [name, setName] = useState("")
+    const [phone, setPhone] = useState("");
+    const [user, loading] = useAuthState(auth);
 
   const componentProps = {
     email,
@@ -55,7 +56,7 @@ const PaystackCheckout = ({Summation}) => {
                 <input
                 type="text"
                 id="name"
-                className='text-sm leading-none text-left text-gray-600 px-4 py-3 focus:border focus:border-green-500 bg-indigo-50 w-full relative outline-none rounded-lg transition transition-opacity mt-2'
+                className='capitalize text-sm leading-none text-left text-gray-600 px-4 py-3 focus:border focus:border-green-500 bg-indigo-50 w-full relative outline-none rounded-lg transition transition-opacity mt-2'
                 onChange={(e) => setName(e.target.value)}
                 value={name}
                 />
@@ -83,5 +84,7 @@ const PaystackCheckout = ({Summation}) => {
     </div>
   )
 }
-
-export default PaystackCheckout
+const mapDispatchToProps = dispatch => ({
+    clearItem:  item => dispatch(clearItemFromCart(item)),
+  })
+export default connect(null, mapDispatchToProps)(PaystackCheckout)

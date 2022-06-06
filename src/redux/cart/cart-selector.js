@@ -65,7 +65,7 @@ export const productRentSum = createSelector(
 
 export const selectRentPriceCount = createSelector(
     [selectReturnDate],
-    date => date * 20
+    date => date * 10000
 )
 
 export const Expand = createSelector(
