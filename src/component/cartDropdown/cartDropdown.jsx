@@ -10,7 +10,7 @@ import { selectCartItems, selectCartTotal, selctCartItemsCount } from '../../red
 
 
 
-const CartDropdown = ({toggleCartHidden, cartItems, total, ItemCount}) => {
+const CartDropdown = ({toggleCartHidden, cartItems, total, ItemCount }) => {
   const [open, setOpen] = useState(true);
   const navigate = useNavigate()
 
@@ -129,8 +129,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  toggleCartHidden: () => dispatch(toggleCartHidden())
-  
+  toggleCartHidden: () => dispatch(toggleCartHidden()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartDropdown);

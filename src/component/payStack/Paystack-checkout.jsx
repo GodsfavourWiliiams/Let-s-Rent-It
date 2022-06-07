@@ -5,10 +5,10 @@ import { query, collection, getDocs, where } from "firebase/firestore";
 import { auth, fireStore } from '../../firebase/firebase.utils';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { connect } from 'react-redux';
-import { clearItemFromCart } from '../../redux/cart/cart.actions';
+import { clearAllItemFromCart } from '../../redux/cart/cart.actions';
 
 
-const PaystackCheckout = ({Summation}) => {
+const PaystackCheckout = ({Summation, clearAllItemFromCart}) => {
     const publicKey = "pk_test_1554ac5e4475ef5025bf75773b86f488459b27de"
     const amount = Summation 
     const [email, setEmail] = useState("")
@@ -25,9 +25,8 @@ const PaystackCheckout = ({Summation}) => {
     },
     publicKey,
     text: "Pay Now",
-    onSuccess: () =>
-      alert("Thanks for doing business with us! Come back soon!!"),
-    onClose: () => alert("Wait! You need this oil, don't go!!!!"),
+    onSuccess: () => clearAllItemFromCart(),
+    onClose: () => alert("Wait! You need this Products, don't go!!!!"),
   }
 
   const fetchUserName = async () => {
@@ -85,6 +84,6 @@ const PaystackCheckout = ({Summation}) => {
   )
 }
 const mapDispatchToProps = dispatch => ({
-    clearItem:  item => dispatch(clearItemFromCart(item)),
+  clearAllItemFromCart:  () => dispatch(clearAllItemFromCart())
   })
 export default connect(null, mapDispatchToProps)(PaystackCheckout)

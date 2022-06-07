@@ -14,11 +14,11 @@ const CollectionItem = ({ addItem, item }) => {
   return (
     <>
        <div className="product__item group relative border rounded-lg cursor-pointer">
-            <div className="w-full min-h-40 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md group-hover:opacity-75 lg:aspect-none flex-shrink-0 overflow-hidden mx-auto sm:w-40 w-24 sm:h-40 mt-4">
+            <div className="w-full min-h-44 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md group-hover:opacity-75 lg:aspect-none flex-shrink-0 overflow-hidden mx-auto sm:w-44 w-28 sm:h-44 mt-4">
                 <img
                   src={imageUrl}
                   alt="names"
-                  className="w-full h-24 sm:h-40 object-cover lg:w-full lg:h-full"
+                  className="w-full h-28 sm:h-44 object-cover lg:w-full lg:h-full"
                 />
             </div>
             <div className="mt-4 flex flex-col p-3">

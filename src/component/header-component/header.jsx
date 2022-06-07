@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as ActionsUser} from '../Assets/actions-user.svg';
 import { ReactComponent as SearchIcon} from '../Assets/search.svg';
@@ -27,6 +27,20 @@ const Header = ({ currentUser, hidden }) => {
   }
   
   window.addEventListener('scroll', onScrollTOp)
+
+  // useEffect(() => {
+  //   const handleTabClose = event => {
+  //     event.preventDefault();
+  //     logout()
+  //   };
+
+  //   window.addEventListener('beforeunload', handleTabClose);
+
+  //   return () => {
+  //     window.removeEventListener('beforeunload', handleTabClose);
+  //   };
+  // }, []);
+
 return(
     <div className='transition-all ease-in-out duration-700 '>
       <Banner/>

@@ -7,6 +7,8 @@ import {
     createUserWithEmailAndPassword,
     sendPasswordResetEmail,
     signOut,
+    sendEmailVerification,
+    sendSignInLinkToEmail,
 } from "firebase/auth";
 import {
     getFirestore,
@@ -76,7 +78,7 @@ const logInWithEmailAndPassword = async(email, password) => {
 
 const registerWithEmailAndPassword = async(name, email, password) => {
     try {
-        const res = await createUserWithEmailAndPassword(auth, email, password);
+        const res = await createUserWithEmailAndPassword(auth, email, password)
         const user = res.user;
         const timestamp = new Date();
 
@@ -88,6 +90,8 @@ const registerWithEmailAndPassword = async(name, email, password) => {
             createdDate: timestamp,
             email,
         });
+        sendSignInLinkToEmail(auth, email)
+
     } catch (err) {
         if (err) {
             toast.error("Huh!!.. " + err.message);
