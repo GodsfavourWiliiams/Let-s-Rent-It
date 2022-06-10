@@ -1,131 +1,85 @@
-import React, { CSSProperties } from 'react';
-import "./style.css";
-// import heroImage from "../../../../component/Assets/image1.png";
-import Product1 from "../../../../component/Assets/h.png";
-import Product2 from "../../../../component/Assets/w.png";
-import Product3 from "../../../../component/Assets/Laptop.png";
-import Product4 from "../../../../component/Assets/gam.png";
-import Product5 from "../../../../component/Assets/man2.png";
-import Product6 from "../../../../component/Assets/mus.png";
+import React from 'react'
+import { FaAngleRight, FaTimes } from 'react-icons/fa';
+import Button from "../../../../component/button-component/button";
 
-const Hero = () => {
+
+const subCategories = [
+  { name: 'Bakery' },
+  { name: 'Fruit and vegetables' },
+  { name: 'Meat and fish' },
+  { name: 'Drinks' },
+  { name: 'Kitchen' },
+]
+export default function Category() {
+
   return (
-    <>
-        <main className="hero-section transition-all ease-in-out duration-700  bg-gray-200 flex md:flex-row flex-col items-start md:items-center md:justify-between justify-center">
-             Slide One 
+    <div className="bg-white mt-10">
+          <div className="fixed hidden w-full top-0 lg:hidden">
+
+              <div className="ml-auto relative max-w-xl w-full bg-white shadow-xl py-4 pb-12 flex flex-col overflow-y-auto">
+                <div className="px-4 flex items-center justify-between">
+                  <h2 className="text-lg font-medium text-gray-900">Filters</h2>
+                  <button
+                    type="button"
+                    className="-mr-2 w-10 h-10 bg-white p-2 rounded-md flex items-center justify-center text-gray-400"
+                  >
+                    <span className="sr-only">Close menu</span>
+                    <FaTimes className="h-6 w-6" aria-hidden="true" />
+                  </button>
+                </div>
+
+                {/* Filters */}
+                <form className="mt-4 border-t border-gray-200">
+                  <h3 className="sr-only">Categories Menu</h3>
+                  <div className="font-medium text-gray-900 px-2 py-3">
+                    {subCategories.map((category) => (
+                      <div key={category.name}>
+                        <span className="block px-2 py-3">
+                          {category.name}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </form>
+              </div>
+            </div>
+
+        <main className="max-w-7l mx-auto px-3 sm:px-10 ">
+          <section className="pt-6 pb-24">
+            <h2 className="sr-only">
+                Category menu
+            </h2>
+
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-x-8 gap-y-10">
+              {/* Filters */}
+              <form className="hidden lg:block">
+                <h2 className="font-bold text-base mb-4">
+                    Category menu
+                </h2>
+                <div className="text-sm font-medium text-primary-100 space-y-4 ">
+                  {subCategories.map((category) => (
+                    <div key={category.name}>
+                      <span className='cursor-pointer'>{category.name}</span>
+                    </div>
+                  ))}
+                </div>
+                <Button className="bg-neutral-100 w-44 text-xs mt-10 rounded-5 p-3 flex items-center justify-center">More categories
+                    <FaAngleRight className='ml-3'/>
+                </Button>
+              </form>
+
+              {/* Product grid */}
+              <div className="lg:col-span-3 flex gap-6 sm:flex-row flex-col justify-between">
+                {/* Replace with your content */}
+                <div className="border-4 w-full  border-dashed border-gray-200 rounded-5 h-96 lg:h-full" />
+                {/* /End replace */}
+                <div className="border-4 w-full border-dashed border-gray-200 rounded-5 h-96 lg:h-full" />
+                {/* /End replace */}
+              </div>
+            </div>
+          </section>
         </main>
-       
-    <section className="product-section">
-      <div className="category bg-black grid">
-        <div>
-          <h3 className="text-white ">
-            Enjoy <span className="block ">With</span
-            ><span
-              className=""
-              >Musical Instrument</span
-            >
-          </h3>
-          <button className="text-white bg-red-600 rounded-lg py-2 px-6 mt-2 font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-            Browse
-          </button>
-        </div>
-        <div className="product-img1">
-          <img src={Product1} alt="" />
-        </div>
       </div>
-      <div className="category bg-yellow-300 grid">
-        <div>
-          <h3 className="text-white ">
-            New <span className="block ">Wear</span
-            ><span
-              className=" "
-              >Tools</span
-            >
-          </h3>
-          <button
-            className="bg-white rounded-lg py-2 px-6 mt-2 font-medium text-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
-          >
-            Browse
-          </button>
-        </div>
-        <div className="product-img2">
-          <img src={Product2} alt="" />
-        </div>
-      </div>
-      <div className="category bg-red-500 grid">
-        <div>
-          <h3 className="text-white ">
-            Trend <span className="block ">Devices</span
-            ><span
-              className=" "
-              >Laptop</span
-            >
-          </h3>
-          <button className="bg-red-600 rounded-lg py-2 px-6 mt-2 font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-            Browse
-          </button>
-        </div>
-        <div className="product-img3">
-          <img src={Product3} alt="" />
-        </div>
-      </div>
-      <div className="category bg-gray-200 grid">
-        <div>
-          <h3 className="text-black ">
-            Best
-            <span className="block  text-black">Light weight</span
-            ><span
-              className=""
-              >Console</span
-            >
-          </h3>
-          <button className="bg-red-600 rounded-lg py-2 px-6 mt-2 font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-            Browse
-          </button>
-        </div>
-        <div className="product-img4">
-          <img src={Product4} alt="" />
-        </div>
-      </div>
-      <div className="category bg-green-400 grid">
-        <div>
-          <h3 className="text-white ">
-            Play <span className="block ">Game</span
-            ><span
-              className=" "
-              >Console</span
-            >
-          </h3>
-          <button className="text-green-600 bg-white rounded-lg py-2 px-6 mt-2 font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600">
-            Browse
-          </button>
-        </div>
-        <div className="product-img5">
-          <img src={Product5} alt="" />
-        </div>
-      </div>
-      <div className="category bg-blue-400 grid">
-        <div>
-          <h3 className="text-white ">
-            New <span className="block ">Light weight</span
-            >
-            <span
-              className=" "
-              >
-                Speakers
-            </span>
-          </h3>
-          <button className="text-blue-600 bg-white border rounded-lg py-2 px-6 mt-2 font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-            Browse
-          </button>
-        </div>
-        <div className="product-img6">
-          <img src={Product6} alt="" />
-        </div>
-      </div>
-    </section>          
-     </>
+
   )
 }
-
-export default Hero;
