@@ -21,7 +21,15 @@ import { selectCurrentUser } from './redux/user/user.selector';
 import Blog from './pages/Blogs/blog';
 import About from './pages/aboutPage/About';
 import AdminLogin from './pages/auth/adminAuth/adminLogin';
-import Dashboard from './pages/dashboard/dashboard';
+import Admindashboard from './pages/adminDashboard/dashboard';
+import Dashboard from './pages/adminDashboard/dashboard/dashboard';
+import Products from './pages/adminDashboard/products/Products';
+import FormProduct from './pages/adminDashboard/uploadProduct/form.product';
+import Settings from './pages/adminDashboard/settings/Settings';
+import Profile from './pages/adminDashboard/profile/Profile';
+
+
+
 
 
 class App extends Component {
@@ -69,7 +77,13 @@ class App extends Component {
          <Route path="/blogs"  element={ <Blog /> } />
          <Route path="/about"  element={ <About /> } />
          <Route path="*" element={ <Page404/>}/>
-         <Route path='/dashboard' element={ <Dashboard/>}/>
+         <Route path='/dashboard' element={ <Admindashboard/>}>
+            <Route index element={ <Dashboard/> }/>
+            <Route path="products" element={<Products/>}/> {/* this is for the product view/ */}
+            <Route path="addItem" element={ <FormProduct/> }/> {/* this is for the creating new product / */}
+            <Route path='settings' element={ <Settings/> }/>
+            <Route path="profile" element={ <Profile/> }/>
+         </Route>
       </Routes>
     </Fragment>
     )

@@ -10,7 +10,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const AdminLogin = () => {
     const [email, setEmail] = useState("");
-    const [isButtonLoading, setIsButtonLoading] = useState(false);
+    // const [isButtonLoading, setIsButtonLoading] = useState(false);
     const [password, setPassword] = useState("");
     // const [user] = useAuthState(auth);
     const navigate = useNavigate();

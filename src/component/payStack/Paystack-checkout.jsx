@@ -6,15 +6,22 @@ import { auth, fireStore } from '../../firebase/firebase.utils';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { connect } from 'react-redux';
 import { clearAllItemFromCart } from '../../redux/cart/cart.actions';
+import { useNavigate } from 'react-router-dom';
 
 
 const PaystackCheckout = ({Summation, clearAllItemFromCart}) => {
     const publicKey = "pk_test_1554ac5e4475ef5025bf75773b86f488459b27de"
-    const amount = Summation 
+    const amount = Summation * 100 
     const [email, setEmail] = useState("")
     const [name, setName] = useState("")
     const [phone, setPhone] = useState("");
     const [user, loading] = useAuthState(auth);
+    const navigate = useNavigate();
+
+  const onSuccessfull = () => {
+    clearAllItemFromCart()
+     navigate("/shop")
+  }
 
   const componentProps = {
     email,
@@ -25,7 +32,7 @@ const PaystackCheckout = ({Summation, clearAllItemFromCart}) => {
     },
     publicKey,
     text: "Pay Now",
-    onSuccess: () => clearAllItemFromCart(),
+    onSuccess: () => onSuccessfull(),
     onClose: () => alert("Wait! You need this Products, don't go!!!!"),
   }
 
