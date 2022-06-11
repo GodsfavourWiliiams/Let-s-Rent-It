@@ -4,7 +4,7 @@ const Dashboard = () => {
   return (
     <div>
           <div
-              className="flex items-start lg:items-center flex-col lg:flex-row justify-between p-4 mb-8 text-sm font-semibold text-white bg-green-500 rounded-lg shadow-md focus:outline-none focus:shadow-outline-purple"
+              className="flex items-start lg:items-center flex-col lg:flex-row justify-between p-4 mb-8 text-sm text-white bg-green-500 rounded-lg shadow-md focus:outline-none focus:shadow-outline-purple"
             >
               <div className="flex items-center">
                 <svg

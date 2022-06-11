@@ -20,7 +20,6 @@ import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selector';
 import Blog from './pages/Blogs/blog';
 import About from './pages/aboutPage/About';
-import AdminLogin from './pages/auth/adminAuth/adminLogin';
 import Admindashboard from './pages/adminDashboard/dashboard';
 import Dashboard from './pages/adminDashboard/dashboard/dashboard';
 import Products from './pages/adminDashboard/products/Products';
@@ -72,9 +71,8 @@ class App extends Component {
          <Route path="/signup" element={ <SignUp/> } />
          <Route path="/signin"  element={ <SignIn /> } />
          <Route path='/reset' element={ <Reset/> }/>
-         <Route path='/adminLogin' element={ <AdminLogin/> }/>
          <Route path="/checkout"  element={ <Checkout /> } />
-         <Route path="/blogs"  element={ <Blog /> } />
+         <Route path="/blog"  element={ <Blog /> } />
          <Route path="/about"  element={ <About /> } />
          <Route path="*" element={ <Page404/>}/>
          <Route path='/dashboard' element={ <Admindashboard/>}>

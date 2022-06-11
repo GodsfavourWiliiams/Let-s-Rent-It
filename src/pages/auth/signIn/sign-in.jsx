@@ -98,7 +98,6 @@ const SignIn = () => {
      </form>
      <div className="flex justify-between items-center">
         <Link to='/reset' className="text-indigo-400"> Forgot password? </Link>  
-        <Link to='/adminLogin' className="text-indigo-400"> Admin login </Link>  
      </div>
  </div>
 </div>

@@ -3,7 +3,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const FooterComponent = () => (
     <footer className="bg-white pt-10 sm:mt-10 pt-10">
-        <div className="max-w-7xl mx-auto text-black flex flex-wrap justify-between xl:px-0 px-3">
+        <div className="container mx-auto text-black flex flex-wrap justify-between px-3 lg:px-10">
             {/* <!-- Col-1 --> */}
             <div className=" w-1/2 sm:w-4/12 md:w-3/12">
                 {/* <!-- Col Title --> */}

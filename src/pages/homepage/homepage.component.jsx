@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import FooterComponent from '../../component/footer-component/footer-component';
 import Header from '../../component/header-component/header';
+import BlogPreview from '../Blogs/blogPreview';
 import Cookies from '../cookies/cookies';
 import Hero from './homePage Compenents/Hero/Hero';
 
@@ -20,6 +21,7 @@ const HomePage = ({currentUser}) =>  {
         <Header currentUser={currentUser}/>
             <div className={IsFixed ? 'mt-60' : 'mt-16'}>
                 <Hero/>
+                <BlogPreview/>
                 <Cookies/>
             </div>
         <FooterComponent/>

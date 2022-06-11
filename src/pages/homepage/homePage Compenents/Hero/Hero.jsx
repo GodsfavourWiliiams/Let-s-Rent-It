@@ -1,22 +1,26 @@
-import React from 'react'
-import { FaAngleRight, FaTimes } from 'react-icons/fa';
+import { useState } from 'react'
+import { FaAngleRight, FaTimes, FaBars } from 'react-icons/fa';
 import Button from "../../../../component/button-component/button";
 
 
 const subCategories = [
-  { name: 'Bakery' },
-  { name: 'Fruit and vegetables' },
-  { name: 'Meat and fish' },
+  { name: 'Drone' },
+  { name: 'Laptops and Smart watch' },
+  { name: 'Gamiing console' },
   { name: 'Drinks' },
   { name: 'Kitchen' },
 ]
 export default function Category() {
+  const [openFilter, setOpenFilter] = useState(false)
+
 
   return (
     <div className="bg-white mt-10">
-          <div className="fixed hidden w-full top-0 lg:hidden">
-
-              <div className="ml-auto relative max-w-xl w-full bg-white shadow-xl py-4 pb-12 flex flex-col overflow-y-auto">
+        <div className="cursor-pointer ml-4 lg:hidden">
+          <FaBars onClick={() => setOpenFilter(!openFilter)}/>
+        </div>
+          <div className={`${openFilter ? "left-0" : "-left-80"} absolute lg:hidden transition-all duration-700`}>
+              <div className="ml-auto relative max-w-xl rounded-lg w-full bg-white shadow-md py-4 pb-12 flex flex-col overflow-y-auto">
                 <div className="px-4 flex items-center justify-between">
                   <h2 className="text-lg font-medium text-gray-900">Filters</h2>
                   <button
@@ -24,7 +28,7 @@ export default function Category() {
                     className="-mr-2 w-10 h-10 bg-white p-2 rounded-md flex items-center justify-center text-gray-400"
                   >
                     <span className="sr-only">Close menu</span>
-                    <FaTimes className="h-6 w-6" aria-hidden="true" />
+                    <FaTimes className="h-6 w-6" aria-hidden="true" onClick={() => setOpenFilter(false)} />
                   </button>
                 </div>
 
@@ -44,7 +48,7 @@ export default function Category() {
               </div>
             </div>
 
-        <main className="max-w-7l mx-auto px-3 sm:px-10 ">
+        <main className="container mx-auto px-3 lg:px-10">
           <section className="pt-6 pb-24">
             <h2 className="sr-only">
                 Category menu

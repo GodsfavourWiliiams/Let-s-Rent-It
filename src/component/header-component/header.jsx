@@ -53,7 +53,7 @@ return(
           </Link>
 
           <div className="hidden md:max-w-xs w-full lg:max-w-lg md:block flex relative md:order-1 justify-center items-center">
-                <input type="text" className="px-8 rounded-5 w-full lg:max-w-lg h-11 border focus:outline-none" placeholder="Search Products, categories ..."/>
+                <input type="text" className="px-8 rounded-lg w-full lg:max-w-lg h-11 border focus:outline-none" placeholder="Search Products, categories ..."/>
                   <div className="absolute top-3.5 right-3">
                     <SearchIcon className=" z-20  cursor-pointer"/>
                   </div>

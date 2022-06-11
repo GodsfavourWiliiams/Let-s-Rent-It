@@ -11,7 +11,7 @@ const Banner = () => (
           <span className="cursor-pointer text-xs font-bold">info@rentals.com</span>
         </div>
         <div className="order-3 mt-2 flex justify-between flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto transition-all ease-in-out duration-700 ">
-        <Link to="/blogs" className="cursor-pointer text-decoration-none text-primary-100 font-bold text-xs">Blog</Link>
+        <Link to="/blog" className="cursor-pointer text-decoration-none text-primary-100 font-bold text-xs">Blog</Link>
         <Link to="/about" className='cursor-pointer text-primary-100 font-bold mx-10 text-xs'>About Us</Link>
         <span className="cursor-pointer text-primary-100 font-bold text-xs">Careers</span>
         </div>
