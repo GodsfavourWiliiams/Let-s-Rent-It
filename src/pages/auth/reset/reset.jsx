@@ -20,7 +20,7 @@ function Reset() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center w-full py-16 px-3">
         <Link to="/">
-            <h2 className="text-3xl font-bold">Rentals</h2> 
+            <h2 className="text-3xl font-semibold">Rentals</h2> 
         </Link>
         <div className=" lg:w-1/3 md:w-1/2 w-full my-6 text-center">
             

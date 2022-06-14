@@ -621,18 +621,18 @@ const About = () => {
                 </div>
                 <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
                     <div className="mt-10 lg:mt-0">
-                    <span className="mb-2 block text-lg font-semibold text-green-500">
+                    <span className="mb-2 block text-lg font-medium text-green-500">
                         Why Choose Us
                     </span>
-                    <h2 className="mb-8 text-3xl font-bold text-dark sm:text-4xl">
+                    <h2 className="mb-8 text-3xl font-semibold text-dark sm:text-4xl">
                         Make your customers happy by giving services.
                     </h2>
-                    <p className="mb-8 text-base text-body-color">
+                    <p className="mb-8 text-base ">
                         It is a long established fact that a reader will be distracted
                         by the readable content of a page when looking at its layout.
                         The point of using Lorem Ipsum is that it has a more-or-less.
                     </p>
-                    <p className="mb-12 text-base text-body-color">
+                    <p className="mb-12 text-base ">
                         A domain name is one of the first steps to establishing your
                         brand. Secure a consistent brand image with a domain name that
                         matches your business.

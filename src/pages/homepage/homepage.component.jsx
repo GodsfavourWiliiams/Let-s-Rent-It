@@ -23,7 +23,7 @@ const HomePage = ({currentUser}) =>  {
                 <Hero/>
                 <Brands/>
                 <BlogPreview/>
-            </div>
+f            </div>
         <FooterComponent/>
     </>
  )

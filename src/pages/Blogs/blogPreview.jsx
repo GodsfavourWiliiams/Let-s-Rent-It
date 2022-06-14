@@ -11,44 +11,35 @@ const BlogPreview = () => {
         <div className="container mx-auto px-3 lg:px-10 flex items-center justify-between">
             <p className="sm:font-semibold">Read our Blog posts</p>
             <div className="flex items-center justify-center">
-              <Link to="/blog" className='sm:font-semibold'>Go to Blog</Link>
-              <FaAngleRight className='text-gray-600 mt-1'/>
+              <Link to="/blog" className='sm:font-medium text-indigo-700'>Go to Blog</Link>
+              <FaAngleRight className='text-indigo-600 mt-1 '/>
             </div>
         </div>
 	<div className="container grid grid-cols-12 gap-6 mx-auto p-3 my-6 lg:px-10">
-        <div className="flex rounded-lg flex-col justify-center col-span-12 align-middle bg-no-repeat bg-cover bg-gray-100 lg:col-span-5 lg:h-auto">
-            <img src={BlogOne} alt="" />
+        <div className="flex rounded-lg flex-col justify-center col-span-12 align-middle bg-no-repeat bg-cover lg:col-span-5 lg:h-auto">
+            <img src={BlogOne} alt="" className='object-cover h-full rounded-lg' />
         </div>
 		<div className="absolute p-6" >
              <span className=" rounded-lg bg-gray-200 py-1 px-3 text-sm sm:font-semibold font-medium text-primary-100">Rent tips</span> 
 		</div>
 
-        <div className="flex justify-center flex-col md:flex-row col-span-12 lg:col-span-7 gap-6 ">
+        <div className="flex justify-center flex-col md:flex-row col-span-12 lg:col-span-7 gap-6">
         
-        <div className="flex flex-col">
-            <div className="min-h-52 bg-gray-200 aspect-w-1 aspect-h-1 rounded-lg group-hover:opacity-75 lg:aspect-none flex-shrink-0 overflow-hidden mx-auto w-full h-52">
-                    <img
-                    src={BlogTwo}
-                    alt="blog"
-                    className="w-full h-52 object-cover"
-                    />
+            <div className="flex flex-col items-start">
+                    <img className="object-cover w-full overflow-hidden rounded-lg shadow-sm" alt='blog-images'src={BlogTwo}/>
+                <div className="bg-primary-100 flex items-center px-3 py-2 my-2 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
+                    <span>Gadget</span>
                 </div>
-				<div className="flex flex-col py-3">
-					<span className="rounded-full bg-gray-200 py-1 px-3 text-sm font-semibold text-primary-100 ">Gadgets</span>
-					<h3 className="py-2 text-lg font-semibold leading-snug">Which product your company will love and want’s use each day</h3>
-					<div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs text-gray-400">
-						<span>Author</span>
-						<span>15. 6. 2020</span>
-					</div>
-				</div>
-		</div>
+                <h2 className="text-lg font-medium sm:text-xl "><a href="/">Which gadget would you love your company to rent</a></h2>
+                <p className="pt-2 text-xs font-medium"><a href="/" className="mr-1 underline">Mary Jane</a> · <span className="mx-1">April 17, 2021</span> · <span className="mx-1 text-gray-600">3 min. read</span></p>
+            </div>
 
 		<div className="flex flex-col space-y-3">
 			<div className="flex items-center justify-between ">
                 <div className="">
                     <p className='font-semibold text-gray-700'>Playing games is kinda good start to your morning routines</p>
-                    <span className="inline-flex items-center py-2 space-x-2 text-sm ">
-                        <span>Author</span>
+                    <span className="inline-flex items-center py-2 space-x-2 text-sm">
+                        <span>Williams Godsfavour</span>
                         <span className=''>14.1.2022</span>
                     </span>
                 </div>
@@ -64,7 +55,7 @@ const BlogPreview = () => {
                 <div className="">
                     <p className='font-semibold text-gray-700'>Our Drones tips for a great and healthy Income</p>
                     <span className="inline-flex items-center py-2 space-x-2 text-sm ">
-                        <span>Author</span>
+                        <span>Kelly Bizs</span>
                         <span>14.1.2022</span>
                     </span>
                 </div>
@@ -80,7 +71,7 @@ const BlogPreview = () => {
                 <div className="">
                     <p className='font-semibold text-gray-700'>Prepare a simple and delicious breads</p>
                     <span className="inline-flex items-center py-2 space-x-2 text-sm ">
-                        <span>Author</span>
+                        <span>Nevez Bassey</span>
                         <span>14.1.2023</span>
                     </span>
                 </div>

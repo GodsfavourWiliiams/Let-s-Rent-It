@@ -32,7 +32,7 @@ const FormProduct = () => {
 
                         <form onSubmit={CreateNewItem}>
                             <div className="mb-4">
-                            <label className="uppercase tracking-wide text-gray-700 text-xs font-bold mb-1"> Item Name </label>
+                            <label className="uppercase tracking-wide text-gray-700 text-xs font-medium mb-1"> Item Name </label>
                             <input 
                             type="text" 
                             className="text-sm leading-none text-left text-gray-600 px-4 py-3 focus:border focus:border-green-600 bg-indigo-50 w-full relative outline-none rounded-lg transition transition-opacity mt-2" 
@@ -43,7 +43,7 @@ const FormProduct = () => {
                             </div>
 
                             <div className="mb-4">
-                            <label className="uppercase tracking-wide text-gray-700 text-xs font-bold mb-1"> Description </label>
+                            <label className="uppercase tracking-wide text-gray-700 text-xs font-mudium mb-1"> Description </label>
                             <textarea 
                             rows="4" 
                             className="text-sm leading-none text-left text-gray-600 px-4 py-3 focus:border focus:border-green-600 bg-indigo-50 w-full relative outline-none rounded-lg transition transition-opacity mt-2" 
@@ -56,7 +56,7 @@ const FormProduct = () => {
                             <div className="grid md:grid-cols-2 gap-x-2">
                                 
                                 <div className="mb-4">
-                                    <label className="uppercase tracking-wide text-gray-700 text-xs font-bold mb-1"> Image upload </label>
+                                    <label className="uppercase tracking-wide text-gray-700 text-xs font-medium mb-1"> Image upload </label>
                                     <input 
                                     type="text" 
                                     className="text-sm leading-none text-left text-gray-600 px-4 py-3 focus:border focus:border-green-600 bg-indigo-50 w-full relative outline-none rounded-lg transition transition-opacity mt-2" 
@@ -66,7 +66,7 @@ const FormProduct = () => {
                                 </div>
 
                                 <div className="mb-4">
-                                    <label className="uppercase tracking-wide text-gray-700 text-xs font-bold mb-1"> Category </label>
+                                    <label className="uppercase tracking-wide text-gray-700 text-xs font-medium mb-1"> Category </label>
                                         <select 
                                         className="appearance-none w-full text-sm bg-indigo-50 border border-gray-200 text-gray-700 py-3 px-4 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-green-500 mt-2" 
                                         value={category}
@@ -84,7 +84,7 @@ const FormProduct = () => {
                             </div>
                             <div className='grid md:grid-cols-2 gap-x-2'>
                             <div className="mb-4 w-full">
-                                <label className="uppercase tracking-wide text-gray-700 text-xs font-bold mb-1"> Price </label>
+                                <label className="uppercase tracking-wide text-gray-700 text-xs font-medium mb-1"> Price </label>
                                 <div className="grid grid-cols-3 gap-x-2 ">
                                 <div className="col-span-2">
                                      <div className="flex mt-2">
@@ -100,7 +100,7 @@ const FormProduct = () => {
                                 
                                 <div className="grid grid-cols-3 gap-x-2 ">
                                 <div className="col-span-2">
-                                <label className="uppercase tracking-wide text-gray-700 text-xs font-bold mb-1"> Reviews  </label>
+                                <label className="uppercase tracking-wide text-gray-700 text-xs font-medium mb-1"> Reviews  </label>
                                     <input type="number"
                                     className="appearance-none w-full bg-indigo-50 border border-gray-200 text-gray-700 py-3 px-4 rounded-lg leading-tight focus:outline-none focus:border-green-500 mt-2" 
                                     placeholder="100"
@@ -108,7 +108,7 @@ const FormProduct = () => {
                                     onChange={(e) => setReviews(e.target.value)} />
                                 </div>
                                 <div>
-                                <label className="uppercase tracking-wide text-gray-700 text-xs font-bold mb-1"> Rating  </label>
+                                <label className="uppercase tracking-wide text-gray-700 text-xs font-medium mb-1"> Rating  </label>
                                     <select className="appearance-none w-full bg-indigo-50 border border-gray-200 text-gray-700 py-3 px-4 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-green-500 mt-2" placeholder="Select one option"
                                     value={rating}
                                     onChange={(e) => setRating(e.target.value)}>

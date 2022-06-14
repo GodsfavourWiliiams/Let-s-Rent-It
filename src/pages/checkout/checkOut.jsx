@@ -70,19 +70,19 @@ const Checkout = ({
         <div className={IsFixed ? 'mt-56' : 'mt-6'}>
         <div className="py-10 max-w-7xl mx-auto px-4 xl:px-0">
             <div className="flex justify-start item-start space-y-2 flex-col ">
-                <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold leading-7 lg:leading-9 text-gray-800">Order #{ItemCount}</h1>
+                <h1 className="text-xl sm:text-2xl lg:text-3xl font-medium leading-7 lg:leading-9 text-gray-800">Order #{ItemCount}</h1>
             </div>
             <div className="mt-10 flex flex-col xl:flex-row jusitfy-center items-stretch  w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0">
                 <div className="flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8">
                 <div className="flex flex-col justify-start items-start bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full rounded-lg">
-                    <p className="text-lg md:text-xl font-semibold leading-6 xl:leading-5 text-gray-800">Customer’s Cart</p>
+                    <p className="text-lg md:text-xl font-medium leading-6 xl:leading-5 text-gray-800">Customer’s Cart</p>
                 {cartItems.length ? 
                     (Object.values(cartItems).map((cartItem, index)  => (
                         <CheckoutItem key={index} cartItem={cartItem}/>
                     )))
                     :
                     <div className='my-6'>
-                    <p className="my-2 text-gray-800 font-semibold sm:font-bold text-xl">Looks like you've found the
+                    <p className="my-2 text-gray-800 font-medium sm:font-semibold text-xl">Looks like you've found the
                     doorway to the great nothing</p>
                     <p className="my-2 text-gray-800">Sorry about that! Please visit our Shop to get your bag fill.</p>
                     </div>
@@ -93,7 +93,7 @@ const Checkout = ({
                 xl:space-x-8 rounded-lg">
                        <div className='w-full'>  
                             <div className="mb-4">
-                            <label htmlFor="discountCode" className="uppercase tracking-wide text-gray-700 text-xs font-bold">Discount Code</label>
+                            <label htmlFor="discountCode" className="uppercase tracking-wide text-gray-700 text-xs font-medium">Discount Code</label>
                                     <input
                                         type="text"
                                         placeholder="discount code"
@@ -119,7 +119,7 @@ const Checkout = ({
                                 </button>
                              </div>                      
                         <div className="flex flex-col px-2 py-3 rounded md:p-3 w-full bg-gray-50 space-y-6">
-                            <h3 className="text-xl font-semibold leading-5 text-gray-800">Summary</h3>
+                            <h3 className="text-xl font-medium leading-5 text-gray-800">Summary</h3>
                             <div className="flex justify-center items-center w-full space-y-4 flex-col border-gray-200 border-b pb-4">
 
                                 <DateRange
@@ -156,8 +156,8 @@ const Checkout = ({
                                 </div>
                              </div>
                             <div className="flex justify-between items-center w-full">
-                                <p className="text-base font-semibold leading-4 text-gray-800">Total</p>
-                                <p className="text-base font-semibold leading-4 text-gray-600">NGN {Summation}</p>
+                                <p className="text-base font-medium leading-4 text-gray-800">Total</p>
+                                <p className="text-base font-medium leading-4 text-gray-600">NGN {Summation}</p>
                             </div>
                         </div>
                         <div className="mt-4">

@@ -49,10 +49,10 @@ export const SignUp = () => {
     return (
         <div className="min-h-screen flex flex-col items-center justify-center w-full py-16 px-3">
                <Link to="/">
-                    <h2 className="text-3xl font-bold">Rentals</h2> 
+                    <h2 className="text-3xl font-semibold">Rentals</h2> 
                </Link>
                 <div className=" lg:w-1/3 md:w-1/2 w-full my-4 text-center">
-                    <p aria-label="Login to your account" className="text-lg mb-1 font-bold leading-6 text-gray-800">
+                    <p aria-label="Login to your account" className="text-lg mb-1 font-medium leading-6 text-gray-800">
                         Create your account
                     </p>
                     <Link to="/signin" className="text-sm font-medium text-gray-500">

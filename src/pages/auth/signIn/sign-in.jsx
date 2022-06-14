@@ -33,15 +33,15 @@ const SignIn = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center w-full py-16 px-3">
     <Link to="/">
-        <h2 className="md:text-3xl text-2xl font-bold">Rentals</h2> 
+        <h2 className="md:text-3xl text-2xl font-semibold">Rentals</h2> 
     </Link>
      <div className=" lg:w-1/3 md:w-1/2 w-full my-4 text-center">
-         <p aria-label="Login to your account" className=" text-lg mb-1 font-bold leading-6 text-gray-800">
+         <p aria-label="Login to your account" className="font-medium text-lg mb-1 leading-6 text-gray-800">
              Login to your account
          </p>
-         <Link to="/signUp" className="text-sm font-medium text-gray-500">
+         <Link to="/signUp" className="text-sm text-gray-500">
              Dont have account?
-             <span aria-label="Sign up here" className="ml-2 text-sm font-medium leading-none underline text-gray-800 cursor-pointer">
+             <span aria-label="Sign up here" className="ml-2 text-sm leading-none font-medium underline text-gray-800 cursor-pointer">
                  Sign up here
              </span>
          </Link>

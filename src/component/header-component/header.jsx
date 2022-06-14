@@ -49,7 +49,7 @@ return(
         <nav className='border-gray-200 py-10'>
           <div className=" flex flex-wrap justify-between items-center mx-auto">
           <Link to='/' className="flex items-center">
-              <h2 className=" text-2xl sm:text-3xl font-bold">Rentals</h2> 
+              <h2 className=" text-2xl sm:text-3xl font-semibold">Rentals</h2> 
           </Link>
 
           <div className="hidden md:max-w-xs w-full lg:max-w-lg md:block flex relative md:order-1 justify-center items-center">
@@ -88,7 +88,7 @@ return(
           </div>
 
           <div className="mt-8 md:max-w-xs w-full lg:max-w-lg md:hidden flex relative md:order-1 justify-center items-center">
-              <input type="search" className="px-8 rounded-5 w-full lg:max-w-lg h-11 z-0 border focus:outline-none" placeholder="Search Products, categories ..."/>
+              <input className="px-8 rounded-lg w-full lg:max-w-lg h-11 z-0 border bg-white focus:outline-none" placeholder="Search Products, categories..."/>
                   <div className="absolute top-3.5 right-3"><SearchIcon className="z-20 "/></div>
           </div>
           </div>

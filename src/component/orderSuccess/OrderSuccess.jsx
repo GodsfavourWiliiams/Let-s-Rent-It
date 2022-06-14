@@ -48,7 +48,7 @@ const OrderSuccess = () => {
           </svg>
           <p>Built to empower every team</p>
         </span>
-				<h3 className="sm:text-3xl text-2xl font-bold mt-2">Order Successfull Thanks for choosing Rentals</h3>
+				<h3 className="sm:text-3xl text-2xl font-semibold mt-2">Order Successfull Thanks for choosing Rentals</h3>
 				<p className="my-6 dark:text-gray-400">From </p>
 				<button type="button" className="self-start">Action</button>
 			</div>

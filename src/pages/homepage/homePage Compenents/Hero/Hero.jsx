@@ -17,13 +17,12 @@ export default function Category() {
   return (
     <div className="bg-white mt-10">
         <div className="cursor-pointer ml-4 lg:hidden">
-          <span className='font-semibold' onClick={() => setOpenFilter(!openFilter)}>Category menu</span>
+          <span className='font-medium' onClick={() => setOpenFilter(!openFilter)}>Category menu</span>
         </div>
           <div className={`${openFilter ? "left-0" : "-left-80"} absolute lg:hidden transition-all duration-700`}>
               <div className="ml-auto relative max-w-xl rounded-lg w-full bg-white shadow-md flex flex-col overflow-y-auto">
                 {/* Filters */}
                 <form className="">
-                  <h3 className="sr-only">Categories Menu</h3>
                   <div className="font-medium text-gray-900 px-2 py-3">
                     {subCategories.map((category) => (
                       <div key={category.name}>
@@ -39,14 +38,10 @@ export default function Category() {
 
         <main className="container mx-auto px-3 lg:px-10">
           <section className="pt-6 pb-24">
-            <h2 className="sr-only">
-                Category menu
-            </h2>
-
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-x-8 gap-y-10">
               {/* Filters */}
               <form className="hidden lg:block">
-                <h2 className="font-bold text-base mb-4">
+                <h2 className="font-semibold text-base mb-4">
                     Category menu
                 </h2>
                 <div className="text-sm font-medium text-primary-100 space-y-4 ">

@@ -31,13 +31,13 @@ const Directoy = ({ sections }) => {
         <div className="cursor-pointer px-4 py-4 text-black flex justify-between items-center w-full"
            onClick={handleDrop}>
                   <div className="flex space-x-2">
-                        <p className="font-semibold sm:font-bold focus:outline-none hover:text-gray-800 duration-100 cursor-pointer ">
+                        <p className="font-medium focus:outline-none hover:text-gray-800 duration-100 cursor-pointer ">
                               Collections</p>
                         </div>
                     <FaAngleUp className={`${dropDown ? ' ' : 'rotate-180'} transform duration-100`} />
            </div>
           <div className="relative z-50">
-              <div className={`${dropDown ? 'block' : 'hidden'} transition-all ease-in-out duration-700  p-4 bg-white font-bold text-base leading-4 absolute w-full rounded shadow`}>
+              <div className={`${dropDown ? 'block' : 'hidden'} transition-all ease-in-out duration-700  p-4 bg-white font-medium text-base leading-4 absolute w-full rounded shadow`}>
               {sections.map(({id, ...otherSectionProps}) => (
                   <MenuItem 
                   key={id}
