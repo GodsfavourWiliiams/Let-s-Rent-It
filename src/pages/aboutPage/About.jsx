@@ -17,7 +17,7 @@ const About = () => {
   return (
       <>
       <Header/>
-          <section className={`${fixedCollections ? 'mt-56' : 'mt-6'} overflow-hidden pt-20 pb-12 p-4 xl:p-0 max-w-7xl lg:pt-[120px] lg:pb-[90px] mx-auto`}>
+          <section className={`${fixedCollections ? 'mt-56' : 'mt-6'} overflow-hidden pt-20 pb-12 container mx-auto px-3 lg:px-10`}>
             <div className="container">
                 <div className="-mx-4 flex flex-wrap items-center justify-between">
                 <div className="w-full px-4 lg:w-6/12">

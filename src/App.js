@@ -26,6 +26,7 @@ import Products from './pages/adminDashboard/products/Products';
 import FormProduct from './pages/adminDashboard/uploadProduct/form.product';
 import Settings from './pages/adminDashboard/settings/Settings';
 import Profile from './pages/adminDashboard/profile/Profile';
+import OrderSuccess from './component/orderSuccess/OrderSuccess';
 
 
 
@@ -72,6 +73,7 @@ class App extends Component {
          <Route path="/signin"  element={ <SignIn /> } />
          <Route path='/reset' element={ <Reset/> }/>
          <Route path="/checkout"  element={ <Checkout /> } />
+         <Route path="/ordersuccess" element={ <OrderSuccess/> }/>
          <Route path="/blog"  element={ <Blog /> } />
          <Route path="/about"  element={ <About /> } />
          <Route path="*" element={ <Page404/>}/>

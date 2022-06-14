@@ -51,7 +51,7 @@ const Checkout = ({
   
     useEffect(() => {
       if (loading) return;
-    //   if (!currentUser) return navigate("/signin");
+      if (!currentUser) return navigate("/signin");
       updateDate(dayDifference)
     });
 
@@ -70,7 +70,7 @@ const Checkout = ({
         <div className={IsFixed ? 'mt-56' : 'mt-6'}>
         <div className="py-10 max-w-7xl mx-auto px-4 xl:px-0">
             <div className="flex justify-start item-start space-y-2 flex-col ">
-                <h1 className="text-2xl lg:text-3xl font-semibold leading-7 lg:leading-9  text-gray-800">Order #{ItemCount}</h1>
+                <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold leading-7 lg:leading-9 text-gray-800">Order #{ItemCount}</h1>
             </div>
             <div className="mt-10 flex flex-col xl:flex-row jusitfy-center items-stretch  w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0">
                 <div className="flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8">
@@ -82,7 +82,7 @@ const Checkout = ({
                     )))
                     :
                     <div className='my-6'>
-                    <p className="my-2 text-gray-800 font-bold text-xl">Looks like you've found the
+                    <p className="my-2 text-gray-800 font-semibold sm:font-bold text-xl">Looks like you've found the
                     doorway to the great nothing</p>
                     <p className="my-2 text-gray-800">Sorry about that! Please visit our Shop to get your bag fill.</p>
                     </div>

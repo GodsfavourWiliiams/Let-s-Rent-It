@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { FaAngleRight, FaTimes, FaBars } from 'react-icons/fa';
+import { FaAngleRight, FaTimes } from 'react-icons/fa';
 import Button from "../../../../component/button-component/button";
 
 
@@ -17,23 +17,12 @@ export default function Category() {
   return (
     <div className="bg-white mt-10">
         <div className="cursor-pointer ml-4 lg:hidden">
-          <FaBars onClick={() => setOpenFilter(!openFilter)}/>
+          <span className='font-semibold' onClick={() => setOpenFilter(!openFilter)}>Category menu</span>
         </div>
           <div className={`${openFilter ? "left-0" : "-left-80"} absolute lg:hidden transition-all duration-700`}>
-              <div className="ml-auto relative max-w-xl rounded-lg w-full bg-white shadow-md py-4 pb-12 flex flex-col overflow-y-auto">
-                <div className="px-4 flex items-center justify-between">
-                  <h2 className="text-lg font-medium text-gray-900">Filters</h2>
-                  <button
-                    type="button"
-                    className="-mr-2 w-10 h-10 bg-white p-2 rounded-md flex items-center justify-center text-gray-400"
-                  >
-                    <span className="sr-only">Close menu</span>
-                    <FaTimes className="h-6 w-6" aria-hidden="true" onClick={() => setOpenFilter(false)} />
-                  </button>
-                </div>
-
+              <div className="ml-auto relative max-w-xl rounded-lg w-full bg-white shadow-md flex flex-col overflow-y-auto">
                 {/* Filters */}
-                <form className="mt-4 border-t border-gray-200">
+                <form className="">
                   <h3 className="sr-only">Categories Menu</h3>
                   <div className="font-medium text-gray-900 px-2 py-3">
                     {subCategories.map((category) => (

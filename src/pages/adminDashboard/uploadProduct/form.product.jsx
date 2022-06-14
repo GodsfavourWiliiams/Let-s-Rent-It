@@ -72,6 +72,7 @@ const FormProduct = () => {
                                         value={category}
                                         onChange={(e) => setCategory(e.target.value)}
                                         >
+                                            <option>Select Directory</option>
                                             <option value=""> Drones </option>
                                             <option value=""> Tripods </option>
                                             <option value="Cameras"> Cameras </option>
@@ -86,17 +87,14 @@ const FormProduct = () => {
                                 <label className="uppercase tracking-wide text-gray-700 text-xs font-bold mb-1"> Price </label>
                                 <div className="grid grid-cols-3 gap-x-2 ">
                                 <div className="col-span-2">
-                                    <input type="number" 
-                                    className="appearance-none w-full bg-indigo-50 border border-gray-200 text-gray-700 py-3 px-4 rounded-lg leading-tight focus:outline-none focus:border-green-500 mt-2" 
-                                    placeholder="10,000" 
-                                    value={price}
-                                    onChange={(e) => setPrice(e.target.value)}
-                                    />
+                                     <div className="flex mt-2">
+                                        <input type="text" name="price" id="price" placeholder="99 999,99" className="appearance-none w-full bg-indigo-50 border border-gray-200 text-gray-700 py-3 px-4 rounded-l-lg leading-tight focus:outline-none focus:border-green-500"
+                                         value={price}
+                                         onChange={(e) => setPrice(e.target.value)} />
+                                        <span className="flex items-center px-3 pointer-events-none sm:text-sm rounded-r-md bg-gray-200">NGN</span>
+                                    </div>
                                 </div>
-                                <div>
-                                    <input className="appearance-none w-full bg-indigo-50 border border-gray-200 text-gray-700 py-3 px-4 rounded-lg leading-tight focus:outline-none focus:border-green-500 mt-2" value="NGN" readOnly/>
-                                </div>
-                                </div>
+                              </div>
                             </div>
                             <div className="mb-4 w-full">
                                 

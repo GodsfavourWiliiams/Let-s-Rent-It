@@ -31,7 +31,7 @@ const Directoy = ({ sections }) => {
         <div className="cursor-pointer px-4 py-4 text-black flex justify-between items-center w-full"
            onClick={handleDrop}>
                   <div className="flex space-x-2">
-                        <p className="font-bold text-base focus:outline-none hover:text-gray-800 duration-100 cursor-pointer ">
+                        <p className="font-semibold sm:font-bold focus:outline-none hover:text-gray-800 duration-100 cursor-pointer ">
                               Collections</p>
                         </div>
                     <FaAngleUp className={`${dropDown ? ' ' : 'rotate-180'} transform duration-100`} />

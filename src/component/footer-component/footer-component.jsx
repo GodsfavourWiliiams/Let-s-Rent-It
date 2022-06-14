@@ -97,9 +97,9 @@ const FooterComponent = () => (
         </div>
     
         {/* <!-- Copyright Bar --> */}
-        <div className="pt-2">
-            <div className="flex pb-5 px-3 xl:px-0 m-auto pt-5 text-black-100 text-sm 
-                flex-col md:flex-row max-w-7xl">
+        <div className="pt-2 container mx-auto px-3 lg:px-10">
+            <div className="flex pb-5 pt-5 text-black-100 text-sm 
+                flex-col md:flex-row">
                 <div className="mt-2">
                     © Copyright 2022-year. All Rights Reserved. Williams Godsfavour
                 </div>

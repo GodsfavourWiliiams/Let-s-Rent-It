@@ -49,7 +49,7 @@ return(
         <nav className='border-gray-200 py-10'>
           <div className=" flex flex-wrap justify-between items-center mx-auto">
           <Link to='/' className="flex items-center">
-              <h2 className="text-3xl font-bold">Rentals</h2> 
+              <h2 className=" text-2xl sm:text-3xl font-bold">Rentals</h2> 
           </Link>
 
           <div className="hidden md:max-w-xs w-full lg:max-w-lg md:block flex relative md:order-1 justify-center items-center">
