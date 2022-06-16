@@ -1,14 +1,14 @@
 import { useState } from 'react'
-import { FaAngleRight, FaTimes } from 'react-icons/fa';
+import { FaAngleRight } from 'react-icons/fa';
 import Button from "../../../../component/button-component/button";
 
 
 const subCategories = [
   { name: 'Drone' },
   { name: 'Laptops and Smart watch' },
-  { name: 'Gamiing console' },
-  { name: 'Drinks' },
-  { name: 'Kitchen' },
+  { name: 'Games and Console' },
+  { name: 'Wifi and Networking' },
+  { name: 'Projectors' },
 ]
 export default function Category() {
   const [openFilter, setOpenFilter] = useState(false)
@@ -42,7 +42,7 @@ export default function Category() {
               {/* Filters */}
               <form className="hidden lg:block">
                 <h2 className="font-semibold text-base mb-4">
-                    Category menu
+                    More Category
                 </h2>
                 <div className="text-sm font-medium text-primary-100 space-y-4 ">
                   {subCategories.map((category) => (

@@ -9,7 +9,7 @@ const CollectionItem = ({ addItem, item }) => {
   const { name, price, imageUrl } = item;
   const navigate = useNavigate();
   
-  console.log(item)
+  // console.log(item)
 
   return (
     <>
@@ -21,13 +21,12 @@ const CollectionItem = ({ addItem, item }) => {
                   className="w-full h-28 sm:h-44 object-cover lg:w-full lg:h-full"
                 />
             </div>
-            <p className="absolute top-0 sm:m-2 m-1 rounded-lg bg-red-500 py-1 px-3 text-sm sm:font-semibold font-medium text-white"></p>
+            <p className="absolute top-0 sm:mt-2 mt-1 rounded-r-lg bg-yellow-400 py-1 px-3 text-xs text-white">-30%</p>
             <div className="mt-4 flex flex-col p-3">
               <div>
-                <h3 className="text-sm text-gray-700 h-full truncate">
+                <h3 className="text-xs text-gray-700 h-full truncate">
                     {name}
                 </h3>
-                <h4 className="mt-1 text-sm text-gray-500">Rent Now</h4>
                 <div className="product__hover">
                     <FaShoppingCart className='cart p-2 rounded-lg bg-white shadow-sm hover:bg-green-500 hover:text-white'  onClick={() => {
                             addItem(item)
@@ -41,11 +40,8 @@ const CollectionItem = ({ addItem, item }) => {
                     />
                 </div>            
               </div>
-              <div className="flex justify-between items-center">
-                    <p className="text-sm font-medium text-gray-900">₦ {price}</p>
-                    <p className="sm:m-2 m-1 inline-block rounded-full bg-yellow-400 py-1 px-3 text-sm font-semibold text-white">
-                    -50%
-                  </p>
+              <div className="flex justify-between items-center pt-1">
+                    <p className="text-xs font-medium text-gray-900">₦ {price}00</p>
                 </div>
             </div>
       </div>

@@ -11,8 +11,8 @@ const BlogPreview = () => {
         <div className="container mx-auto px-3 lg:px-10 flex items-center justify-between">
             <p className="sm:font-semibold">Read our Blog posts</p>
             <div className="flex items-center justify-center">
-              <Link to="/blog" className='sm:font-medium text-indigo-700'>Go to Blog</Link>
-              <FaAngleRight className='text-indigo-600 mt-1 '/>
+              <Link to="/blog" className='sm:font-medium text-gray-700'>Go to Blog</Link>
+              <FaAngleRight className='text-gray-600 mt-1 '/>
             </div>
         </div>
 	<div className="container grid grid-cols-12 gap-6 mx-auto p-3 my-6 lg:px-10">

@@ -58,7 +58,7 @@ const PaystackCheckout = ({Summation, clearAllItemFromCart}) => {
   return (
         <div className="">
             <div className="">
-                <label className='uppercase tracking-wide text-gray-700 text-xs font-bold'>name</label>
+                <label className='uppercase tracking-wide text-gray-700 text-xs font-medium'>name</label>
                 <input
                 type="text"
                 id="name"
@@ -68,7 +68,7 @@ const PaystackCheckout = ({Summation, clearAllItemFromCart}) => {
                 />
             </div>
             <div className="">
-                <label className='uppercase tracking-wide text-gray-700 text-xs font-bold'>Email</label>
+                <label className='uppercase tracking-wide text-gray-700 text-xs font-medium'>Email</label>
                 <input
                 type="text"
                 id="email"
@@ -78,7 +78,7 @@ const PaystackCheckout = ({Summation, clearAllItemFromCart}) => {
                 />
             </div>
             <div className="">
-                <label className='uppercase tracking-wide text-gray-700 text-xs font-bold'>Phone</label>
+                <label className='uppercase tracking-wide text-gray-700 text-xs font-medium'>Phone</label>
                 <input
                 type="text"
                 id="phone"

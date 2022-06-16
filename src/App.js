@@ -27,7 +27,7 @@ import FormProduct from './pages/adminDashboard/uploadProduct/form.product';
 import Settings from './pages/adminDashboard/settings/Settings';
 import Profile from './pages/adminDashboard/profile/Profile';
 import OrderSuccess from './component/orderSuccess/OrderSuccess';
-
+import UserProfile from './component/userProfile/userProfile';
 
 
 
@@ -42,7 +42,6 @@ class App extends Component {
       if (userAuth) {
           setCurrentUser({ userAuth })
         }
-          console.log(userAuth);
     })
   }
   
@@ -76,6 +75,7 @@ class App extends Component {
          <Route path="/ordersuccess" element={ <OrderSuccess/> }/>
          <Route path="/blog"  element={ <Blog /> } />
          <Route path="/about"  element={ <About /> } />
+         <Route path='/user' element={ <UserProfile/> } />
          <Route path="*" element={ <Page404/>}/>
          <Route path='/dashboard' element={ <Admindashboard/>}>
             <Route index element={ <Dashboard/> }/>

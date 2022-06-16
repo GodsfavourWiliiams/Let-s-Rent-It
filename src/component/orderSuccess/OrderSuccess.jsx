@@ -1,6 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
-import {FaStar} from "react-icons/fa";
+// import {FaStar} from "react-icons/fa";
 import Header from '../header-component/header';
 
 
@@ -20,21 +20,21 @@ const OrderSuccess = () => {
         <div className={`${IsFixed ? 'mt-60' : 'mt-16'} flex flex-col`}>
           <div className="grid md:grid-cols-2 space-y-4 lg:flex-row px-4">
             <div className="p-8 mx-auto flex items-center rounded-lg bg-gray-100">
-                <div className="text-yellow-100 flex items-center">
+                <div className=" flex items-center">
                     <div className="text-4xl sm:text-6xl text-center gap-4 grid sm:grid-cols-4 grid-cols-2 lg:flex-row ">
-                        <div className="w-24 p-2 bg-white text-yellow-500 rounded-lg">
+                        <div className="w-24 p-2 bg-white text-primary-100 rounded-lg">
                             <div className="font-mono leading-none">14</div>
                             <div className="font-mono uppercase text-sm leading-none">Days</div>
                         </div>
-                        <div className="w-24  p-2 bg-white text-yellow-500 rounded-lg">
+                        <div className="w-24  p-2 bg-white text-primary-100 rounded-lg">
                             <div className="font-mono leading-none">00</div>
                             <div className="font-mono uppercase text-sm leading-none">Hours</div>
                         </div>
-                        <div className="w-24  p-2 bg-white text-yellow-500 rounded-lg">
+                        <div className="w-24  p-2 bg-white text-primary-100 rounded-lg">
                             <div className="font-mono leading-none">00</div>
                             <div className="font-mono uppercase text-sm leading-none">Minutes</div>
                         </div>
-                        <div className="w-24  p-2 bg-white text-yellow-500 rounded-lg">
+                        <div className="w-24  p-2 bg-white text-primary-100 rounded-lg">
                             <div className="font-mono leading-none">00</div>
                             <div className="font-mono uppercase text-sm leading-none">Seconds</div>
                         </div>
@@ -89,22 +89,22 @@ const OrderSuccess = () => {
                           <span className="text-center">How was your experience?</span>
                           <div className="flex space-x-3">
                             <button type="button" title="Rate 1 stars" aria-label="Rate 1 stars">
-                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-10 h-10 text-yellow-500">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-10 h-10 text-primary-100">
                                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
                               </svg>
                             </button>
                             <button type="button" title="Rate 2 stars" aria-label="Rate 2 stars">
-                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-10 h-10 text-yellow-500">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-10 h-10 text-primary-100">
                                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
                               </svg>
                             </button>
                             <button type="button" title="Rate 3 stars" aria-label="Rate 3 stars">
-                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-10 h-10 text-yellow-500">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-10 h-10 text-primary-100">
                                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
                               </svg>
                             </button>
                             <button type="button" title="Rate 4 stars" aria-label="Rate 4 stars">
-                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-10 h-10 text-yellow-500">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-10 h-10 text-primary-100">
                                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
                               </svg>
                             </button>
@@ -130,7 +130,8 @@ const OrderSuccess = () => {
             </div>
           </div>
         </Dialog>
-      </Transition></>
+      </Transition>
+    </>
   )
 }
 

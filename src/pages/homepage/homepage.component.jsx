@@ -4,6 +4,7 @@ import Header from '../../component/header-component/header';
 import BlogPreview from '../Blogs/blogPreview';
 import Hero from './homePage Compenents/Hero/Hero';
 import Brands from './homePage Compenents/brands/Brands';
+import Testimonials from '../../component/testimonials/Testimonials';
 
 
 
@@ -22,8 +23,9 @@ const HomePage = ({currentUser}) =>  {
             <div className={IsFixed ? 'mt-60' : 'mt-16'}>
                 <Hero/>
                 <Brands/>
+                <Testimonials/>
                 <BlogPreview/>
-f            </div>
+           </div>
         <FooterComponent/>
     </>
  )

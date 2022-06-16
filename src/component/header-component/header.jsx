@@ -18,7 +18,7 @@ import { selectCurrentUser } from '../../redux/user/user.selector';
 
 const Header = ({ currentUser, hidden }) => {
 
-  const  [IsNavFixed, setIsNavFixed] = useState(false)
+  const  [IsNavFixed, setIsNavFixed] = useState(false);
   const  [IsDropDownFixed, setIsDropDownFixed] = useState(false);
   // const navigate = useNavigate();
 
