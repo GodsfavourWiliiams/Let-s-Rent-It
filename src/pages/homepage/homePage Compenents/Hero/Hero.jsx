@@ -11,7 +11,7 @@ const subCategories = [
   { name: 'Projectors' },
 ]
 export default function Category() {
-  const [openFilter, setOpenFilter] = useState(false)
+  const [openFilter, setOpenFilter] = useState(false);
 
 
   return (
@@ -26,7 +26,7 @@ export default function Category() {
                   <div className="font-medium text-gray-900 px-2 py-3">
                     {subCategories.map((category) => (
                       <div key={category.name}>
-                        <span className="block px-2 py-3">
+                        <span className="block text-sm px-2 py-3">
                           {category.name}
                         </span>
                       </div>
@@ -67,7 +67,7 @@ export default function Category() {
             </div>
           </section>
         </main>
-      </div>
+    </div>
 
   )
 }

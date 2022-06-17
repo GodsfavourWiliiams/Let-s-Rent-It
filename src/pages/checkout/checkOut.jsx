@@ -20,7 +20,7 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRange } from 'react-date-range';
 import { format } from "date-fns";
 import { addDays } from 'date-fns';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import { updateDate } from '../../redux/cart/cart.actions';
 import PaystackCheckout from '../../component/payStack/Paystack-checkout';
 

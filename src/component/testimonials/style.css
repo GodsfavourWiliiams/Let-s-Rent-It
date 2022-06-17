@@ -1,0 +1,53 @@
+  .carousel__wrap {
+      align-items: center;
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      position: relative;
+      width: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+  }
+  
+  .carousel__slide-list {
+      left: 50%;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      transform: translateX(-50%);
+      width: calc(330rem);
+  }
+  
+  .carousel__slide-item {
+      position: absolute;
+      width: 100%;
+      max-width: 369px;
+  }
+  
+  .carousel__btn {
+      top: 50%;
+      transform: translateY(-50%);
+  }
+  
+  .carousel__dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  .carousel__dots .dot {
+      background: #ccc;
+      border: 0;
+      border-radius: 50%;
+      cursor: pointer;
+      height: 1rem;
+      margin: 0 0.3rem;
+      outline: none;
+      transform: scale(0.5);
+      width: 1rem;
+  }
+  
+  .carousel__dots .dot.active {
+      background: black;
+  }

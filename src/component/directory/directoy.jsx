@@ -37,7 +37,7 @@ const Directoy = ({ sections }) => {
                     <FaAngleUp className={`${dropDown ? ' ' : 'rotate-180'} transform duration-100`} />
            </div>
           <div className="relative z-50">
-              <div className={`${dropDown ? 'block' : 'hidden'} transition-all ease-in-out duration-700  p-4 bg-white font-medium text-base leading-4 absolute w-full rounded shadow`}>
+              <div className={`${dropDown ? 'block' : 'hidden'} transition-all ease-in-out duration-700 bg-white font-medium text-base leading-4 absolute w-full rounded shadow`}>
               {sections.map(({id, ...otherSectionProps}) => (
                   <MenuItem 
                   key={id}

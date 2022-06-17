@@ -2,28 +2,26 @@ import React, { Fragment, useState, useEffect } from 'react';
 import Header from '../header-component/header';
 import axios from "axios";
 import { connect } from 'react-redux';
+import {useNavigate} from "react-router-dom"
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from '../../redux/user/user.selector';
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { auth, fireStore } from '../../firebase/firebase.utils';
 import { useAuthState } from "react-firebase-hooks/auth";
-import { async } from '@firebase/util';
 
 
 const UserProfile = ({currentUser}) => {
     const [state, setState] = useState({
         ip: "",
         countryName: "",
-        country_dailing_code: "",
-        city: "",
-        currency_name: "",
-        country_code: ""
+        city: ""
       });
     const [email, setEmail] = useState("")
     const [name, setName] = useState("");
     const [photoUrl, setPhotoUrl] = useState("");
     const [fixedCollections, setFixedCollections ] = useState(false);
-    const [user] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
+    const navigate = useNavigate();
 
 
     const fetchUserInfo = async () => {
@@ -50,10 +48,9 @@ const UserProfile = ({currentUser}) => {
                 ...state,
                 ip: data.ip,
                 countryName: data.country_name,
-                countryCode: data.country_calling_code,
+                
                 city: data.city,
-                currency_name: data.country_calling_code,
-                country_code: data.country_code_iso3
+             
             });
         }).catch((err) => {
             console.log(err)
@@ -67,6 +64,8 @@ const UserProfile = ({currentUser}) => {
 
       useEffect(() => {
         fetchUserInfo();
+        if (loading) return;
+        if (!currentUser) return navigate("/signin");
       })
     
     
@@ -80,28 +79,26 @@ const UserProfile = ({currentUser}) => {
     <Fragment>
         <Header/>
         <div className={`${fixedCollections ? 'mt-56' : 'mt-6'} container mx-auto px-3 lg:px-10`}>
-            <div className="p-6">
+            <div className="p-6 grid grid-cols-1 lg:grid-cols-2 gap-y-10">
                 <div className="justify-around lg:justify-center items-center block md:flex">
                     <div className="flex shrink-0 grow-0 items-center justify-center mb-6 md:mb-0">
                         <div className="lg:mx-12">
-                            <img src="https://avatars.dicebear.com/api/avataaars/example.svg?options[top][]=shortHair&amp;options[accessoriesChance]=93" alt="Williams Godsfavour" className="rounded-full block h-auto w-full max-w-full bg-gray-100"/>
+                            <img src="https://avatars.dicebear.com/api/avataaars/example.svg?options[top][]=shortHair&amp;options[accessoriesChance]=93" alt="Williams Godsfavour" className="rounded-full block h-auto w-full max-w-full w-36 sm:w-44 md:w-52 bg-gray-100"/>
                         </div>
                     </div>
                     <div className="flex shrink-0 grow-0 items-center justify-center">
                         <div className="space-y-3 text-center md:text-left lg:mx-12">
                             
-                            <h1 className="text-2xl"> Howdy, <b>{name}</b>! </h1>
+                            <h1 className="text-xl"> Howdy, <span className='font-medium'>{name}</span>! </h1>
                             <p className="">{email}</p>
                             <p className=''>{state.city} <b>{state.countryName}</b> from <b>{state.ip}</b></p>
-                            <p className=''>{state.currency_name}</p>
-                            <p className=''>{state.country_code}</p>
-                            <p className=''>{state.country_dailing_code}</p>
+                        
                                 <div className="flex justify-center md:block">
                                 <div className="flex justify-start flex-wrap -mb-3">
                                     </div>
                                 </div>
                                 <div className="flex justify-center md:block">
-                                    <div className="inline-flex items-center last:mr-0 capitalize border py-2 px-4 rounded-2xl mr-3 bg-primary-100 text-white border-green-700">
+                                    <div className="inline-flex items-center last:mr-0 capitalize border py-2 px-4 rounded-2xl mr-3 bg-primary-100 text-sm text-white border-green-700">
                                     <span className="inline-flex justify-center items-center w-4 h-4 mr-2">
                                         <svg viewBox="0 0 24 24" width="16" height="16" className="inline-block">
                                         <path fill="currentColor" d="M23,12L20.56,9.22L20.9,5.54L17.29,4.72L15.4,1.54L12,3L8.6,1.54L6.71,4.72L3.1,5.53L3.44,9.21L1,12L3.44,14.78L3.1,18.47L6.71,19.29L8.6,22.47L12,21L15.4,22.46L17.29,19.28L20.9,18.46L20.56,14.78L23,12M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z">
@@ -114,7 +111,6 @@ const UserProfile = ({currentUser}) => {
                         </div>
                     </div>
                 </div>
-            </div>
                  <div className="grid space-y-4 lg:flex-row px-4 mb-8">
                     <div className="p-8 mx-auto flex items-center rounded-lg bg-gray-100">
                         <div className=" flex items-center">
@@ -139,6 +135,8 @@ const UserProfile = ({currentUser}) => {
                         </div>
                     </div>
                 </div>
+            </div>
+                
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <form className="rounded-lg bg-white border border-gray-100">
                 <header className=" flex items-stretch border-b border-gray-100">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaAngleRight } from "react-icons/fa";
+import TestimonialSlides from './testimonial.Slides';
 
 
 const Testimonials = () => {
@@ -13,7 +14,9 @@ const Testimonials = () => {
               <FaAngleRight className='text-gray-600 mt-1 '/>
             </div>
         </div>
-    </div>
+    
+    <TestimonialSlides/>
+  </div>
   )
 }
 

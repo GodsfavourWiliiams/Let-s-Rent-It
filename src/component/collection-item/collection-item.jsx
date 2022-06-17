@@ -41,7 +41,7 @@ const CollectionItem = ({ addItem, item }) => {
                 </div>            
               </div>
               <div className="flex justify-between items-center pt-1">
-                    <p className="text-xs font-medium text-gray-900">₦ {price}00</p>
+                    <p className="text-xs font-medium text-gray-900">₦ {price}</p>
                 </div>
             </div>
       </div>
