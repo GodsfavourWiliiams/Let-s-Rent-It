@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import { selectCollection } from '../../redux/shop/shop.selectors';
+import CollectionItem from '../../component/collection-item/collection-item';
 
 const CollectionSearch = () => {
   return (

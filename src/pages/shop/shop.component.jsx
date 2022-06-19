@@ -25,9 +25,7 @@ const Shopcomponent = ({updateCollections}) => {
           onSnapshot(collection(fireStore, 'collections'), async(snapshot) => {
             const collectionsMap = await convertCollectionToMap(snapshot)
             updateCollections(collectionsMap)
-          
             setLoading(false)
-            console.log(collectionsMap)
           })
         })
 

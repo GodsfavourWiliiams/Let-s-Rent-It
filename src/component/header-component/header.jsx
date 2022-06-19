@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { ReactComponent as ActionsUser} from '../Assets/actions-user.svg';
 import { ReactComponent as SearchIcon} from '../Assets/search.svg';
 import { ReactComponent as Shop} from '../Assets/Shop.svg';
@@ -13,14 +13,17 @@ import CartDropdown from '../cartDropdown/cartDropdown';
 import { createStructuredSelector } from 'reselect';
 import { selectCartHidden } from '../../redux/cart/cart-selector';
 import { selectCurrentUser } from '../../redux/user/user.selector';
+import { selectCollectionsForPreview } from '../../redux/shop/shop.selectors';
 
 
 
-const Header = ({ currentUser, hidden }) => {
+const Header = ({ currentUser, hidden, collections }) => {
 
   const  [IsNavFixed, setIsNavFixed] = useState(false);
   const  [IsDropDownFixed, setIsDropDownFixed] = useState(false);
-  // const navigate = useNavigate();
+  const [error, setError] = useState(false);
+
+  const navigate = useNavigate();
 
   const onScrollTOp = () => {
   window.scrollY >= 35 ? setIsNavFixed(true) : setIsNavFixed(false)
@@ -31,25 +34,19 @@ const Header = ({ currentUser, hidden }) => {
   const [inputText, setInputText] = useState("");
 
   const inputHandler = (e) => {
-    //convert input text to lower case
-    
-
-    alert(inputText)
+    if(inputText.trim()) {
+      navigate(`searchresult`)
+    } else{
+      setError(true)
+        
+    }
+    setTimeout(() => {
+      setError(false)
+    }, 3000);
     
   };
 
-  // useEffect(() => {
-  //   const handleTabClose = event => {
-  //     event.preventDefault();
-  //     logout()
-  //   };
-
-  //   window.addEventListener('beforeunload', handleTabClose);
-
-  //   return () => {
-  //     window.removeEventListener('beforeunload', handleTabClose);
-  //   };
-  // }, []);
+  // console.log(collections[0].items.basezills)
 
 return(
     <div className=''>
@@ -65,13 +62,13 @@ return(
           <div className="hidden md:max-w-xs w-full lg:max-w-lg md:block flex relative md:order-1 justify-center items-center">
                 <input 
                   type="text" 
-                  className="px-8 rounded-lg w-full lg:max-w-lg h-11 border focus:outline-none" 
+                  className={`${error ? "border-red-500" : ""} px-8 rounded-lg w-full lg:max-w-lg h-11 border focus:outline-none`}
                   placeholder="Search Products, categories ..."
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value.toLowerCase())}
                   />
                   <div className="absolute top-3.5 right-3">
-                    <SearchIcon className=" z-20  cursor-pointer" onClick={inputHandler}/>
+                    <SearchIcon className=" z-50 cursor-pointer " onClick={inputHandler}/>
                   </div>
           </div>
           <div className="md:w-auto md:order-1">
@@ -105,11 +102,15 @@ return(
 
           <div className="mt-8 md:max-w-xs w-full lg:max-w-lg md:hidden flex relative md:order-1 justify-center items-center">
               <input 
-              className="px-8 rounded-lg w-full lg:max-w-lg h-11 z-0 border bg-white focus:outline-none" 
+              className={`${error ? "border-red-500" : ""} px-8 rounded-lg w-full lg:max-w-lg h-11 z-0 border bg-white focus:outline-none`} 
               placeholder="Search Products, categories..."
+              value={inputText}
+              onChange={(e) => setInputText(e.target.value.toLowerCase())}
               />
-                  <div className="absolute top-3.5 right-3"><SearchIcon className="z-20 "/></div>
-          </div>
+                  <div className="absolute top-3.5 right-3">
+                    <SearchIcon className="z-20 " onClick={inputHandler}/>
+                  </div>
+            </div>
           </div>
         </nav>
       </div>
@@ -125,7 +126,8 @@ return(
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
-  hidden: selectCartHidden
+  hidden: selectCartHidden,
+  collections: selectCollectionsForPreview
 })
 
 export default connect(mapStateToProps)(Header);

@@ -15,7 +15,15 @@ const HomePage = ({currentUser}) =>  {
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-      setIsOpen(false);
+      
+      if (!sessionStorage.popupModal) {
+        const timer = setTimeout(() => {
+          setIsOpen(true);
+          sessionStorage.popupModal = 1;
+        }, 2000);
+  
+        return () => clearTimeout(timer);
+      }
     }, [])
 
     const onScrollTOp = () => {
@@ -61,7 +69,7 @@ const HomePage = ({currentUser}) =>  {
               >
                 <Dialog.Panel className="relative bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-3xl w-full">
                   <div className="sm:flex sm:items-start">
-                     <button className='absolute right-0 top-0 z-50 outline-0 text-xl m-3' 
+                     <button className='absolute right-0 top-0 z-50 outline-0 text-xl p-3' 
                      onClick={() => {
                             setIsOpen(false)
                           }}>

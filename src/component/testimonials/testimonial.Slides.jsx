@@ -86,20 +86,12 @@ const CarouselSlideItem = ({pos, idx, activeIdx}) => {
                     <div className="absolute bottom-0 right-0 w-1 h-full duration-300 origin-top transform scale-y-0 bg-primary-100 group-hover:scale-y-100" />
                     <div className="relative p-3 bg-white rounded-sm">
                         <div className="flex mb-2 items-center justify-center" >
-                        <div className="flex items-center justify-center w-16 h-16 mb-4 mr-2 rounded-full bg-indigo-50 lg:mb-0">
-                            <svg
+                        <div className="flex items-center justify-center skeleton-box w-16 h-16 mb-4 mr-2 rounded-full bg-indigo-0 lg:mb-0">
+                            <span
                             className="w-14 h-14 text-primary-100"
-                            stroke="currentColor"
-                            viewBox="0 0 52 52"
                             >
-                            <polygon
-                                strokeWidth="3"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                fill="none"
-                                points="29 13 14 29 25 29 23 39 38 23 27 23"
-                            />
-                            </svg>
+                            <img src={''} alt="" className='' />
+                            </span>
                         </div>
                         
                         </div>
