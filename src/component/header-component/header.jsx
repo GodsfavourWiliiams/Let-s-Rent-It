@@ -28,6 +28,16 @@ const Header = ({ currentUser, hidden }) => {
   
   window.addEventListener('scroll', onScrollTOp)
 
+  const [inputText, setInputText] = useState("");
+
+  const inputHandler = (e) => {
+    //convert input text to lower case
+    
+
+    alert(inputText)
+    
+  };
+
   // useEffect(() => {
   //   const handleTabClose = event => {
   //     event.preventDefault();
@@ -42,10 +52,10 @@ const Header = ({ currentUser, hidden }) => {
   // }, []);
 
 return(
-    <div className='transition-all ease-in-out duration-700 '>
+    <div className=''>
       <Banner/>
-    <div className={ IsNavFixed ? "fixed w-full top-0 z-40 transition-all ease-in-out duration-700 " : "relative" }>
-      <div className=" bg-white lg:px-8 px-4">
+    <div className={ IsNavFixed ? "fixed w-full top-0 z-40 " : "relative transition-all ease-in-out duration-700" }>
+      <div className=" bg-white lg:px-8 px-4 transition-all ease-in-out duration-700">
         <nav className='border-gray-200 py-10'>
           <div className=" flex flex-wrap justify-between items-center mx-auto">
           <Link to='/' className="flex items-center">
@@ -53,9 +63,15 @@ return(
           </Link>
 
           <div className="hidden md:max-w-xs w-full lg:max-w-lg md:block flex relative md:order-1 justify-center items-center">
-                <input type="text" className="px-8 rounded-lg w-full lg:max-w-lg h-11 border focus:outline-none" placeholder="Search Products, categories ..."/>
+                <input 
+                  type="text" 
+                  className="px-8 rounded-lg w-full lg:max-w-lg h-11 border focus:outline-none" 
+                  placeholder="Search Products, categories ..."
+                  value={inputText}
+                  onChange={(e) => setInputText(e.target.value.toLowerCase())}
+                  />
                   <div className="absolute top-3.5 right-3">
-                    <SearchIcon className=" z-20  cursor-pointer"/>
+                    <SearchIcon className=" z-20  cursor-pointer" onClick={inputHandler}/>
                   </div>
           </div>
           <div className="md:w-auto md:order-1">
@@ -88,7 +104,10 @@ return(
           </div>
 
           <div className="mt-8 md:max-w-xs w-full lg:max-w-lg md:hidden flex relative md:order-1 justify-center items-center">
-              <input className="px-8 rounded-lg w-full lg:max-w-lg h-11 z-0 border bg-white focus:outline-none" placeholder="Search Products, categories..."/>
+              <input 
+              className="px-8 rounded-lg w-full lg:max-w-lg h-11 z-0 border bg-white focus:outline-none" 
+              placeholder="Search Products, categories..."
+              />
                   <div className="absolute top-3.5 right-3"><SearchIcon className="z-20 "/></div>
           </div>
           </div>

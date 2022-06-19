@@ -4,7 +4,7 @@ import {FaAngleLeft, FaAngleRight} from "react-icons/fa";
 
 
 
-const slideWidth = 30;
+const slideWidth = 30.7;
 
 const _items = [
     {
@@ -62,7 +62,7 @@ const createItem = (position, idx) => {
     switch (position) {
         case length - 1:
         case length + 1:
-            item.styles = {...item.styles, filter: 'grayscale(1)'};
+            item.styles = {...item.styles};
             break;
         case length:
             break;
@@ -78,8 +78,8 @@ const CarouselSlideItem = ({pos, idx, activeIdx}) => {
     const item = createItem(pos, idx, activeIdx);
 
     return (
-        <div className="carousel__slide-item text-center transition-all ease-in-out duration-700" >
-                    <div className="relative p-px overflow-hidden transition duration-300 transform border rounded-xl shadow-sm hover:scale-105 group hover:shadow-md">
+        <div className="carousel__slide-item text-center transition-all ease-in-out duration-700 " style={item.styles} >
+                    <div className="relative block p-px overflow-hidden transition duration-300 transform border rounded-md shadow-sm group hover:shadow-sm">
                     <div className="absolute bottom-0 left-0 w-full h-1 duration-300 origin-left transform scale-x-0 bg-primary-100 group-hover:scale-x-100" />
                     <div className="absolute bottom-0 left-0 w-1 h-full duration-300 origin-bottom transform scale-y-0 bg-primary-100 group-hover:scale-y-100" />
                     <div className="absolute top-0 left-0 w-full h-1 duration-300 origin-right transform scale-x-0 bg-primary-100 group-hover:scale-x-100" />
@@ -139,11 +139,6 @@ const TestimonialSlides = () => {
         }
     };
 
-    const handleDotClick = (idx) => {
-        if (idx < activeIdx) prevClick(activeIdx - idx);
-        if (idx > activeIdx) nextClick(idx - activeIdx);
-    };
-
     useEffect(() => {
         if (isTicking) sleep(300).then(() => setIsTicking(false));
     }, [isTicking]);
@@ -157,7 +152,7 @@ const TestimonialSlides = () => {
     <div>
         <div className="carousel__wrap">
             <div className="relative h-60 w-full py-6 overflow-hidden">
-                <button className="carousel__btn absolute left-0 rounded-r-xl bg-black py-3 px-2 text-xl text-white" onClick={() => prevClick()}>
+                <button className="carousel__btn absolute left-0 bg-black rounded-r-lg sm:rounded-r-xl bg-black py-2 sm:py-3 px-1 sm:px-2 text-md sm:text-xl text-white" onClick={() => prevClick()}>
                         <FaAngleLeft className=""/>
                    </button>
                     <div className="carousel__slide-list ">
@@ -170,22 +165,14 @@ const TestimonialSlides = () => {
                             />
                         ))}
                     </div>
-                <button className="carousel__btn absolute rounded-l-xl bg-black py-3 px-2 text-xl text-white right-0" onClick={() => nextClick()}>
+                <button className="carousel__btn absolute rounded-l-lg sm:rounded-l-xl bg-black py-2 sm:py-3 px-1 sm:px-2 text-md sm:text-xl text-white right-0" onClick={() => nextClick()}>
                   <FaAngleRight/>            
                      </button>
                
             </div>
 
         </div>
-        <div className="carousel__dots mt-6">
-            {items.slice(0, length).map((pos, i) => (
-                <button
-                    key={i}
-                    onClick={() => handleDotClick(i)}
-                    className={i === activeIdx ? 'dot active' : 'dot'}
-                />
-            ))}
-        </div>
+      
     </div>
   )
 }

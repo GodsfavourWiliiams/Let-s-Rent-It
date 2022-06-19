@@ -28,6 +28,7 @@ import Settings from './pages/adminDashboard/settings/Settings';
 import Profile from './pages/adminDashboard/profile/Profile';
 import OrderSuccess from './component/orderSuccess/OrderSuccess';
 import UserProfile from './component/userProfile/userProfile';
+import CollectionSearch from './component/collection-search/collection-search';
 
 
 
@@ -66,6 +67,7 @@ class App extends Component {
             <Route index element={ <CollectionsOverviewComponent/> }/> {/* this is the default /shop view/ */}
             <Route path=":collectionId" element={<CollectionPage/>}/> {/* this is for the product categories/ */}
             <Route path=':collectionId/:productId' element={ <CollectionViewMore/> }/> {/* this is for the product overview/ */}
+            <Route path='searchresult'element={ <CollectionSearch/> } />
          </Route>
          
          <Route path="/signup" element={ <SignUp/> } />

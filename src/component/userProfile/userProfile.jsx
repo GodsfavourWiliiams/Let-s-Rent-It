@@ -22,6 +22,7 @@ const UserProfile = ({currentUser}) => {
     const [fixedCollections, setFixedCollections ] = useState(false);
     const [user, loading] = useAuthState(auth);
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false);
 
 
     const fetchUserInfo = async () => {
@@ -31,7 +32,7 @@ const UserProfile = ({currentUser}) => {
               const doc = await getDocs(q);
               const data = doc.docs[0].data();
         
-              console.log(data);
+            //   console.log(data);
               setName(data.name)
               setEmail(data.email)
               setPhotoUrl(data)
@@ -80,34 +81,24 @@ const UserProfile = ({currentUser}) => {
         <Header/>
         <div className={`${fixedCollections ? 'mt-56' : 'mt-6'} container mx-auto px-3 lg:px-10`}>
             <div className="p-6 grid grid-cols-1 lg:grid-cols-2 gap-y-10">
-                <div className="justify-around lg:justify-center items-center block md:flex">
+                <div className="justify-around lg:justify-center lg:flex-col gap-6 items-center block md:flex">
                     <div className="flex shrink-0 grow-0 items-center justify-center mb-6 md:mb-0">
-                        <div className="lg:mx-12">
+                        <div className="lg:mx-6">
                             <img src="https://avatars.dicebear.com/api/avataaars/example.svg?options[top][]=shortHair&amp;options[accessoriesChance]=93" alt="Williams Godsfavour" className="rounded-full block h-auto w-full max-w-full w-36 sm:w-44 md:w-52 bg-gray-100"/>
                         </div>
                     </div>
                     <div className="flex shrink-0 grow-0 items-center justify-center">
-                        <div className="space-y-3 text-center md:text-left lg:mx-12">
+                        <div className="space-y-3 text-center md:text-left lg:mx-6 w-full max-w-7xl">
                             
-                            <h1 className="text-xl"> Howdy, <span className='font-medium'>{name}</span>! </h1>
+                            <h1 className="text-xl "> Howdy,  
+                                <span className="font-medium"> {name}</span>!
+                            </h1>
                             <p className="">{email}</p>
-                            <p className=''>{state.city} <b>{state.countryName}</b> from <b>{state.ip}</b></p>
-                        
-                                <div className="flex justify-center md:block">
-                                <div className="flex justify-start flex-wrap -mb-3">
-                                    </div>
-                                </div>
-                                <div className="flex justify-center md:block">
-                                    <div className="inline-flex items-center last:mr-0 capitalize border py-2 px-4 rounded-2xl mr-3 bg-primary-100 text-sm text-white border-green-700">
-                                    <span className="inline-flex justify-center items-center w-4 h-4 mr-2">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" className="inline-block">
-                                        <path fill="currentColor" d="M23,12L20.56,9.22L20.9,5.54L17.29,4.72L15.4,1.54L12,3L8.6,1.54L6.71,4.72L3.1,5.53L3.44,9.21L1,12L3.44,14.78L3.1,18.47L6.71,19.29L8.6,22.47L12,21L15.4,22.46L17.29,19.28L20.9,18.46L20.56,14.78L23,12M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z">
-                                            </path>
-                                        </svg>
-                                    </span>
-                                    <span>Verified</span>
-                                </div>
-                            </div>
+                            <p className=''>{state.city} 
+                                <b>{state.countryName}</b> 
+                                    from 
+                                <b>{state.ip}</b>
+                            </p>
                         </div>
                     </div>
                 </div>

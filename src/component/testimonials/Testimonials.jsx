@@ -4,9 +4,10 @@ import { FaAngleRight } from "react-icons/fa";
 import TestimonialSlides from './testimonial.Slides';
 
 
+
 const Testimonials = () => {
   return (
-    <div>
+    <div className='py-10'>
          <div className="container mx-auto px-3 lg:px-10 flex items-center justify-between">
             <p className="sm:font-semibold">Our customers says</p>
             <div className="flex items-center justify-center">
@@ -14,7 +15,6 @@ const Testimonials = () => {
               <FaAngleRight className='text-gray-600 mt-1 '/>
             </div>
         </div>
-    
     <TestimonialSlides/>
   </div>
   )
