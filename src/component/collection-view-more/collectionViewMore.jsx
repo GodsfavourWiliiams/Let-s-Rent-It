@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { FaStar } from 'react-icons/fa';
 import { RadioGroup } from '@headlessui/react';
 import Button from '../button-component/button';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addItem } from '../../redux/cart/cart.actions';
 // import { selectOverview } from '../../redux/shop/shop.selectors';
 // import { useParams } from 'react-router-dom';
@@ -39,10 +39,11 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const CollectionViewMore = ({ addItem, item }) => {
+const CollectionViewMore = ({ item }) => {
   // const { productId } = useParams();
   // const collection = useSelector(selectOverview(productId));
-
+  const dispatch = useDispatch();
+  const aaddItemHandler = item => dispatch(addItem(item))
   console.log(item);
 
  
@@ -135,7 +136,7 @@ const CollectionViewMore = ({ addItem, item }) => {
                         <Button
                           className="mt-6 w-full bg-primary-100 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600"
                           onClick={(e) => {
-                            addItem(item)
+                            aaddItemHandler(item)
                             e.preventDefault()
                           }}
                         >
@@ -148,10 +149,4 @@ const CollectionViewMore = ({ addItem, item }) => {
   )
 }
 
-const mapDispatchToProps = dispatch => ({
-  addItem: item => dispatch(addItem(item))
-})
-export default connect(
-  null,
-  mapDispatchToProps
-)(CollectionViewMore);
+export default CollectionViewMore;

@@ -7,6 +7,11 @@ export const selectCollections = createSelector(
     shop => shop.collections
 );
 
+export const selectCollectionsIsFetching = createSelector(
+    [selectShop],
+    shop => shop.isfetching
+);
+
 export const selectCollectionsForPreview = createSelector(
     [selectCollections],
     collections => collections ? Object.keys(collections).map(key => collections[key]) : []
@@ -25,4 +30,9 @@ export const searchCollection = searchValue => createSelector(
 export const selectOverview = productUrlParam => createSelector(
     [selectCollection],
     collections => collections[productUrlParam]
+);
+
+export const selectIsCollectionsIsFetchLoaded = createSelector(
+    [selectShop],
+    shop => !!shop.collections
 );

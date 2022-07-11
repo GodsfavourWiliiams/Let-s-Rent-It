@@ -7,7 +7,7 @@ const Blog = () => {
     <>
     <Header/>
         <section className="bg-white">
-            <div className="w-full container mx-auto px-3 lg:px-10 py-6  space-y-5 sm:py-8 md:py-12 sm:space-y-8 md:space-y-16 ">
+            <div className="w-full xl:container mx-auto px-3 lg:px-10 py-6 space-y-5 sm:py-8 md:py-12 sm:space-y-8 md:space-y-16 ">
 
                 <div className="flex flex-col items-center sm:px-5 xl:px-0 md:flex-row">
                     <div className="w-full md:w-1/2">

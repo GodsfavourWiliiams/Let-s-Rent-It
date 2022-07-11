@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Header from '../../component/header-component/header';
-import { createStructuredSelector} from 'reselect';
+
 import { 
     selectCartItems, 
     selectCartTotal, 
@@ -10,7 +10,7 @@ import {
     productRentSum, 
     selectRentPriceCount,
     Expand} from '../../redux/cart/cart-selector';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import CheckoutItem from '../../component/checkout-Item/checkout-Item';
 import { auth } from '../../firebase/firebase.utils';
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -25,10 +25,7 @@ import { updateDate } from '../../redux/cart/cart.actions';
 import PaystackCheckout from '../../component/payStack/Paystack-checkout';
 
 
-const Checkout = ({
-    cartItems, total, SumTotal, 
-    shipping, ItemCount, rentSum, 
-    updateDate, rentDaysSum, Summation}) => {
+const Checkout = () => {
 
 
     const [IsFixed, setIsFixed] = useState(false);
@@ -48,11 +45,21 @@ const Checkout = ({
     let millisecondsPerDay = 24 * 60 * 60 * 1000;
     const dayDifference = Math.ceil(((new Date(dateTwo)) - new Date(dateOne)) / millisecondsPerDay);
   
+    const dispatch = useDispatch();
+    const updateDateHandler = days => dispatch(updateDate(days));
+    const cartItems = useSelector(selectCartItems);
+    const total = useSelector(selectCartTotal);
+    const SumTotal = useSelector(selectCartSumTotal);
+    const shipping = useSelector(shippingCartSumTotal);
+    const ItemCount = useSelector(selctCartItemsCount);
+    const rentSum = useSelector(productRentSum);
+    const rentDaysSum = useSelector(selectRentPriceCount);
+    const Summation = useSelector(Expand);
   
     useEffect(() => {
       if (loading) return;
       if (!currentUser) return navigate("/signin");
-      updateDate(dayDifference)
+      updateDateHandler(dayDifference)
     });
 
 
@@ -68,26 +75,26 @@ const Checkout = ({
     <div>
         <Header/>
         <div className={IsFixed ? 'mt-56' : 'mt-6'}>
-        <div className="py-10 max-w-7xl mx-auto px-4 xl:px-0">
+        <div className="py-10 xl:container mx-auto px-3 lg:px-10">
             <div className="flex justify-start item-start space-y-2 flex-col ">
                 <h1 className="text-xl sm:text-2xl lg:text-3xl font-medium leading-7 lg:leading-9 text-gray-800">Order #{ItemCount}</h1>
             </div>
             <div className="mt-10 flex flex-col xl:flex-row jusitfy-center items-stretch  w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0">
                 <div className="flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8">
-                <div className="flex flex-col justify-start items-start bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full rounded-lg">
-                    <p className="text-lg md:text-xl font-medium leading-6 xl:leading-5 text-gray-800">Customer’s Cart</p>
-                {cartItems.length ? 
-                    (Object.values(cartItems).map((cartItem, index)  => (
-                        <CheckoutItem key={index} cartItem={cartItem}/>
-                    )))
-                    :
-                    <div className='my-6'>
-                    <p className="my-2 text-gray-800 font-medium sm:font-semibold text-xl">Looks like you've found the
-                    doorway to the great nothing</p>
-                    <p className="my-2 text-gray-800">Sorry about that! Please visit our Shop to get your bag fill.</p>
+                    <div className="flex flex-col justify-start items-start bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full rounded-lg">
+                        <p className="text-lg md:text-xl font-medium leading-6 xl:leading-5 text-gray-800">Customer’s Cart</p>
+                    {cartItems.length ? 
+                        (Object.values(cartItems).map((cartItem, index)  => (
+                            <CheckoutItem key={index} cartItem={cartItem}/>
+                        )))
+                        :
+                        <div className='my-6'>
+                        <p className="my-2 text-gray-800 font-medium sm:font-semibold text-xl">Looks like you've found the
+                        doorway to the great nothing</p>
+                        <p className="my-2 text-gray-800">Sorry about that! Please visit our Shop to get your bag fill.</p>
+                        </div>
+                    }
                     </div>
-                }
-                </div>
                 </div>
                 <div className="flex justify-center items-center md:items-start xl:w-96 md:flex-row flex-col items-stretch w-full space-y-4 md:space-y-0 md:space-x-6 
                 xl:space-x-8 rounded-lg">
@@ -161,7 +168,7 @@ const Checkout = ({
                             </div>
                         </div>
                         <div className="mt-4">
-                            <PaystackCheckout Summation={Summation}/>
+                            {/* <PaystackCheckout Summation={Summation}/> */}
                         </div>
                         </div>
                     </div>
@@ -173,19 +180,5 @@ const Checkout = ({
   )
 }
 
-const mapStateToProps = createStructuredSelector ({
-    cartItems: selectCartItems,
-    total: selectCartTotal,
-    SumTotal: selectCartSumTotal,
-    shipping: shippingCartSumTotal,
-    ItemCount: selctCartItemsCount,
-    rentSum: productRentSum,
-    rentDaysSum: selectRentPriceCount,
-    Summation: Expand
-})
-const mapDispatchToProps = dispatch => ({
-    updateDate: days => 
-    dispatch(updateDate(days))
-})
 
-export default connect(mapStateToProps, mapDispatchToProps)(Checkout);
+export default Checkout;

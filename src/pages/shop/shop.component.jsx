@@ -1,42 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Header from '../../component/header-component/header';
 import { Outlet } from 'react-router-dom';
 import FooterComponent from '../../component/footer-component/footer-component';
-import { useEffect } from 'react';
-import {convertCollectionToMap} from "../../firebase/firebase.utils";
-import { fireStore } from '../../firebase/firebase.utils';
-import { collection, onSnapshot } from 'firebase/firestore';
-import { connect } from 'react-redux';
-import { updateCollections } from '../../redux/shop/shop.action';
+import { useSelector, useDispatch } from 'react-redux';
 import Spinner from '../../component/spinner/Spinner';
+import { selectCollectionsIsFetching, selectIsCollectionsIsFetchLoaded } from '../../redux/shop/shop.selectors';
+import { fetchCollectionsStartAsync } from '../../redux/shop/shop.action';
 
-
-const Shopcomponent = ({updateCollections}) => {
+const Shopcomponent = () => {
   // adjusting the fixed header spacing with shop container
       const [fixedCollections, setFixedCollections ] = useState(false);
-      const [loading, setLoading] = useState(true)
+      const dispatch = useDispatch();
+      const selectIsCollectionsIsFetchLoading = useSelector(selectIsCollectionsIsFetchLoaded)
+      const isCollectionsFetching = useSelector(selectCollectionsIsFetching);
+      const fetchCollectionsStartAsyncHandler = () => dispatch(fetchCollectionsStartAsync());
+
+      useEffect(() => {
+        fetchCollectionsStartAsyncHandler();
+        console.log("isFetching");
+      }, [])
+      
 
       const onScrollTOp = () => {
-        window.scrollY >= 35 ? setFixedCollections(true) : setFixedCollections(false)
+        window.scrollY >= 35 ? setFixedCollections(true) : setFixedCollections(false);
         }
-        window.addEventListener('scroll', onScrollTOp)
-        
-        useEffect(() => {
-          onSnapshot(collection(fireStore, 'collections'), async(snapshot) => {
-            const collectionsMap = await convertCollectionToMap(snapshot)
-            updateCollections(collectionsMap)
-            setLoading(false)
-          })
-        })
-
+        window.addEventListener('scroll', onScrollTOp);
+       
     return (
       <>
         <Header/>
         <div className={`${fixedCollections ? 'mt-56' : 'mt-6'}`}>
-          {loading ?
-          <Spinner/>
-          :
-          <Outlet/>
+          { selectIsCollectionsIsFetchLoading ?
+            <Outlet/>
+            :
+            <Spinner/>
           }
         </div>
         <FooterComponent/>
@@ -44,9 +41,5 @@ const Shopcomponent = ({updateCollections}) => {
     )
 }
 
-const mapDispatchToProps = dispatch => ({
-  updateCollections: collectionsMap =>
-    dispatch(updateCollections(collectionsMap))
-})
 
-export default connect(null, mapDispatchToProps)(Shopcomponent);
+export default Shopcomponent;

@@ -36,7 +36,7 @@ export default function Category() {
               </div>
             </div>
 
-        <main className="container mx-auto px-3 lg:px-10">
+        <main className="xl:container mx-auto px-3 lg:px-10">
           <section className="pt-6 pb-24">
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-x-8 gap-y-10">
               {/* Filters */}

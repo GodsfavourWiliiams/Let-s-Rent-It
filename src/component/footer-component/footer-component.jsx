@@ -3,7 +3,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const FooterComponent = () => (
     <footer className="bg-white pt-10 sm:mt-10 pt-10">
-        <div className="container mx-auto text-black flex flex-wrap justify-between px-3 lg:px-10">
+        <div className="lg:container mx-auto text-black flex flex-wrap justify-between px-3 lg:px-10">
             {/* <!-- Col-1 --> */}
             <div className=" w-1/2 sm:w-4/12 md:w-3/12">
                 {/* <!-- Col Title --> */}
@@ -97,7 +97,7 @@ const FooterComponent = () => (
         </div>
     
         {/* <!-- Copyright Bar --> */}
-        <div className="pt-2 container mx-auto px-3 lg:px-10">
+        <div className="pt-2 lg:container mx-auto px-3 lg:px-10">
             <div className="flex pb-5 pt-5 text-black-100 text-sm 
                 flex-col md:flex-row">
                 <div className="mt-2">

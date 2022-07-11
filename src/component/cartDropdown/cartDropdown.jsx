@@ -2,23 +2,28 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import Button from '../button-component/button';
 import { FaTimes } from 'react-icons/fa';
-import { connect } from 'react-redux';
 import { toggleCartHidden } from '../../redux/cart/cart.actions';
 import CartItemComponent from '../cartItem/cart-item-component';
 import { useNavigate } from 'react-router-dom';
 import { selectCartItems, selectCartTotal, selctCartItemsCount } from '../../redux/cart/cart-selector';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 
-const CartDropdown = ({toggleCartHidden, cartItems, total, ItemCount }) => {
+const CartDropdown = () => {
   const [open, setOpen] = useState(true);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const ItemCount = useSelector(selctCartItemsCount);
+  const cartItems =  useSelector(selectCartItems);
+  const total = useSelector(selectCartTotal);
+  const toggleCartHiddenHandler = () => dispatch(toggleCartHidden());
 
 
   return (
     <div className=''>
      <Transition.Root show={open} as={Fragment}>
-     <Dialog as="div" className="relative z-50 " onClose={toggleCartHidden}>
+     <Dialog as="div" className="relative z-50 " onClose={toggleCartHiddenHandler}>
        <Transition.Child
          as={Fragment}
          enter="ease-in-out duration-500"
@@ -53,7 +58,7 @@ const CartDropdown = ({toggleCartHidden, cartItems, total, ItemCount }) => {
                            className="-m-2 p-2 focus:outline-none border-0 text-gray-400 hover:text-gray-800 "
                            onClick={() => 
                             {setOpen(false)
-                              toggleCartHidden()
+                              toggleCartHiddenHandler();
                             }}
                          >
                            <FaTimes className="h-6 w-6" aria-hidden="true" />
@@ -87,8 +92,8 @@ const CartDropdown = ({toggleCartHidden, cartItems, total, ItemCount }) => {
                          className="flex items-center w-full justify-center rounded-md border border-transparent bg-primary-100 py-3 text-base font-medium text-white shadow-sm"
                          onClick={() => 
                          {setOpen(false)
-                          toggleCartHidden()
-                          navigate('/checkout')
+                          navigate('/checkout');
+                          toggleCartHiddenHandler();
                          }}>Proceed To CheckOut ( {ItemCount}
                            {ItemCount <= 1 ?
                          " item" :
@@ -102,7 +107,7 @@ const CartDropdown = ({toggleCartHidden, cartItems, total, ItemCount }) => {
                            className="font-medium text-indigo-600 hover:text-indigo-500"
                            onClick={() => {
                              setOpen(false)
-                             toggleCartHidden()
+                             toggleCartHiddenHandler();
                           }}
                          >
                            Continue Shopping<span aria-hidden="true"> &rarr;</span>
@@ -122,14 +127,6 @@ const CartDropdown = ({toggleCartHidden, cartItems, total, ItemCount }) => {
   )
 }
 
-const mapStateToProps = state => ({
-    cartItems:  selectCartItems(state),
-    total: selectCartTotal(state),
-    ItemCount: selctCartItemsCount(state)
-});
 
-const mapDispatchToProps = dispatch => ({
-  toggleCartHidden: () => dispatch(toggleCartHidden()),
-});
 
-export default connect(mapStateToProps, mapDispatchToProps)(CartDropdown);
+export default CartDropdown;

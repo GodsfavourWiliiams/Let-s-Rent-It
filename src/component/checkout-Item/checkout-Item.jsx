@@ -1,15 +1,19 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
-import { connect } from 'react-redux';
 import { clearItemFromCart, addItem, removeItem } from '../../redux/cart/cart.actions';
+import { useDispatch } from 'react-redux';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const checkoutItem = ({cartItem, clearItem, addItem, removeItem}) => {
+const CheckoutItem = ({cartItem}) => {
 
-const { name, imageUrl, price, quantity, rating, reviewCount} = cartItem
+  const { name, imageUrl, price, quantity, rating, reviewCount } = cartItem;
+  const dispatch = useDispatch();
+  const clearItemHandler = item => dispatch(clearItemFromCart(item));
+  const addItemHandler = item => dispatch(addItem(item));
+  const removeItemHandler = item => dispatch(removeItem(item));
 
   return (
         
@@ -17,9 +21,9 @@ const { name, imageUrl, price, quantity, rating, reviewCount} = cartItem
               <div className="pb-4 w-full md:w-40">
                   <img className="w-full rounded-lg" src={imageUrl} alt="item" />
               </div>
-              <div className="border-b border-gray-200 md:flex-row flex-col flex justify-between items-start w-full  pb-8 space-y-4 md:space-y-0">
+              <div className="border-b border-gray-200 md:flex-row flex-col flex justify-between items-start w-full pb-8 space-y-4 md:space-y-0">
                   <div className="w-full flex flex-col justify-start items-start space-y-8">
-                      <h3 className="text-xl xl:text-2xl font-semibold leading-6 text-gray-800">{name}</h3>
+                      <h3 className="text-lg font-semibold leading-6 text-gray-800">{name}</h3>
                       <div className="flex justify-start items-start flex-col space-y-2">
                           <div className="text-sm leading-none text-gray-800">
                                  <div className="flex items-center">
@@ -31,7 +35,6 @@ const { name, imageUrl, price, quantity, rating, reviewCount} = cartItem
                                         rating > ratings ? 'text-gray-900' : 'text-gray-200',
                                         'h-5 w-5 flex-shrink-0'
                                       )}
-                                      aria-hidden="true"
                                     />
                                   ))}
                                 </div>
@@ -45,11 +48,11 @@ const { name, imageUrl, price, quantity, rating, reviewCount} = cartItem
                       </div>
                   </div>
                   <div className="flex justify-between space-x-8 items-start w-full">
-                      <p className="text-base xl:text-lg leading-6">
+                      <p className="text-base leading-6">
                       ₦ {price}
                       </p>
                   <div className=' flex'>
-                  <button onClick={() => removeItem(cartItem)}>
+                  <button onClick={() => removeItemHandler(cartItem)}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="inline-flex w-6 h-6 text-red-600"
@@ -68,7 +71,7 @@ const { name, imageUrl, price, quantity, rating, reviewCount} = cartItem
                   <span
                     className="w-12 text-center rounded bg-gray-100 outline-none"
                   >{quantity}</span>
-                  <button onClick={() => addItem(cartItem)}>
+                  <button onClick={() => addItemHandler(cartItem)}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="inline-flex w-6 h-6 text-green-600"
@@ -85,7 +88,7 @@ const { name, imageUrl, price, quantity, rating, reviewCount} = cartItem
                     </svg>
                   </button>
                 </div>
-                      <button onClick={() => clearItem(cartItem)}>
+                      <button onClick={() => clearItemHandler(cartItem)}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="w-6 h-6 text-red-400"
@@ -107,10 +110,5 @@ const { name, imageUrl, price, quantity, rating, reviewCount} = cartItem
     )
 }
 
-const mapDispatchToProps = dispatch => ({
-  clearItem:  item => dispatch(clearItemFromCart(item)),
-  addItem: item => dispatch(addItem(item)),
-  removeItem: item =>  dispatch(removeItem(item))
-})
 
-export default connect(null, mapDispatchToProps)(checkoutItem);
+export default CheckoutItem;

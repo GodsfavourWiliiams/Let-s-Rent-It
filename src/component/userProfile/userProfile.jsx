@@ -1,16 +1,17 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState, useLayoutEffect, useCallback } from 'react';
 import Header from '../header-component/header';
 import axios from "axios";
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import {useNavigate} from "react-router-dom"
-import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from '../../redux/user/user.selector';
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { auth, fireStore } from '../../firebase/firebase.utils';
 import { useAuthState } from "react-firebase-hooks/auth";
 
 
-const UserProfile = ({currentUser}) => {
+const UserProfile = () => {
+    const currentUser = useSelector(selectCurrentUser);
+
     const [state, setState] = useState({
         ip: "",
         countryName: "",
@@ -22,11 +23,10 @@ const UserProfile = ({currentUser}) => {
     const [fixedCollections, setFixedCollections ] = useState(false);
     const [user, loading] = useAuthState(auth);
     const navigate = useNavigate();
-    const [isLoading, setIsLoading] = useState(false);
+    // const [isLoading, setIsLoading] = useState(false);
 
 
     const fetchUserInfo = async () => {
-        // console.log(currentUser)
             try {
               const q = query(collection(fireStore, "users"), where("uid", "==", user?.uid));
               const doc = await getDocs(q);
@@ -41,7 +41,7 @@ const UserProfile = ({currentUser}) => {
             }
      };
 
-      const getUserGeoInfo = () => {
+      const getUserGeoInfo = useCallback(() => {
         axios.get("https://ipapi.co/json/")
         .then((response) => {
             let data = response.data
@@ -49,25 +49,23 @@ const UserProfile = ({currentUser}) => {
                 ...state,
                 ip: data.ip,
                 countryName: data.country_name,
-                
                 city: data.city,
              
             });
         }).catch((err) => {
             console.log(err)
         })
-      }
+      },[state])
 
-      useEffect(() => {
+      useLayoutEffect(() => {
         getUserGeoInfo();
-        
-      },[])
+      })
 
-      useEffect(() => {
+      useLayoutEffect(() => {
         fetchUserInfo();
         if (loading) return;
         if (!currentUser) return navigate("/signin");
-      })
+      },[])
     
     
 
@@ -79,12 +77,12 @@ const UserProfile = ({currentUser}) => {
   return (
     <Fragment>
         <Header/>
-        <div className={`${fixedCollections ? 'mt-56' : 'mt-6'} container mx-auto px-3 lg:px-10`}>
+        <div className={`${fixedCollections ? 'mt-56' : 'mt-6'} xl:container mx-auto px-3 lg:px-10`}>
             <div className="p-6 grid grid-cols-1 lg:grid-cols-2 gap-y-10">
                 <div className="justify-around lg:justify-center lg:flex-col gap-6 items-center block md:flex">
                     <div className="flex shrink-0 grow-0 items-center justify-center mb-6 md:mb-0">
                         <div className="lg:mx-6">
-                            <img src="https://avatars.dicebear.com/api/avataaars/example.svg?options[top][]=shortHair&amp;options[accessoriesChance]=93" alt="Williams Godsfavour" className="rounded-full block h-auto w-full max-w-full w-36 sm:w-44 md:w-52 bg-gray-100"/>
+                            <img src="https://avatars.dicebear.com/api/avataaars/example.svg?options[top][]=shortHair&amp;options[accessoriesChance]=93" alt={`name `} className="rounded-full block h-auto w-full max-w-full w-36 sm:w-44 md:w-52 bg-gray-100"/>
                         </div>
                     </div>
                     <div className="flex shrink-0 grow-0 items-center justify-center">
@@ -94,7 +92,7 @@ const UserProfile = ({currentUser}) => {
                                 <span className="font-medium"> {name}</span>!
                             </h1>
                             <p className="">{email}</p>
-                            <p className=''>{state.city} 
+                            <p className='flex gap-2'>{state.city} 
                                 <b>{state.countryName}</b> 
                                     from 
                                 <b>{state.ip}</b>
@@ -281,8 +279,4 @@ const UserProfile = ({currentUser}) => {
   )
 }
 
-const mapStateToProps = createStructuredSelector({
-    currentUser: selectCurrentUser,
-  })
-
-export default connect(mapStateToProps)(UserProfile);
+export default UserProfile;

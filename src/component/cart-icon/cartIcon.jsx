@@ -1,13 +1,17 @@
 import React from 'react';
 import { ReactComponent as CartLogo } from '../Assets/cart.svg';
 import { ReactComponent as Ping } from '../Assets/Ellipse.svg';
-import { connect } from 'react-redux';
 import { toggleCartHidden } from '../../redux/cart/cart.actions';
-import { selctCartItemsCount, selectCartItems } from '../../redux/cart/cart-selector';
+import { selctCartItemsCount } from '../../redux/cart/cart-selector';
+import { useDispatch, useSelector } from 'react-redux';
 
-const cartIcon = ({toggleCartHidden, itemCount, cartItem}) => {
+const CartIcon = ({ cartItem}) => {
+  const dispatch = useDispatch();
+  const itemCount = useSelector(selctCartItemsCount);
+  const toggleCartHiddenHandler = () => dispatch(toggleCartHidden());
+
     return ( 
-        <div className='w-full relative flex items-center justify-center cursor-pointer ' onClick={toggleCartHidden}>
+        <div className='w-full relative flex items-center justify-center cursor-pointer ' onClick={toggleCartHiddenHandler}>
             {itemCount ?
             <Ping className='absolute text-xs animate animate-ping' style={{bottom: "22.5px", left: "11px"}}/>
             :
@@ -22,18 +26,4 @@ const cartIcon = ({toggleCartHidden, itemCount, cartItem}) => {
 }
 
 
-const mapStateToProps = state => ({
-    itemCount: selctCartItemsCount(state),
-    cartItem: selectCartItems(state)
-
-});
- 
-const mapDispatchToProps = dispatch => ({
-    toggleCartHidden: () => dispatch(toggleCartHidden())
-})
-
-
-export default connect(
-    mapStateToProps, 
-    mapDispatchToProps
-)(cartIcon);
+export default CartIcon;

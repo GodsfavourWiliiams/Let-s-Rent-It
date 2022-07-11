@@ -15,7 +15,7 @@ const Directoy = ({ sections }) => {
 
     return (
     <div className="bg-neutral-100 transition-all ease-in-out duration-700">
-      <div className="container mx-auto px-3 lg:px-10 transition-all ease-in-out duration-700">
+      <div className="xl:container mx-auto px-3 lg:px-10 transition-all ease-in-out duration-700">
         <div className="py-4 justify-between transition-all ease-in-out duration-700 hidden md:flex flex-auto space-x-2">
            {sections.map(({id, ...otherSectionProps}) => (
                <MenuItem 

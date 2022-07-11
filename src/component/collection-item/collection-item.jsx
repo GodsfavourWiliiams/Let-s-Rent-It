@@ -1,14 +1,16 @@
 import { Fragment } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { FaExpand, FaShoppingCart } from "react-icons/fa";
-import { connect } from 'react-redux';
 import { addItem } from '../../redux/cart/cart.actions';
 import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
 
-const CollectionItem = ({ addItem, item }) => {
+const CollectionItem = ({ item }) => {
   const { name, price, imageUrl } = item;
   const navigate = useNavigate();
-  
+  const dispatch = useDispatch();
+
+  const addItemHandler = items => dispatch(addItem(items));
   // console.log(item)
 
   return (
@@ -29,7 +31,7 @@ const CollectionItem = ({ addItem, item }) => {
                 </h3>
                 <div className="product__hover">
                     <FaShoppingCart className='cart p-2 rounded-lg bg-white shadow-sm hover:bg-green-500 hover:text-white'  onClick={() => {
-                            addItem(item)
+                            addItemHandler(item)
                             toast.success( name + " Successfully added")
                           }}/>
                     <FaExpand className='cart p-2 rounded-lg bg-white shadow-sm hover:bg-green-500 hover:text-white'
@@ -45,13 +47,8 @@ const CollectionItem = ({ addItem, item }) => {
                 </div>
             </div>
       </div>
-  </>
-        
+  </>       
 )
 }
 
-const mapDispatchToProps = dispatch => ({
-  addItem: item => dispatch(addItem(item))
-})
-
-export default connect(null, mapDispatchToProps)(CollectionItem);
+export default CollectionItem;

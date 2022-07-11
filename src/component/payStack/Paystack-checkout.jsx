@@ -1,26 +1,27 @@
 import { useState, useEffect } from 'react';
 import { PaystackButton } from 'react-paystack';
-import "./paystack.style.css";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { auth, fireStore } from '../../firebase/firebase.utils';
 import { useAuthState } from "react-firebase-hooks/auth";
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { clearAllItemFromCart } from '../../redux/cart/cart.actions';
 import { useNavigate } from 'react-router-dom';
 
 
-const PaystackCheckout = ({Summation, clearAllItemFromCart}) => {
+const PaystackCheckout = ({Summation}) => {
     const publicKey = "pk_test_1554ac5e4475ef5025bf75773b86f488459b27de"
-    const amount = Summation * 100 
+    const amount = Summation  * 100
     const [email, setEmail] = useState("")
     const [name, setName] = useState("")
     const [phone, setPhone] = useState("");
     const [user, loading] = useAuthState(auth);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const clearAllItemFromCartHandler = () => dispatch(clearAllItemFromCart());
 
   const onSuccessfull = () => {
-    clearAllItemFromCart()
-     navigate("/shop")
+    clearAllItemFromCartHandler();
+     navigate("/user");
   }
 
   const componentProps = {
@@ -56,7 +57,7 @@ const PaystackCheckout = ({Summation, clearAllItemFromCart}) => {
 
 
   return (
-        <div className="">
+        <div className="w-96">
             <div className="">
                 <label className='uppercase tracking-wide text-gray-700 text-xs font-medium'>name</label>
                 <input
@@ -90,7 +91,6 @@ const PaystackCheckout = ({Summation, clearAllItemFromCart}) => {
     </div>
   )
 }
-const mapDispatchToProps = dispatch => ({
-  clearAllItemFromCart:  () => dispatch(clearAllItemFromCart())
-  })
-export default connect(null, mapDispatchToProps)(PaystackCheckout)
+
+
+export default PaystackCheckout;

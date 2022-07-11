@@ -34,7 +34,7 @@ function Reset() {
             required /> 
             <br />
 
-            <Button className="bg-primary-100 mb-2 w-full py-3 rounded-5 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-800" 
+            <Button className="bg-primary-100 mb-2 w-full py-3 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700" 
                 onClick=
                 {(e) =>{
                     e.preventDefault()
@@ -43,7 +43,7 @@ function Reset() {
             >Send password to email</Button>
         </form>
         <span aria-label="Sign up here" className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer">
-            Not a member? <Link to="/signup" className="text-indigo-400">Register</Link>   </span>
+            Not a member? <Link to="/signup" className="text-indigo-400 ml-2">Register</Link>   </span>
         </div>
     </div>
   );

@@ -4,7 +4,7 @@ const Profile = () => {
 
   return (
     <section className="p-6 bg-white rounded ">
-	<form className="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid">
+	<form className="md:container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid">
 		
 		<fieldset className="grid grid-cols-4 gap-6 rounded-md">
 			<div className="space-y-3 col-span-full lg:col-span-1">
@@ -17,25 +17,25 @@ const Profile = () => {
 			</div>
 			<div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
 				<div className="col-span-full sm:col-span-3">
-					<label htmlFor="username" className="text-sm uppercase font-semibold">Username</label>
+					<label htmlFor="username" className="block uppercase text-xs mb-2">Username</label>
 					<input id="username" type="text" placeholder="Username" className="w-full px-3 mt-1 py-2 rounded-md outline-none bg-indigo-50 " />
 				</div>
 
 				<div className="col-span-full sm:col-span-3">
-					<label htmlFor="website" className="text-sm uppercase font-semibold">Position</label>
+					<label htmlFor="website" className="block uppercase text-xs mb-2">Position</label>
 					<input id="website" type="text" placeholder="manager" className="w-full mt-1 px-3 py-2 rounded-md outline-none bg-indigo-50 " />
 				</div>
 
 			
 				<div className="col-span-full space-y-3 mt-6">
-					<label className="text-sm">Change Password</label>
+					<label className="block uppercase font-semibold text-xs mb-2">Change Password</label>
 					<div className="flex items-center space-x-2">
             <div className="col-span-full sm:col-span-3">
-                <label htmlFor="username" className="text-sm mb-1 uppercase font-semibold">New Password</label>
+                <label htmlFor="username" className="block uppercase text-xs mb-2">New Password</label>
                 <input id="username" type="text" placeholder="new" className="w-full mt-1 px-3 py-2 rounded-md outline-none bg-indigo-50 " />
            </div>
             <div className="col-span-full sm:col-span-3">
-              <label htmlFor="website" className="text-sm uppercase font-semibold">Comfirm</label>
+              <label htmlFor="website" className="block uppercase text-xs mb-2">Comfirm</label>
               <input id="website" type="text" placeholder="confirm" className="w-full mt-1 px-3 py-2 rounded-md outline-none bg-indigo-50 " />
             </div>
 						

@@ -37,7 +37,7 @@ class App extends Component {
     unsubscribeFromAuth = null
 
   componentDidMount(){
-    const { setCurrentUser} = this.props;
+    const { setCurrentUser } = this.props;
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
@@ -45,10 +45,7 @@ class App extends Component {
         }
     })
   }
-  
-  componentWillUnmount() {
-    this.unsubscribeFromAuth();
-  }
+
   
   render() {
   toast({
@@ -67,19 +64,19 @@ class App extends Component {
             <Route index element={ <CollectionsOverviewComponent/> }/> {/* this is the default /shop view/ */}
             <Route path=":collectionId" element={<CollectionPage/>}/> {/* this is for the product categories/ */}
             <Route path=':collectionId/:productId' element={ <CollectionViewMore/> }/> {/* this is for the product overview/ */}
-            <Route path='searchresult'element={ <CollectionSearch/> } />
+            
          </Route>
-         
-         <Route path="/signup" element={ <SignUp/> } />
-         <Route path="/signin"  element={ <SignIn /> } />
-         <Route path='/reset' element={ <Reset/> }/>
-         <Route path="/checkout"  element={ <Checkout /> } />
-         <Route path="/ordersuccess" element={ <OrderSuccess/> }/>
-         <Route path="/blog"  element={ <Blog /> } />
-         <Route path="/about"  element={ <About /> } />
-         <Route path='/user' element={ <UserProfile/> } />
-         <Route path="*" element={ <Page404/>}/>
-         <Route path='/dashboard' element={ <Admindashboard/>}>
+            <Route path='search'element={ <CollectionSearch/> } />
+            <Route path="/signup" element={ <SignUp/> } />
+            <Route path="/signin"  element={ <SignIn /> } />
+            <Route path='/reset' element={ <Reset/> }/>
+            <Route path="/checkout"  element={ <Checkout /> } />
+            <Route path="/ordersuccess" element={ <OrderSuccess/> }/>
+            <Route path="/blog"  element={ <Blog /> } />
+            <Route path="/about"  element={ <About /> } />
+            <Route path='/user' element={ <UserProfile/> } />
+            <Route path="*" element={ <Page404/>}/>
+            <Route path='/dashboard' element={ <Admindashboard/>}>
             <Route index element={ <Dashboard/> }/>
             <Route path="products" element={<Products/>}/> {/* this is for the product view/ */}
             <Route path="addItem" element={ <FormProduct/> }/> {/* this is for the creating new product / */}

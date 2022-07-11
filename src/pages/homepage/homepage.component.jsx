@@ -82,13 +82,13 @@ const HomePage = ({currentUser}) =>  {
                                 Less time buying.<br/>More time Renting.
                             </Dialog.Title>
                          
-                            <div className="mt-2 mb-6">
+                            <div className="mt-2 mb-3 sm:mb-6">
                                     <p className="text-sm text-gray-500">
                                     A marketplace of fully tested, multi-purpose product, for companies and individual of any kind.
                                     </p>
                             </div>
                             <form>
-                                <label for="email" className="inline-block mb-2 font-semibold">Subscribe for new product releases</label>
+                                <label for="email" className="inline-block mb-2 uppercase text-xs font-medium sm:font-semibold">Subscribe for new product releases</label>
                                 <input  
                                 name="EMAIL" 
                                 required 

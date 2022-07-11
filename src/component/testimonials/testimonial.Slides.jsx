@@ -79,28 +79,27 @@ const CarouselSlideItem = ({pos, idx, activeIdx}) => {
 
     return (
         <div className="carousel__slide-item text-center transition-all ease-in-out duration-700 " style={item.styles} >
-                    <div className="relative block p-px overflow-hidden transition duration-300 transform border rounded-md shadow-sm group hover:shadow-sm">
-                    <div className="absolute bottom-0 left-0 w-full h-1 duration-300 origin-left transform scale-x-0 bg-primary-100 group-hover:scale-x-100" />
-                    <div className="absolute bottom-0 left-0 w-1 h-full duration-300 origin-bottom transform scale-y-0 bg-primary-100 group-hover:scale-y-100" />
-                    <div className="absolute top-0 left-0 w-full h-1 duration-300 origin-right transform scale-x-0 bg-primary-100 group-hover:scale-x-100" />
-                    <div className="absolute bottom-0 right-0 w-1 h-full duration-300 origin-top transform scale-y-0 bg-primary-100 group-hover:scale-y-100" />
-                    <div className="relative p-3 bg-white rounded-sm">
-                        <div className="flex mb-2 items-center justify-center" >
-                        <div className="flex items-center justify-center skeleton-box w-16 h-16 mb-4 mr-2 rounded-full bg-indigo-0 lg:mb-0">
-                            <span
-                            className="w-14 h-14 text-primary-100"
-                            >
-                            <img src={''} alt="" className='' />
-                            </span>
-                        </div>
-                        
-                        </div>
-                        <h6 className="font-semibold leading-10 text-center">{item.player.title}</h6>
-                        <p className="mb-2 text-xs sm:text-sm text-center text-gray-900">{item.player.desc}</p>
-                        
-                    </div>
+            <div className="relative block p-px overflow-hidden transition duration-300 transform border rounded-md shadow-sm group hover:shadow-sm">
+            <div className="absolute bottom-0 left-0 w-full h-1 duration-300 origin-left transform scale-x-0 bg-primary-100 group-hover:scale-x-100" />
+            <div className="absolute bottom-0 left-0 w-1 h-full duration-300 origin-bottom transform scale-y-0 bg-primary-100 group-hover:scale-y-100" />
+            <div className="absolute top-0 left-0 w-full h-1 duration-300 origin-right transform scale-x-0 bg-primary-100 group-hover:scale-x-100" />
+            <div className="absolute bottom-0 right-0 w-1 h-full duration-300 origin-top transform scale-y-0 bg-primary-100 group-hover:scale-y-100" />
+            <div className="relative p-3 bg-white rounded-sm">
+                <div className="flex mb-2 items-center justify-center" >
+                <div className="flex items-center justify-center skeleton-box w-16 h-16 mb-4 mr-2 rounded-full bg-indigo-0 lg:mb-0">
+                    <span
+                    className="w-14 h-14 text-primary-100"
+                    >
+                    <img src={''} alt="" className='' />
+                    </span>
                 </div>
+                
+                </div>
+                <h6 className="font-semibold leading-10 text-center">{item.player.title}</h6>
+                <p className="mb-2 text-xs sm:text-sm text-center text-gray-900">{item.player.desc}</p>
             </div>
+        </div>
+    </div>
     );
 };
 
@@ -143,8 +142,8 @@ const TestimonialSlides = () => {
   return (
     <div>
         <div className="carousel__wrap">
-            <div className="relative h-60 w-full py-6 overflow-hidden">
-                <button className="carousel__btn absolute left-0 bg-black rounded-r-lg sm:rounded-r-xl bg-black py-2 sm:py-3 px-1 sm:px-2 text-md sm:text-xl text-white" onClick={() => prevClick()}>
+            <div className="relative h-72 w-full py-16 overflow-hidden">
+                <button className="carousel__btn absolute left-0 bg-black rounded-r-lg sm:rounded-r-xl bg-black py-3 px-2 text-md sm:text-xl text-white" onClick={() => prevClick()}>
                         <FaAngleLeft className=""/>
                    </button>
                     <div className="carousel__slide-list ">
@@ -157,7 +156,7 @@ const TestimonialSlides = () => {
                             />
                         ))}
                     </div>
-                <button className="carousel__btn absolute rounded-l-lg sm:rounded-l-xl bg-black py-2 sm:py-3 px-1 sm:px-2 text-md sm:text-xl text-white right-0" onClick={() => nextClick()}>
+                <button className="carousel__btn absolute rounded-l-lg sm:rounded-l-xl bg-black py-3 px-2 text-md sm:text-xl text-white right-0" onClick={() => nextClick()}>
                   <FaAngleRight/>            
                      </button>
                
@@ -169,4 +168,4 @@ const TestimonialSlides = () => {
   )
 }
 
-export default TestimonialSlides
+export default TestimonialSlides;
