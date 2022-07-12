@@ -3,7 +3,7 @@ import Header from '../../component/header-component/header';
 import { Outlet } from 'react-router-dom';
 import FooterComponent from '../../component/footer-component/footer-component';
 import { useSelector, useDispatch } from 'react-redux';
-import Spinner from '../../component/spinner/Spinner';
+import Spinner from '../../component/skeleton/Skeleton';
 import { selectCollectionsIsFetching, selectIsCollectionsIsFetchLoaded } from '../../redux/shop/shop.selectors';
 import { fetchCollectionsStartAsync } from '../../redux/shop/shop.action';
 

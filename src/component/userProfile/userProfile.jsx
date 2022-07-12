@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useLayoutEffect, useCallback } from 'react';
+import React, { Fragment, useState, useEffect, useLayoutEffect, useCallback } from 'react';
 import Header from '../header-component/header';
 import axios from "axios";
 import { useSelector } from 'react-redux';
@@ -11,7 +11,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 const UserProfile = () => {
     const currentUser = useSelector(selectCurrentUser);
-
+    
     const [state, setState] = useState({
         ip: "",
         countryName: "",
@@ -65,7 +65,7 @@ const UserProfile = () => {
         fetchUserInfo();
         if (loading) return;
         if (!currentUser) return navigate("/signin");
-      },[])
+      },[currentUser])
     
     
 
