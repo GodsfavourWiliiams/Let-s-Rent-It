@@ -10,6 +10,8 @@ const FormProduct = () => {
     const [category, setCategory] = useState("");
     const [reviews, setReviews] = useState("");
     const [rating, setRating] = useState("");
+    const [instock, setInstock] = useState("");
+    
 
     const CreateNewItem = event => {
         event.preventDefault();
@@ -20,7 +22,8 @@ const FormProduct = () => {
             price,
             category,
             rating,
-            reviews)
+            reviews,
+            instock)
     }
   return (
         <div className="flex min-h-screen">
@@ -87,38 +90,44 @@ const FormProduct = () => {
                                 <label className="uppercase tracking-wide text-gray-700 text-xs font-medium mb-1"> Price </label>
                                 <div className="grid grid-cols-3 gap-x-2 ">
                                 <div className="col-span-2">
-                                     <div className="flex mt-2">
+                                    <div className="flex mt-2">
                                         <input type="text" name="price" id="price" placeholder="99 999,99" className="appearance-none w-full bg-indigo-50 border border-gray-200 text-gray-700 py-3 px-4 rounded-l-lg leading-tight focus:outline-none focus:border-green-500"
                                          value={price}
                                          onChange={(e) => setPrice(e.target.value)} />
                                         <span className="flex items-center px-3 pointer-events-none sm:text-sm rounded-r-md bg-gray-200">NGN</span>
                                     </div>
+                                   
                                 </div>
+                                <div className="flex mt-2">
+                                        <input type="text" name="price" id="price" placeholder="in stock" className="appearance-none w-full bg-indigo-50 border border-gray-200 text-gray-700 py-3 px-4 rounded-lg leading-tight focus:outline-none focus:border-green-500"
+                                         value={instock}
+                                         onChange={(e) => setInstock(e.target.value)} />
+                                    </div>
                               </div>
                             </div>
                             <div className="mb-4 w-full">
                                 
                                 <div className="grid grid-cols-3 gap-x-2 ">
-                                <div className="col-span-2">
-                                <label className="uppercase tracking-wide text-gray-700 text-xs font-medium mb-1"> Reviews  </label>
-                                    <input type="number"
-                                    className="appearance-none w-full bg-indigo-50 border border-gray-200 text-gray-700 py-3 px-4 rounded-lg leading-tight focus:outline-none focus:border-green-500 mt-2" 
-                                    placeholder="100"
-                                    value={reviews}
-                                    onChange={(e) => setReviews(e.target.value)} />
-                                </div>
-                                <div>
-                                <label className="uppercase tracking-wide text-gray-700 text-xs font-medium mb-1"> Rating  </label>
-                                    <select className="appearance-none w-full bg-indigo-50 border border-gray-200 text-gray-700 py-3 px-4 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-green-500 mt-2" placeholder="Select one option"
-                                    value={rating}
-                                    onChange={(e) => setRating(e.target.value)}>
-                                        <option> 1</option>
-                                        <option> 2</option>
-                                        <option> 3</option>
-                                        <option> 4</option>
-                                        <option> 5</option>
-                                    </select>
-                                </div>
+                                    <div className="col-span-2">
+                                        <label className="uppercase tracking-wide text-gray-700 text-xs font-medium mb-1"> Reviews  </label>
+                                            <input type="number"
+                                            className="appearance-none w-full bg-indigo-50 border border-gray-200 text-gray-700 py-3 px-4 rounded-lg leading-tight focus:outline-none focus:border-green-500 mt-2" 
+                                            placeholder="100"
+                                            value={reviews}
+                                            onChange={(e) => setReviews(e.target.value)} />
+                                        </div>
+                                    <div>
+                                        <label className="uppercase tracking-wide text-gray-700 text-xs font-medium mb-1"> Rating  </label>
+                                            <select className="appearance-none w-full bg-indigo-50 border border-gray-200 text-gray-700 py-3 px-4 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-green-500 mt-2" placeholder="Select one option"
+                                            value={rating}
+                                            onChange={(e) => setRating(e.target.value)}>
+                                                <option> 1</option>
+                                                <option> 2</option>
+                                                <option> 3</option>
+                                                <option> 4</option>
+                                                <option> 5</option>
+                                            </select>
+                                    </div>
                                 </div>
                             </div>
                             </div>
@@ -135,6 +144,7 @@ const FormProduct = () => {
                                     setCategory("");
                                     setRating("");
                                     setReviews("");
+                                    setInstock("")
                                     
                                 }}> Clear </Button>
                                 

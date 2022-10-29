@@ -7,7 +7,6 @@ import {
     createUserWithEmailAndPassword,
     sendPasswordResetEmail,
     signOut,
-    sendEmailVerification,
     sendSignInLinkToEmail,
 } from "firebase/auth";
 import {
@@ -16,8 +15,9 @@ import {
     getDocs,
     collection,
     where,
-    addDoc, 
+    addDoc,
 } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 import { toast } from 'react-toastify';
 
 
@@ -36,6 +36,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const fireStore = getFirestore(app);
+const storage = getStorage(app);
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -148,5 +149,6 @@ export {
     signInWithGoogle,
     registerWithEmailAndPassword,
     sendPasswordReset,
-    fireStore
+    fireStore,
+    storage
   }

@@ -493,7 +493,7 @@ const Header = ({ currentUser, hidden, collections }) => {
   };
 
   useEffect(() => {
-    // console.log(filteredProduct)
+    console.log(filteredProduct)
         // console.log(product)
   }, [inputHandler])
 

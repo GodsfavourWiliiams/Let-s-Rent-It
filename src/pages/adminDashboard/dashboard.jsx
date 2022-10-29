@@ -425,7 +425,7 @@ const Dashboard = () => {
                 <input
                   className="w-full pl-8 pr-2 py-3 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md  focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
                   type="text"
-                  placeholder="Search for Products"
+                  placeholder="Search for User"
                   aria-label="Search"
                 />
               </div>

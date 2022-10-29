@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Spinner = () => {
+    
   return (
     <div className=''>
        <div className="container mx-auto px-3 lg:px-10 py-16 ">

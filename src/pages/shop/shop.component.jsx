@@ -18,9 +18,8 @@ const Shopcomponent = () => {
       useEffect(() => {
         fetchCollectionsStartAsyncHandler();
         console.log("isFetching");
-      }, [])
+      }, []);
       
-
       const onScrollTOp = () => {
         window.scrollY >= 35 ? setFixedCollections(true) : setFixedCollections(false);
         }

@@ -76,7 +76,7 @@ class App extends Component {
             <Route path="/about"  element={ <About /> } />
             <Route path='/user' element={ <UserProfile/> } />
             <Route path="*" element={ <Page404/>}/>
-            <Route path='/dashboard' element={ <Admindashboard/>}>
+        <Route path='/dashboard' element={ <Admindashboard/>}>
             <Route index element={ <Dashboard/> }/>
             <Route path="products" element={<Products/>}/> {/* this is for the product view/ */}
             <Route path="addItem" element={ <FormProduct/> }/> {/* this is for the creating new product / */}
