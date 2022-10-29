@@ -17,7 +17,7 @@ import {
     where,
     addDoc,
 } from "firebase/firestore";
-import { getStorage } from "firebase/storage";
+import { getStorage, deleteObject, ref } from "firebase/storage";
 import { toast } from 'react-toastify';
 
 

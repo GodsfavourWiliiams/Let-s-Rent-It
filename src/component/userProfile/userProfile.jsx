@@ -6,6 +6,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { v4 as uuidv4 } from 'uuid';
 import UploadFile from '../../firebase/uploadFile';
 import { updateProfile } from 'firebase/auth';
+import deleteFile from '../../firebase/deleteFile';
 
 const UserProfile = () => {
     const [email, setEmail] = useState("");
@@ -38,8 +39,20 @@ const UserProfile = () => {
                 imageObj = {...imageObj, uPhoto: url}
                 
             }
+            
+            if (currentUser?.photoURL) {
+                const prevImage = currentUser?.phoneNumber?.split(`${currentUser?.uid}%2F`)[1].split('?')[0]
+                if (prevImage) {
+                    try {
+                        await deleteFile(`profile/${currentUser?.uid}/${prevImage}`)
+                    } catch (error) {
+                        console.log(error)
+                    }
+                }
+            }
+            
             await updateProfile(currentUser, userObj);
-            // 
+            
             alert("success Your Profile has been updated")
         } catch (error) {
             console.log(error.message)
